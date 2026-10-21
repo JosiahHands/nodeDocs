@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Stream](51-stream.md) | [Next: Test runner](53-test.md)
+[Contents](../README.md) | [Previous: Stream, part 4 of 4](51-stream-part4.md) | [Next: Test runner, part 1 of 4](53-test-part1.md)
 
 Source: [https://nodejs.org/docs/latest/api/string_decoder.html](https://nodejs.org/docs/latest/api/string_decoder.html)
 
@@ -88,7 +88,7 @@ console.log(decoder.end(Buffer.from([0xAC]))); // Prints: €
 
 Added in: v0.1.99
 
-- `encoding` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The character [encoding](07-buffer.md#buffers-and-character-encodings) the `StringDecoder` will use.
+- `encoding` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The character [encoding](07-buffer-part1.md#buffers-and-character-encodings) the `StringDecoder` will use.
   **Default:** `'utf8'`.
 
 Creates a new `StringDecoder` instance.
@@ -97,7 +97,7 @@ Creates a new `StringDecoder` instance.
 
 Added in: v0.9.3
 
-- `buffer` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The bytes to decode.
+- `buffer` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The bytes to decode.
 - Returns: [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 
 Returns any remaining input stored in the internal buffer as a string. Bytes
@@ -118,7 +118,7 @@ Added in: v0.1.99
 | --- | --- |
 | v8.0.0 | Each invalid character is now replaced by a single replacement character instead of one for each individual byte. |
 
-- `buffer` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The bytes to decode.
+- `buffer` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The bytes to decode.
 - Returns: [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 
 Returns a decoded string, ensuring that any incomplete multibyte characters at
@@ -126,4 +126,4 @@ the end of the `Buffer`, or `TypedArray`, or `DataView` are omitted from the
 returned string and stored in an internal buffer for the next call to
 `stringDecoder.write()` or `stringDecoder.end()`.
 
-[Contents](../README.md) | [Previous: Stream](51-stream.md) | [Next: Test runner](53-test.md)
+[Contents](../README.md) | [Previous: Stream, part 4 of 4](51-stream-part4.md) | [Next: Test runner, part 1 of 4](53-test-part1.md)

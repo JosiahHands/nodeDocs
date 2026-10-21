@@ -201,7 +201,7 @@ Then on the server:
 
 - `socket` [`<tls.TLSSocket>`](55-tls.md#tlstlssocket) the server socket instance, equivalent to `this`.
 - `identity` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) identity parameter sent from the client.
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) the PSK (or `null`).
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) the PSK (or `null`).
 
 A return value of `null` stops the negotiation process and sends an
 `unknown_psk_identity` alert message to the other party.
@@ -589,7 +589,7 @@ Accepts encrypted connections using TLS or SSL.
 
 Added in: v0.3.2
 
-- `socket` [`<stream.Duplex>`](51-stream.md#class-streamduplex)
+- `socket` [`<stream.Duplex>`](51-stream-part2.md#class-streamduplex)
 
 This event is emitted when a new TCP stream is established, before the TLS
 handshake begins. `socket` is typically an object of type [`net.Socket`](38-net.md#class-netsocket) but
@@ -597,13 +597,13 @@ will not receive events unlike the socket created from the [`net.Server`](38-net
 `'connection'` event. Usually users will not want to access this event.
 
 This event can also be explicitly emitted by users to inject connections
-into the TLS server. In that case, any [`Duplex`](51-stream.md#class-streamduplex) stream can be passed.
+into the TLS server. In that case, any [`Duplex`](51-stream-part2.md#class-streamduplex) stream can be passed.
 
 ### Event: `'keylog'`
 
 Added in: v12.3.0, v10.20.0
 
-- `line` [`<Buffer>`](07-buffer.md#class-buffer) Line of ASCII text, in NSS `SSLKEYLOGFILE` format.
+- `line` [`<Buffer>`](07-buffer-part1.md#class-buffer) Line of ASCII text, in NSS `SSLKEYLOGFILE` format.
 - `tlsSocket` [`<tls.TLSSocket>`](55-tls.md#tlstlssocket) The `tls.TLSSocket` instance on which it was
   generated.
 
@@ -642,8 +642,8 @@ the [`'resumeSession'`](#event-resumesession) callback.
 
 The listener callback is passed three arguments when called:
 
-- `sessionId` [`<Buffer>`](07-buffer.md#class-buffer) The TLS session identifier
-- `sessionData` [`<Buffer>`](07-buffer.md#class-buffer) The TLS session data
+- `sessionId` [`<Buffer>`](07-buffer-part1.md#class-buffer) The TLS session identifier
+- `sessionData` [`<Buffer>`](07-buffer-part1.md#class-buffer) The TLS session data
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) A callback function taking no arguments that must be
   invoked in order for data to be sent or received over the secure connection.
 
@@ -657,8 +657,8 @@ Added in: v0.11.13
 The `'OCSPRequest'` event is emitted when the client sends a certificate status
 request. The listener callback is passed three arguments when called:
 
-- `certificate` [`<Buffer>`](07-buffer.md#class-buffer) The server certificate
-- `issuer` [`<Buffer>`](07-buffer.md#class-buffer) The issuer's certificate
+- `certificate` [`<Buffer>`](07-buffer-part1.md#class-buffer) The server certificate
+- `issuer` [`<Buffer>`](07-buffer-part1.md#class-buffer) The issuer's certificate
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) A callback function that must be invoked to provide
   the results of the OCSP request.
 
@@ -704,11 +704,11 @@ The `'resumeSession'` event is emitted when the client requests to resume a
 previous TLS session. The listener callback is passed two arguments when
 called:
 
-- `sessionId` [`<Buffer>`](07-buffer.md#class-buffer) The TLS session identifier
+- `sessionId` [`<Buffer>`](07-buffer-part1.md#class-buffer) The TLS session identifier
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) A callback function to be called when the prior session
   has been recovered: `callback([err[, sessionData]])`
   - `err` [`<Error>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)
-  - `sessionData` [`<Buffer>`](07-buffer.md#class-buffer)
+  - `sessionData` [`<Buffer>`](07-buffer-part1.md#class-buffer)
 
 The event listener should perform a lookup in external storage for the
 `sessionData` saved by the [`'newSession'`](#event-newsession) event handler using the given
@@ -809,7 +809,7 @@ when the server has no more open connections.
 
 Added in: v3.0.0
 
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) A 48-byte buffer containing the session ticket keys.
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) A 48-byte buffer containing the session ticket keys.
 
 Returns the session ticket keys.
 
@@ -835,7 +835,7 @@ existing server. Existing connections to the server are not interrupted.
 
 Added in: v3.0.0
 
-- `keys` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) A 48-byte buffer containing the session
+- `keys` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) A 48-byte buffer containing the session
   ticket keys.
 
 Sets the session ticket keys.
@@ -854,7 +854,7 @@ Added in: v0.11.4
 Performs transparent encryption of written data and all required TLS
 negotiation.
 
-Instances of `tls.TLSSocket` implement the duplex [Stream](51-stream.md#stream) interface.
+Instances of `tls.TLSSocket` implement the duplex [Stream](51-stream-part1.md#stream) interface.
 
 Methods that return TLS connection metadata (e.g.
 [`tls.TLSSocket.getPeerCertificate()`](#tlssocketgetpeercertificatedetailed)) will only return data while the
@@ -871,7 +871,7 @@ Added in: v0.11.4
 | v12.2.0 | The `enableTrace` option is now supported. |
 | v5.0.0 | ALPN options are supported now. |
 
-- `socket` [`<net.Socket>`](38-net.md#class-netsocket) | [`<stream.Duplex>`](51-stream.md#class-streamduplex)
+- `socket` [`<net.Socket>`](38-net.md#class-netsocket) | [`<stream.Duplex>`](51-stream-part2.md#class-streamduplex)
   On the server side, any `Duplex` stream. On the client side, any
   instance of [`net.Socket`](38-net.md#class-netsocket) (for generic `Duplex` stream support
   on the client side, [`tls.connect()`](#tlsconnectoptions-callback) must be used).
@@ -889,7 +889,7 @@ Added in: v0.11.4
   - `ALPNProtocols`: See [`tls.createServer()`](#tlscreateserveroptions-secureconnectionlistener)
   - `SNICallback`: See [`tls.createServer()`](#tlscreateserveroptions-secureconnectionlistener)
   - `ALPNCallback`: See [`tls.createServer()`](#tlscreateserveroptions-secureconnectionlistener)
-  - `session` [`<Buffer>`](07-buffer.md#class-buffer) A `Buffer` instance containing a TLS session.
+  - `session` [`<Buffer>`](07-buffer-part1.md#class-buffer) A `Buffer` instance containing a TLS session.
   - `requestOCSP` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, specifies that the OCSP status request
     extension will be added to the client hello and an `'OCSPResponse'` event
     will be emitted on the socket before establishing a secure communication
@@ -906,7 +906,7 @@ Construct a new `tls.TLSSocket` object from an existing TCP socket.
 
 Added in: v12.3.0, v10.20.0
 
-- `line` [`<Buffer>`](07-buffer.md#class-buffer) Line of ASCII text, in NSS `SSLKEYLOGFILE` format.
+- `line` [`<Buffer>`](07-buffer-part1.md#class-buffer) Line of ASCII text, in NSS `SSLKEYLOGFILE` format.
 
 The `keylog` event is emitted on a `tls.TLSSocket` when key material
 is generated or received by the socket. This keying material can be stored
@@ -930,7 +930,7 @@ The `'OCSPResponse'` event is emitted if the `requestOCSP` option was set
 when the `tls.TLSSocket` was created and an OCSP response has been received.
 The listener callback is passed a single argument when called:
 
-- `response` [`<Buffer>`](07-buffer.md#class-buffer) The server's OCSP response
+- `response` [`<Buffer>`](07-buffer-part1.md#class-buffer) The server's OCSP response
 
 Typically, the `response` is a digitally signed object from the server's CA that
 contains information about server's certificate revocation status.
@@ -966,7 +966,7 @@ using the `new tls.TLSSocket()` constructor.
 
 Added in: v11.10.0
 
-- `session` [`<Buffer>`](07-buffer.md#class-buffer)
+- `session` [`<Buffer>`](07-buffer-part1.md#class-buffer)
 
 The `'session'` event is emitted on a client `tls.TLSSocket` when a new session
 or TLS ticket is available. This may or may not be before the handshake is
@@ -1089,8 +1089,8 @@ Added in: v13.10.0, v12.17.0
 - `length` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) number of bytes to retrieve from keying material
 - `label` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) an application specific label, typically this will be a
   value from the [IANA Exporter Label Registry](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#exporter-labels).
-- `context` [`<Buffer>`](07-buffer.md#class-buffer) Optionally provide a context.
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) requested bytes of the keying material
+- `context` [`<Buffer>`](07-buffer-part1.md#class-buffer) Optionally provide a context.
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) requested bytes of the keying material
 
 Keying material is used for validations to prevent different kind of attacks in
 network protocols, for example in the specifications of IEEE 802.1X.
@@ -1187,7 +1187,7 @@ For example: `{ type: 'ECDH', name: 'prime256v1', size: 256 }`.
 
 Added in: v9.9.0
 
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type) The latest `Finished` message that has been
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type) The latest `Finished` message that has been
   sent to the socket as part of an SSL/TLS handshake, or `undefined` if
   no `Finished` message has been sent yet.
 
@@ -1229,7 +1229,7 @@ A certificate object has properties corresponding to the fields of the
 certificate.
 
 - `ca` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) `true` if a Certificate Authority (CA), `false` otherwise.
-- `raw` [`<Buffer>`](07-buffer.md#class-buffer) The DER encoded X.509 certificate data.
+- `raw` [`<Buffer>`](07-buffer-part1.md#class-buffer) The DER encoded X.509 certificate data.
 - `subject` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) The certificate subject, described in terms of
   Country (`C`), StateOrProvince (`ST`), Locality (`L`), Organization (`O`),
   OrganizationalUnit (`OU`), and CommonName (`CN`). The CommonName is typically
@@ -1265,11 +1265,11 @@ For RSA keys, the following properties may be defined:
 - `exponent` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The RSA exponent, as a string in hexadecimal number
   notation. Example: `'0x010001'`.
 - `modulus` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The RSA modulus, as a hexadecimal string. Example: `'B56CE45CB7...'`.
-- `pubkey` [`<Buffer>`](07-buffer.md#class-buffer) The public key.
+- `pubkey` [`<Buffer>`](07-buffer-part1.md#class-buffer) The public key.
 
 For EC keys, the following properties may be defined:
 
-- `pubkey` [`<Buffer>`](07-buffer.md#class-buffer) The public key.
+- `pubkey` [`<Buffer>`](07-buffer-part1.md#class-buffer) The public key.
 - `bits` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) The key size in bits. Example: `256`.
 - `asn1Curve` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) (Optional) The ASN.1 name of the OID of the elliptic
   curve. Well-known curves are identified by an OID. While it is unusual, it is
@@ -1312,7 +1312,7 @@ Example certificate:
 
 Added in: v9.9.0
 
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type) The latest `Finished` message that is expected
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type) The latest `Finished` message that is expected
   or has actually been received from the socket as part of an SSL/TLS handshake,
   or `undefined` if there is no `Finished` message so far.
 
@@ -1328,9 +1328,9 @@ to implement the `tls-unique` channel binding from [RFC 5929](https://tools.ietf
 
 Added in: v15.9.0
 
-- Returns: [`<X509Certificate>`](15-crypto.md#class-x509certificate)
+- Returns: [`<X509Certificate>`](15-crypto-part2.md#class-x509certificate)
 
-Returns the peer certificate as an [`<X509Certificate>`](15-crypto.md#class-x509certificate) object.
+Returns the peer certificate as an [`<X509Certificate>`](15-crypto-part2.md#class-x509certificate) object.
 
 If there is no peer certificate, or the socket has been destroyed,
 `undefined` will be returned.
@@ -1360,7 +1360,7 @@ See the OpenSSL [`SSL_get_version`](https://www.openssl.org/docs/man1.1.1/man3/S
 
 Added in: v0.11.4
 
-- Type: [`<Buffer>`](07-buffer.md#class-buffer)
+- Type: [`<Buffer>`](07-buffer-part1.md#class-buffer)
 
 Returns the TLS session data or `undefined` if no session was
 negotiated. On the client, the data can be provided to the `session` option of
@@ -1387,7 +1387,7 @@ for more information.
 
 Added in: v0.11.4
 
-- Type: [`<Buffer>`](07-buffer.md#class-buffer)
+- Type: [`<Buffer>`](07-buffer-part1.md#class-buffer)
 
 For a client, returns the TLS session ticket if one is available, or
 `undefined`. For a server, always returns `undefined`.
@@ -1400,9 +1400,9 @@ See [Session Resumption](#session-resumption) for more information.
 
 Added in: v15.9.0
 
-- Returns: [`<X509Certificate>`](15-crypto.md#class-x509certificate)
+- Returns: [`<X509Certificate>`](15-crypto-part2.md#class-x509certificate)
 
-Returns the local certificate as an [`<X509Certificate>`](15-crypto.md#class-x509certificate) object.
+Returns the local certificate as an [`<X509Certificate>`](15-crypto-part2.md#class-x509certificate) object.
 
 If there is no local certificate, or the socket has been destroyed,
 `undefined` will be returned.
@@ -1556,7 +1556,7 @@ failure. On success, returns [`<undefined>`](https://developer.mozilla.org/docs/
 This function is intended to be used in combination with the
 `checkServerIdentity` option that can be passed to [`tls.connect()`](#tlsconnectoptions-callback) and as
 such operates on a [certificate object](#certificate-object). For other purposes, consider using
-[`x509.checkHost()`](15-crypto.md#x509checkhostname-options) instead.
+[`x509.checkHost()`](15-crypto-part3.md#x509checkhostname-options) instead.
 
 This function can be overwritten by providing an alternative function as the
 `options.checkServerIdentity` option that is passed to `tls.connect()`. The
@@ -1599,7 +1599,7 @@ Added in: v0.11.3
   - `port` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Port the client should connect to.
   - `path` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Creates Unix socket connection to path. If this option is
     specified, `host` and `port` are ignored.
-  - `socket` [`<stream.Duplex>`](51-stream.md#class-streamduplex) Establish secure connection on a given socket
+  - `socket` [`<stream.Duplex>`](51-stream-part2.md#class-streamduplex) Establish secure connection on a given socket
     rather than creating a new socket. Typically, this is an instance of [`net.Socket`](38-net.md#class-netsocket), but any `Duplex` stream is allowed.
     If this option is specified, `path`, `host`, and `port` are ignored,
     except for certificate validation. Usually, a socket is already connected
@@ -1616,7 +1616,7 @@ Added in: v0.11.3
     verification fails; `err.code` contains the OpenSSL error code. **Default:**
     `true`.
   - `pskCallback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) For TLS-PSK negotiation, see [Pre-shared keys](#pre-shared-keys).
-  - `ALPNProtocols` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) An array of strings,
+  - `ALPNProtocols` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) An array of strings,
     or a single `Buffer`, `TypedArray`, or `DataView` containing the supported
     ALPN protocols. Buffers should have the format `[len][name][len][name]...`
     e.g. `'\x08http/1.1\x08http/1.0'`, where the `len` byte is the length of the
@@ -1633,7 +1633,7 @@ Added in: v0.11.3
     explicitly set) against the certificate. This should return an [`<Error>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error) if
     verification fails. The method should return `undefined` if the `servername`
     and `cert` are verified.
-  - `session` [`<Buffer>`](07-buffer.md#class-buffer) A `Buffer` instance, containing TLS session.
+  - `session` [`<Buffer>`](07-buffer-part1.md#class-buffer) A `Buffer` instance, containing TLS session.
   - `requestOCSP` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, specifies that the OCSP status request
     extension will be added to the client hello and an `'OCSPResponse'` event
     will be emitted on the socket before establishing a secure communication.
@@ -1812,7 +1812,7 @@ Added in: v0.11.13
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `allowPartialTrustChain` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) Treat intermediate (non-self-signed)
     certificates in the trust CA certificate list as trusted.
-  - `ca` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer.md#class-buffer) | [`<Buffer>`](07-buffer.md#class-buffer)[] Optionally override the trusted CA
+  - `ca` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<Buffer>`](07-buffer-part1.md#class-buffer)[] Optionally override the trusted CA
     certificates. If not specified, the CA certificates trusted by default are
     the same as the ones returned by [`tls.getCACertificates()`](#tlsgetcacertificatestype) using the
     `default` type. If specified, the default list would be completely replaced
@@ -1833,7 +1833,7 @@ Added in: v0.11.13
     provided.
     For PEM encoded certificates, supported types are "TRUSTED CERTIFICATE",
     "X509 CERTIFICATE", and "CERTIFICATE".
-  - `cert` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer.md#class-buffer) | [`<Buffer>`](07-buffer.md#class-buffer)[] Cert chains in PEM format. One
+  - `cert` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<Buffer>`](07-buffer-part1.md#class-buffer)[] Cert chains in PEM format. One
     cert chain should be provided per private key. Each cert chain should
     consist of the PEM formatted certificate for a provided private `key`,
     followed by the PEM formatted intermediate certificates (if any), in order,
@@ -1859,9 +1859,9 @@ Added in: v0.11.13
     uppercased in order for OpenSSL to accept them.
   - `clientCertEngine` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Name of an OpenSSL engine which can provide the
     client certificate. **Deprecated.**
-  - `crl` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer.md#class-buffer) | [`<Buffer>`](07-buffer.md#class-buffer)[] PEM formatted CRLs (Certificate
+  - `crl` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<Buffer>`](07-buffer-part1.md#class-buffer)[] PEM formatted CRLs (Certificate
     Revocation Lists).
-  - `dhparam` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) `'auto'` or custom Diffie-Hellman parameters,
+  - `dhparam` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) `'auto'` or custom Diffie-Hellman parameters,
     required for non-ECDHE [perfect forward secrecy](#perfect-forward-secrecy). If omitted or invalid,
     the parameters are silently discarded and DHE ciphers will not be available.
     [ECDHE](https://en.wikipedia.org/wiki/Elliptic_curve_Diffie%E2%80%93Hellman)-based [perfect forward secrecy](#perfect-forward-secrecy) will still be available.
@@ -1871,7 +1871,7 @@ Added in: v0.11.13
     historical name of this option refers to ECDH key agreement in TLSv1.2 and
     below. In TLSv1.3, this option configures the TLS Supported Groups and
     key share groups offered or accepted by the TLS stack. Set to `auto` to
-    select the group automatically. Use [`crypto.getCurves()`](15-crypto.md#cryptogetcurves) to obtain a
+    select the group automatically. Use [`crypto.getCurves()`](15-crypto-part4.md#cryptogetcurves) to obtain a
     list of available elliptic curve names. For TLS group names, use
     `openssl list -tls-groups` or consult the [IANA TLS Supported Groups
     registry](https://www.iana.org/assignments/tls-parameters/tls-parameters.xhtml#tls-parameters-8).
@@ -1879,8 +1879,8 @@ Added in: v0.11.13
   - `honorCipherOrder` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) Attempt to use the server's cipher suite
     preferences instead of the client's. When `true`, causes
     `SSL_OP_CIPHER_SERVER_PREFERENCE` to be set in `secureOptions`, see
-    [OpenSSL Options](15-crypto.md#openssl-options) for more information.
-  - `key` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer.md#class-buffer) | [`<Buffer>`](07-buffer.md#class-buffer)[] | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)[] Private keys in PEM
+    [OpenSSL Options](15-crypto-part6.md#openssl-options) for more information.
+  - `key` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<Buffer>`](07-buffer-part1.md#class-buffer)[] | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)[] Private keys in PEM
     format. PEM allows the option of private keys being encrypted. Encrypted
     keys will be decrypted with `options.passphrase`. Multiple keys using
     different algorithms can be provided either as an array of unencrypted key
@@ -1907,7 +1907,7 @@ Added in: v0.11.13
     **Default:** [`tls.DEFAULT_MIN_VERSION`](#tlsdefault_min_version).
   - `passphrase` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Shared passphrase used for a single private key and/or
     a PFX.
-  - `pfx` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer.md#class-buffer) | [`<Buffer>`](07-buffer.md#class-buffer)[] | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)[] PFX or PKCS12 encoded
+  - `pfx` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<Buffer>`](07-buffer-part1.md#class-buffer)[] | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)[] PFX or PKCS12 encoded
     private key and certificate chain. `pfx` is an alternative to providing
     `key` and `cert` individually. PFX is usually encrypted, if it is,
     `passphrase` will be used to decrypt it. Multiple PFX can be provided either
@@ -1919,7 +1919,7 @@ Added in: v0.11.13
   - `secureOptions` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Optionally affect the OpenSSL protocol behavior,
     which is not usually necessary. This should be used carefully if at all!
     Value is a numeric bitmask of the `SSL_OP_*` options from
-    [OpenSSL Options](15-crypto.md#openssl-options).
+    [OpenSSL Options](15-crypto-part6.md#openssl-options).
   - `secureProtocol` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Legacy mechanism to select the TLS protocol
     version to use, it does not support independent control of the minimum and
     maximum version, and does not support limiting the protocol to TLSv1.3. Use `minVersion` and `maxVersion` instead. The possible values are listed as
@@ -1930,7 +1930,7 @@ Added in: v0.11.13
     **Default:** none, see `minVersion`.
   - `sessionIdContext` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Opaque identifier used by servers to ensure
     session state is not shared between applications. Unused by clients.
-  - `ticketKeys` [`<Buffer>`](07-buffer.md#class-buffer) 48-bytes of cryptographically strong pseudorandom
+  - `ticketKeys` [`<Buffer>`](07-buffer-part1.md#class-buffer) 48-bytes of cryptographically strong pseudorandom
     data. See [Session Resumption](#session-resumption) for more information.
   - `sessionTimeout` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) The number of seconds after which a TLS session
     created by the server will no longer be resumable. See [Session Resumption](#session-resumption) for more information. **Default:** `300`.
@@ -1977,7 +1977,7 @@ Added in: v0.3.2
 | v5.0.0 | ALPN options are supported now. |
 
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
-  - `ALPNProtocols` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) An array of strings,
+  - `ALPNProtocols` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) An array of strings,
     or a single `Buffer`, `TypedArray`, or `DataView` containing the supported
     ALPN protocols. Buffers should have the format `[len][name][len][name]...`
     e.g. `0x05hello0x05world`, where the first byte is the length of the next
@@ -2021,7 +2021,7 @@ Added in: v0.3.2
     If `callback` is called with a falsy `ctx` argument, the default secure
     context of the server will be used. If `SNICallback` wasn't provided the
     default callback with high-level API will be used (see below).
-  - `ticketKeys` [`<Buffer>`](07-buffer.md#class-buffer) 48-bytes of cryptographically strong pseudorandom
+  - `ticketKeys` [`<Buffer>`](07-buffer-part1.md#class-buffer) 48-bytes of cryptographically strong pseudorandom
     data. See [Session Resumption](#session-resumption) for more information.
   - `pskCallback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) For TLS-PSK negotiation, see [Pre-shared keys](#pre-shared-keys).
   - `pskIdentityHint` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) optional hint to send to a client to help

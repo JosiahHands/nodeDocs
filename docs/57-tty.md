@@ -15,8 +15,8 @@ const tty = require('node:tty');
 ```
 
 When Node.js detects that it is being run with a text terminal ("TTY")
-attached, [`process.stdin`](43-process.md#processstdin) will, by default, be initialized as an instance of
-`tty.ReadStream` and both [`process.stdout`](43-process.md#processstdout) and [`process.stderr`](43-process.md#processstderr) will, by
+attached, [`process.stdin`](43-process-part3.md#processstdin) will, by default, be initialized as an instance of
+`tty.ReadStream` and both [`process.stdout`](43-process-part3.md#processstdout) and [`process.stderr`](43-process-part3.md#processstderr) will, by
 default, be instances of `tty.WriteStream`. The preferred method of determining
 whether Node.js is being run within a TTY context is to check that the value of
 the `process.stdout.isTTY` property is `true`:
@@ -39,7 +39,7 @@ Added in: v0.5.8
 - Extends: [`<net.Socket>`](38-net.md#class-netsocket)
 
 Represents the readable side of a TTY. In normal circumstances
-[`process.stdin`](43-process.md#processstdin) will be the only `tty.ReadStream` instance in a Node.js
+[`process.stdin`](43-process-part3.md#processstdin) will be the only `tty.ReadStream` instance in a Node.js
 process and there should be no reason to create additional instances.
 
 ### `readStream.isRaw`
@@ -87,7 +87,7 @@ in this mode. This mode does not affect terminal output processing, such as
 newline translation on Unix terminals.
 
 On Windows, `setRawMode()` requires write permission to the console input
-buffer. When opening `"\\\\.\\CONIN$"` with the [`fs.open()`](24-fs.md#fsopenpath-flags-mode-callback) family of APIs
+buffer. When opening `"\\\\.\\CONIN$"` with the [`fs.open()`](24-fs-part4.md#fsopenpath-flags-mode-callback) family of APIs
 (for passing into `new tty.ReadStream()`), be sure to use a read/write flag
 such as `'r+'`.
 
@@ -112,7 +112,7 @@ Added in: v0.5.8
 - Extends: [`<net.Socket>`](38-net.md#class-netsocket)
 
 Represents the writable side of a TTY. In normal circumstances,
-[`process.stdout`](43-process.md#processstdout) and [`process.stderr`](43-process.md#processstderr) will be the only
+[`process.stdout`](43-process-part3.md#processstdout) and [`process.stderr`](43-process-part3.md#processstderr) will be the only
 `tty.WriteStream` instances created for a Node.js process and there
 should be no reason to create additional instances.
 

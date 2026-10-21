@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Test runner](53-test.md) | [Next: TLS/SSL](55-tls.md)
+[Contents](../README.md) | [Previous: Test runner, part 4 of 4](53-test-part4.md) | [Next: TLS/SSL](55-tls.md)
 
 Source: [https://nodejs.org/docs/latest/api/timers.html](https://nodejs.org/docs/latest/api/timers.html)
 
@@ -192,7 +192,7 @@ queue is processed every event loop iteration. If an immediate timer is queued
 from inside an executing callback, that timer will not be triggered until the
 next event loop iteration.
 
-If `callback` is not a function, a [`TypeError`](22-errors.md#class-typeerror) will be thrown.
+If `callback` is not a function, a [`TypeError`](22-errors-part1.md#class-typeerror) will be thrown.
 
 This method has a custom variant for promises that is available using
 [`timersPromises.setImmediate()`](#timerspromisessetimmediatevalue-options).
@@ -217,7 +217,7 @@ Schedules repeated execution of `callback` every `delay` milliseconds.
 When `delay` is larger than `2147483647` or less than `1` or `NaN`, the `delay`
 will be set to `1`. Non-integer delays are truncated to an integer.
 
-If `callback` is not a function, a [`TypeError`](22-errors.md#class-typeerror) will be thrown.
+If `callback` is not a function, a [`TypeError`](22-errors-part1.md#class-typeerror) will be thrown.
 
 This method has a custom variant for promises that is available using
 [`timersPromises.setInterval()`](#timerspromisessetintervaldelay-value-options).
@@ -247,7 +247,7 @@ time specified.
 When `delay` is larger than `2147483647` or less than `1` or `NaN`, the `delay`
 will be set to `1`. Non-integer delays are truncated to an integer.
 
-If `callback` is not a function, a [`TypeError`](22-errors.md#class-typeerror) will be thrown.
+If `callback` is not a function, a [`TypeError`](22-errors-part1.md#class-typeerror) will be thrown.
 
 This method has a custom variant for promises that is available using
 [`timersPromises.setTimeout()`](#timerspromisessettimeoutdelay-value-options).
@@ -571,4 +571,4 @@ being developed as a standard Web Platform API.
 Calling `timersPromises.scheduler.yield()` is equivalent to calling
 `timersPromises.setImmediate()` with no arguments.
 
-[Contents](../README.md) | [Previous: Test runner](53-test.md) | [Next: TLS/SSL](55-tls.md)
+[Contents](../README.md) | [Previous: Test runner, part 4 of 4](53-test-part4.md) | [Next: TLS/SSL](55-tls.md)

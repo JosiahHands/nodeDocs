@@ -6,6 +6,8 @@ Part 4 of 7 of this section.
 
 # File system (part 4 of 7)
 
+Continues: Callback API.
+
 ### `fs.open(path[, flags[, mode]], callback)`
 
 Added in: v0.0.2

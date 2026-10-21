@@ -6,6 +6,8 @@ Part 5 of 7 of this section.
 
 # File system (part 5 of 7)
 
+Continues: Callback API. Subsection: fs.watch(filename[, options][, listener]).
+
 ##### Filename argument
 
 Providing `filename` argument in the callback is only supported on Linux,

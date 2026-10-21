@@ -6,6 +6,8 @@ Part 6 of 7 of this section.
 
 # File system (part 6 of 7)
 
+Continues: Synchronous API.
+
 ### `fs.readSync(fd, buffer, offset, length[, position])`
 
 Added in: v0.1.21

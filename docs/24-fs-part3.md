@@ -6,6 +6,8 @@ Part 3 of 7 of this section.
 
 # File system (part 3 of 7)
 
+Continues: Callback API.
+
 ### `fs.appendFile(path, data[, options], callback)`
 
 Added in: v0.6.7

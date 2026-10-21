@@ -962,7 +962,7 @@ not possible to replace the value of a Node.js builtin (core) module.
 - The specific [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) object is a [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array).
 
 If the source value of a text-based format (i.e., `'json'`, `'module'`)
-is not a string, it is converted to a string using [`util.TextDecoder`](60-util.md#class-utiltextdecoder).
+is not a string, it is converted to a string using [`util.TextDecoder`](60-util-part2.md#class-utiltextdecoder).
 
 ### Asynchronous customization hooks
 

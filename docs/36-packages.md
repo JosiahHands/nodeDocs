@@ -147,7 +147,7 @@ or `import()` expressions (available in both CommonJS and ES Modules):
   - It accepts only `.js`, `.mjs`, and `.cjs` extensions for JavaScript text
     files.
   - `.wasm` files are treated as [WebAssembly modules](34-esm.md#wasm-modules).
-  - Any other file extensions will result in a [`ERR_UNKNOWN_FILE_EXTENSION`](22-errors.md#err_unknown_file_extension) error.
+  - Any other file extensions will result in a [`ERR_UNKNOWN_FILE_EXTENSION`](22-errors-part4.md#err_unknown_file_extension) error.
     Additional file extensions can be facilitated via [customization hooks](35-module.md#customization-hooks).
   - `import`/`import()` can be used to load JavaScript [CommonJS modules](33-modules.md).
     Such modules are passed through [merve](https://github.com/anonrig/merve) to try to identify named
@@ -329,7 +329,7 @@ When writing a new package, it is recommended to use the [`"exports"`](#exports)
 
 When the [`"exports"`](#exports) field is defined, all subpaths of the package are
 encapsulated and no longer available to importers. For example,
-`require('pkg/subpath.js')` throws an [`ERR_PACKAGE_PATH_NOT_EXPORTED`](22-errors.md#err_package_path_not_exported)
+`require('pkg/subpath.js')` throws an [`ERR_PACKAGE_PATH_NOT_EXPORTED`](22-errors-part3.md#err_package_path_not_exported)
 error.
 
 This encapsulation of exports provides more reliable guarantees
@@ -948,7 +948,7 @@ When a bare specifier is encountered:
    - Failing that, the resolution will check if the file path is within any
      package location decoded from its `url`.
 2. If no package ID is provided and the importing file is not within any mapped package, an
-   [`ERR_PACKAGE_MAP_EXTERNAL_FILE`](22-errors.md#err_package_map_external_file) error is thrown.
+   [`ERR_PACKAGE_MAP_EXTERNAL_FILE`](22-errors-part3.md#err_package_map_external_file) error is thrown.
 3. Node.js looks up the specifier's package name in the importing package's
    `dependencies` object to find the corresponding package key.
 4. If found, the resolution algorithm locates the target package location from the

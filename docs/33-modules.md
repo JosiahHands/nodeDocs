@@ -290,7 +290,7 @@ console.log(distance); // [Function: distance]
 
 If the module being `require()`'d contains top-level `await`, or the module
 graph it `import`s contains top-level `await`,
-[`ERR_REQUIRE_ASYNC_MODULE`](22-errors.md#err_require_async_module) will be thrown. In this case, users should
+[`ERR_REQUIRE_ASYNC_MODULE`](22-errors-part3.md#err_require_async_module) will be thrown. In this case, users should
 load the asynchronous module using [`import()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import).
 
 If `--experimental-print-required-tla` is enabled and the error is uncaught,
@@ -302,7 +302,7 @@ breakage, it can be disabled using `--no-require-module`.
 To print where this feature is used, use [`--trace-require-module`](13-cli.md#--trace-require-modulemode).
 
 This feature can be detected by checking if
-[`process.features.require_module`](43-process.md#processfeaturesrequire_module) is `true`.
+[`process.features.require_module`](43-process-part2.md#processfeaturesrequire_module) is `true`.
 
 ## All together
 
@@ -517,8 +517,8 @@ taken the name. Currently the built-in modules that requires the `node:` prefix 
 - [`node:ffi`](25-ffi.md)
 - [`node:sea`](49-single-executable-applications.md#single-executable-application-api)
 - [`node:sqlite`](50-sqlite.md)
-- [`node:test`](53-test.md)
-- [`node:test/reporters`](53-test.md#test-reporters)
+- [`node:test`](53-test-part1.md)
+- [`node:test/reporters`](53-test-part1.md#test-reporters)
 
 The list of these modules is exposed in [`module.builtinModules`](35-module.md#modulebuiltinmodules), including the prefix.
 
@@ -610,7 +610,7 @@ Without a leading `'/'`, `'./'`, or `'../'` to indicate a file, the module must
 either be a core module or is loaded from a `node_modules` folder.
 
 If the given path does not exist, `require()` will throw a
-[`MODULE_NOT_FOUND`](22-errors.md#module_not_found) error.
+[`MODULE_NOT_FOUND`](22-errors-part4.md#module_not_found) error.
 
 ## Folders as modules
 
@@ -649,7 +649,7 @@ Error: Cannot find module 'some-library'
 ```
 
 In all three above cases, an `import('./some-library')` call would result in a
-[`ERR_UNSUPPORTED_DIR_IMPORT`](22-errors.md#err_unsupported_dir_import) error. Using package [subpath exports](36-packages.md#subpath-exports) or
+[`ERR_UNSUPPORTED_DIR_IMPORT`](22-errors-part4.md#err_unsupported_dir_import) error. Using package [subpath exports](36-packages.md#subpath-exports) or
 [subpath imports](36-packages.md#subpath-imports) can provide the same containment organization benefits as
 folders as modules, and work for both `require` and `import`.
 

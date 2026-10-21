@@ -534,7 +534,7 @@ These CommonJS variables are not available in ES modules.
 [Addons](08-addons.md) are not currently supported with ES module imports.
 
 They can instead be loaded with [`module.createRequire()`](35-module.md#modulecreaterequirefilename) or
-[`process.dlopen`](43-process.md#processdlopenmodule-filename-flags).
+[`process.dlopen`](43-process-part1.md#processdlopenmodule-filename-flags).
 
 #### No `require.main`
 
@@ -617,7 +617,7 @@ Both of these integrations are in line with the
 [ES Module Integration Proposal for WebAssembly](https://github.com/webassembly/esm-integration).
 
 When WebAssembly is unavailable in the current environment, importing a Wasm
-module throws [`ERR_WEBASSEMBLY_NOT_SUPPORTED`](22-errors.md#err_webassembly_not_supported).
+module throws [`ERR_WEBASSEMBLY_NOT_SUPPORTED`](22-errors-part4.md#err_webassembly_not_supported).
 This also applies to source phase imports. Node.js does not provide an
 alternative implementation when WebAssembly is unavailable.
 
@@ -776,7 +776,7 @@ node b.mjs # works
 ```
 
 If a top level `await` expression never resolves, the `node` process will exit
-with a `13` [status code](43-process.md#exit-codes).
+with a `13` [status code](43-process-part3.md#exit-codes).
 
 ```js
 import { spawn } from 'node:child_process';

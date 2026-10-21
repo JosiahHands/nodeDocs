@@ -59,7 +59,7 @@ Use caution when making use of Experimental features, particularly when
 authoring libraries. Users may not be aware that experimental features are being
 used. Bugs or behavior changes may surprise users when Experimental API
 modifications occur. To avoid surprises, use of an Experimental feature may need
-a command-line flag. Experimental features may also emit a [warning](43-process.md#event-warning).
+a command-line flag. Experimental features may also emit a [warning](43-process-part1.md#event-warning).
 
 ## Stability overview
 
@@ -69,11 +69,11 @@ a command-line flag. Experimental features may also emit a [warning](43-process.
 | [Async hooks](05-async-hooks.md) | (1) Experimental |
 | [Asynchronous context tracking](04-async-context.md) | (2) Stable |
 | [Benchmark runner](06-bench.md) | (1.0) Early Development |
-| [Buffer](07-buffer.md) | (2) Stable |
+| [Buffer](07-buffer-part1.md) | (2) Stable |
 | [Child process](11-child-process.md) | (2) Stable |
 | [Cluster](12-cluster.md) | (2) Stable |
 | [Console](14-console.md) | (2) Stable |
-| [Crypto](15-crypto.md) | (2) Stable |
+| [Crypto](15-crypto-part1.md) | (2) Stable |
 | [Debugger](16-debugger.md) | (2) Stable |
 | [Diagnostic report](48-report.md) | (2) Stable |
 | [Diagnostics Channel](18-diagnostics-channel.md) | (2) Stable |
@@ -82,10 +82,10 @@ a command-line flag. Experimental features may also emit a [warning](43-process.
 | [DTLS](https://nodejs.org/docs/latest/api/dtls.html) | (1.1) Active Development |
 | [Events](23-events.md) | (2) Stable |
 | [FFI](25-ffi.md) | (1) Experimental |
-| [File system](24-fs.md) | (2) Stable |
+| [File system](24-fs-part1.md) | (2) Stable |
 | [Global objects](26-globals.md) | (2) Stable |
-| [HTTP](27-http.md) | (2) Stable |
-| [HTTP/2](28-http2.md) | (2) Stable |
+| [HTTP](27-http-part1.md) | (2) Stable |
+| [HTTP/2](28-http2-part1.md) | (2) Stable |
 | [HTTPS](29-https.md) | (2) Stable |
 | [Inspector](30-inspector.md) | (2) Stable |
 | [Iterable Streams](32-stream-iter.md) | (1) Experimental – Enable this API with the `--experimental-stream-iter` CLI flag. |
@@ -94,7 +94,7 @@ a command-line flag. Experimental features may also emit a [warning](43-process.
 | [Modules: ECMAScript modules](34-esm.md) | (2) Stable |
 | [Modules: TypeScript](37-typescript.md) | (2) Stable |
 | [Net](38-net.md) | (2) Stable |
-| [Node-API](09-n-api.md) | (2) Stable |
+| [Node-API](09-n-api-part1.md) | (2) Stable |
 | [OS](39-os.md) | (2) Stable |
 | [Path](40-path.md) | (2) Stable |
 | [Performance measurement APIs](41-perf-hooks.md) | (2) Stable |
@@ -104,16 +104,16 @@ a command-line flag. Experimental features may also emit a [warning](43-process.
 | [REPL](47-repl.md) | (2) Stable |
 | [Single executable applications](49-single-executable-applications.md) | (1.1) Active development |
 | [SQLite](50-sqlite.md) | (1.2) Release candidate. |
-| [Stream](51-stream.md) | (2) Stable |
+| [Stream](51-stream-part1.md) | (2) Stable |
 | [String decoder](52-string-decoder.md) | (2) Stable |
-| [Test runner](53-test.md) | (2) Stable |
+| [Test runner](53-test-part1.md) | (2) Stable |
 | [Timers](54-timers.md) | (2) Stable |
 | [TLS (SSL)](55-tls.md) | (2) Stable |
 | [Trace events](56-tracing.md) | (1) Experimental |
 | [TTY](57-tty.md) | (2) Stable |
 | [UDP/datagram sockets](58-dgram.md) | (2) Stable |
 | [URL](59-url.md) | (2) Stable |
-| [Util](60-util.md) | (2) Stable |
+| [Util](60-util-part1.md) | (2) Stable |
 | [Virtual File System](62-vfs.md) | (1) Experimental |
 | [VM (executing JavaScript)](63-vm.md) | (2) Stable |
 | [Web Crypto API](65-webcrypto.md) | (2) Stable |

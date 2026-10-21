@@ -6,6 +6,8 @@ Part 6 of 6 of this section.
 
 # Crypto (part 6 of 6)
 
+Continues: node:crypto module methods and properties.
+
 ### `crypto.subtle`
 
 Added in: v17.4.0

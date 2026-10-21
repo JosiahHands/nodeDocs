@@ -6,6 +6,8 @@ Part 4 of 6 of this section.
 
 # Crypto (part 4 of 6)
 
+Continues: node:crypto module methods and properties. Subsection: crypto.createPrivateKey(key).
+
 #### Private keys from OpenSSL STORE loaders
 
 Stability: 1.1 - Active development

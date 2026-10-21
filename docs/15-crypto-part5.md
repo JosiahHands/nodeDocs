@@ -6,6 +6,8 @@ Part 5 of 6 of this section.
 
 # Crypto (part 5 of 6)
 
+Continues: node:crypto module methods and properties.
+
 ### `crypto.hkdfSync(digest, ikm, salt, info, keylen)`
 
 Added in: v15.0.0

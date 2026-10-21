@@ -6,6 +6,8 @@ Part 2 of 5 of this section.
 
 # Errors (part 2 of 5)
 
+Continues: Node.js error codes.
+
 ### `ERR_FS_CP_DIR_TO_NON_DIR`
 
 Added in: v16.7.0

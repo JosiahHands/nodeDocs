@@ -19,7 +19,7 @@ We strongly discourage the use of the `async_hooks` API.
 Other APIs that can cover most of its use cases include:
 
 - [`AsyncLocalStorage`](04-async-context.md#class-asynclocalstorage) tracks async context
-- [`process.getActiveResourcesInfo()`](43-process.md#processgetactiveresourcesinfo) tracks active resources
+- [`process.getActiveResourcesInfo()`](43-process-part2.md#processgetactiveresourcesinfo) tracks active resources
 
 The `node:async_hooks` module provides an API to track asynchronous resources.
 It can be accessed using:

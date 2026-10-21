@@ -485,7 +485,7 @@ In most cases, `AsyncLocalStorage` works without issues. In rare situations, the
 current store is lost in one of the asynchronous operations.
 
 If your code is callback-based, it is enough to promisify it with
-[`util.promisify()`](60-util.md#utilpromisifyoriginal) so it starts working with native promises.
+[`util.promisify()`](60-util-part2.md#utilpromisifyoriginal) so it starts working with native promises.
 
 If you need to use a callback-based API or your code assumes
 a custom thenable implementation, use the [`AsyncResource`](#class-asyncresource) class
@@ -994,7 +994,7 @@ called.
 
 The following example shows how to use the `AsyncResource` class to properly
 associate an event listener with the correct execution context. The same
-approach can be applied to a [`Stream`](51-stream.md#stream) or a similar event-driven class.
+approach can be applied to a [`Stream`](51-stream-part1.md#stream) or a similar event-driven class.
 
 *ES module version:*
 

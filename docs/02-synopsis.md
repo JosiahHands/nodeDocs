@@ -12,7 +12,7 @@ Please see the [Command-line options](13-cli.md#options) document for more infor
 
 ## Example
 
-An example of a [web server](27-http.md) written with Node.js which responds with
+An example of a [web server](27-http-part1.md) written with Node.js which responds with
 `'Hello, World!'`:
 
 First, make sure to have downloaded and installed Node.js. See

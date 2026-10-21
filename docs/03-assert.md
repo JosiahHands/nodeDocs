@@ -36,7 +36,7 @@ may be provided in one of the following forms:
 
 - **string**: Used as-is. If additional arguments are supplied after the
   `message` string, they are treated as printf-like substitutions (see
-  [`util.format()`](60-util.md#utilformatformat-args)).
+  [`util.format()`](60-util-part1.md#utilformatformat-args)).
 - **Error**: If an `Error` instance is provided as `message`, that error is
   thrown directly instead of an `AssertionError`.
 - **function**: A function of the form `(actual, expected) => string`. It is
@@ -158,7 +158,7 @@ assert.deepEqual(/a/gi, new Date());
 
 ## Class: `assert.AssertionError`
 
-- Extends: [`<errors.Error>`](22-errors.md#class-errorserror)
+- Extends: [`<errors.Error>`](22-errors-part1.md#class-errorserror)
 
 Indicates the failure of an assertion. All errors thrown by the `node:assert`
 module will be instances of the `AssertionError` class.
@@ -859,7 +859,7 @@ check that the promise is not rejected.
 If `asyncFn` is a function and it throws an error synchronously,
 `assert.doesNotReject()` will return a rejected `Promise` with that error. If
 the function does not return a promise, `assert.doesNotReject()` will return a
-rejected `Promise` with an [`ERR_INVALID_RETURN_VALUE`](22-errors.md#err_invalid_return_value) error. In both cases
+rejected `Promise` with an [`ERR_INVALID_RETURN_VALUE`](22-errors-part2.md#err_invalid_return_value) error. In both cases
 the error handler is skipped.
 
 Using `assert.doesNotReject()` is actually not useful because there is little
@@ -1696,7 +1696,7 @@ check that the promise is rejected.
 If `asyncFn` is a function and it throws an error synchronously,
 `assert.rejects()` will return a rejected `Promise` with that error. If the
 function does not return a promise, `assert.rejects()` will return a rejected
-`Promise` with an [`ERR_INVALID_RETURN_VALUE`](22-errors.md#err_invalid_return_value) error. In both cases the error
+`Promise` with an [`ERR_INVALID_RETURN_VALUE`](22-errors-part2.md#err_invalid_return_value) error. In both cases the error
 handler is skipped.
 
 Besides the async nature to await the completion behaves identically to

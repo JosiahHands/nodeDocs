@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Process](43-process.md) | [Next: Query strings](45-querystring.md)
+[Contents](../README.md) | [Previous: Process, part 3 of 3](43-process-part3.md) | [Next: Query strings](45-querystring.md)
 
 Source: [https://nodejs.org/docs/latest/api/punycode.html](https://nodejs.org/docs/latest/api/punycode.html)
 
@@ -141,4 +141,4 @@ Added in: v0.6.1
 
 Returns a string identifying the current [Punycode.js](https://github.com/bestiejs/punycode.js) version number.
 
-[Contents](../README.md) | [Previous: Process](43-process.md) | [Next: Query strings](45-querystring.md)
+[Contents](../README.md) | [Previous: Process, part 3 of 3](43-process-part3.md) | [Next: Query strings](45-querystring.md)

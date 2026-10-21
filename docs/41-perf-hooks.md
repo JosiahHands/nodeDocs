@@ -741,7 +741,7 @@ Added in: v8.5.0
 
 The high resolution millisecond timestamp at which the Node.js event loop
 exited. If the event loop has not yet exited, the property has the value of -1.
-It can only have a value of not -1 in a handler of the [`'exit'`](43-process.md#event-exit) event.
+It can only have a value of not -1 in a handler of the [`'exit'`](43-process-part1.md#event-exit) event.
 
 ### `performanceNodeTiming.loopStart`
 
@@ -1708,11 +1708,11 @@ Both `utilization1` and `utilization2` are optional parameters.
 
 If `utilization1` is passed, then the delta between the current call's `active`
 and `idle` times, as well as the corresponding `utilization` value are
-calculated and returned (similar to [`process.hrtime()`](43-process.md#processhrtimetime)).
+calculated and returned (similar to [`process.hrtime()`](43-process-part2.md#processhrtimetime)).
 
 If `utilization1` and `utilization2` are both passed, then the delta is
 calculated between the two arguments. This is a convenience option because,
-unlike [`process.hrtime()`](43-process.md#processhrtimetime), calculating the ELU is more complex than a
+unlike [`process.hrtime()`](43-process-part2.md#processhrtimetime), calculating the ELU is more complex than a
 single subtraction.
 
 ELU is similar to CPU utilization, except that it only measures event loop

@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Performance hooks](41-perf-hooks.md) | [Next: Process](43-process.md)
+[Contents](../README.md) | [Previous: Performance hooks](41-perf-hooks.md) | [Next: Process, part 1 of 3](43-process-part1.md)
 
 Source: [https://nodejs.org/docs/latest/api/permissions.html](https://nodejs.org/docs/latest/api/permissions.html)
 
@@ -86,7 +86,7 @@ flag. For WASI, use the [`--allow-wasi`](13-cli.md#--allow-wasi) flag. For FFI, 
 builds with FFI support.
 
 To allow use of OpenSSL STORE loaders, for example to load a private key
-from a [`<URL>`](59-url.md#the-whatwg-url-api) passed to [`crypto.createPrivateKey()`](15-crypto.md#cryptocreateprivatekeykey), use the
+from a [`<URL>`](59-url.md#the-whatwg-url-api) passed to [`crypto.createPrivateKey()`](15-crypto-part3.md#cryptocreateprivatekeykey), use the
 [`--allow-openssl-store`](13-cli.md#--allow-openssl-store) flag.
 This flag grants broad authority to configured OpenSSL STORE loaders, which may
 access files, devices, tokens, or the network. Access performed by a loader is
@@ -100,7 +100,7 @@ or [`--permission-audit`](13-cli.md#--permission-audit) flags, a new property `p
 
 ##### `permission.has(scope[, reference])`
 
-API call to check permissions at runtime ([`permission.has()`](43-process.md#processpermissionhasscope-reference))
+API call to check permissions at runtime ([`permission.has()`](43-process-part2.md#processpermissionhasscope-reference))
 
 ```js
 process.permission.has('fs.write'); // true
@@ -406,4 +406,4 @@ Developers relying on --permission to sandbox untrusted code should be aware tha
   permission model enabled, you must ensure that no paths to which access has
   been granted contain relative symbolic links.
 
-[Contents](../README.md) | [Previous: Performance hooks](41-perf-hooks.md) | [Next: Process](43-process.md)
+[Contents](../README.md) | [Previous: Performance hooks](41-perf-hooks.md) | [Next: Process, part 1 of 3](43-process-part1.md)

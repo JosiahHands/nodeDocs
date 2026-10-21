@@ -7,7 +7,7 @@ Source: [https://nodejs.org/docs/latest/api/readline.html](https://nodejs.org/do
 [Stability: 2](01-documentation.md#stability-index) - Stable
 
 The `node:readline` module provides an interface for reading data from a
-[Readable](51-stream.md#readable-streams) stream (such as [`process.stdin`](43-process.md#processstdin)) one line at a time.
+[Readable](51-stream-part1.md#readable-streams) stream (such as [`process.stdin`](43-process-part3.md#processstdin)) one line at a time.
 
 To use the promise-based APIs:
 
@@ -83,8 +83,8 @@ Added in: v0.1.104
 
 Instances of the `InterfaceConstructor` class are constructed using the
 `readlinePromises.createInterface()` or `readline.createInterface()` method.
-Every instance is associated with a single `input` [Readable](51-stream.md#readable-streams) stream and a
-single `output` [Writable](51-stream.md#writable-streams) stream.
+Every instance is associated with a single `input` [Readable](51-stream-part1.md#readable-streams) stream and a
+single `output` [Writable](51-stream-part1.md#writable-streams) stream.
 The `output` stream is used to print prompts for user input that arrives on,
 and is read from, the `input` stream.
 
@@ -483,7 +483,7 @@ Added in: v17.0.0
 
 Instances of the `readlinePromises.Interface` class are constructed using the
 `readlinePromises.createInterface()` method. Every instance is associated with a
-single `input` [Readable](51-stream.md#readable-streams) stream and a single `output` [Writable](51-stream.md#writable-streams) stream.
+single `input` [Readable](51-stream-part1.md#readable-streams) stream and a single `output` [Writable](51-stream-part1.md#writable-streams) stream.
 The `output` stream is used to print prompts for user input that arrives on,
 and is read from, the `input` stream.
 
@@ -539,7 +539,7 @@ Added in: v17.0.0
 
 Added in: v17.0.0
 
-- `stream` [`<stream.Writable>`](51-stream.md#class-streamwritable) A [TTY](57-tty.md) stream.
+- `stream` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable) A [TTY](57-tty.md) stream.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `autoCommit` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, no need to call `rl.commit()`.
 
@@ -621,9 +621,9 @@ sending it to the associated `stream`.
 Added in: v17.0.0
 
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
-  - `input` [`<stream.Readable>`](51-stream.md#class-streamreadable) The [Readable](51-stream.md#readable-streams) stream to listen to. This option
+  - `input` [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) The [Readable](51-stream-part1.md#readable-streams) stream to listen to. This option
     is *required*.
-  - `output` [`<stream.Writable>`](51-stream.md#class-streamwritable) The [Writable](51-stream.md#writable-streams) stream to write readline data
+  - `output` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable) The [Writable](51-stream-part1.md#writable-streams) stream to write readline data
     to.
   - `completer` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) An optional function used for Tab autocompletion.
   - `terminal` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) `true` if the `input` and `output` streams should be
@@ -693,7 +693,7 @@ rl.on('line', (line) => {
 If `terminal` is `true` for this instance then the `output` stream will get
 the best compatibility if it defines an `output.columns` property and emits
 a `'resize'` event on the `output` if or when the columns ever change
-([`process.stdout`](43-process.md#processstdout) does this automatically when it is a TTY).
+([`process.stdout`](43-process-part3.md#processstdout) does this automatically when it is a TTY).
 
 #### Use of the `completer` function
 
@@ -741,7 +741,7 @@ Added in: v0.1.104
 
 Instances of the `readline.Interface` class are constructed using the
 `readline.createInterface()` method. Every instance is associated with a
-single `input` [Readable](51-stream.md#readable-streams) stream and a single `output` [Writable](51-stream.md#writable-streams) stream.
+single `input` [Readable](51-stream-part1.md#readable-streams) stream and a single `output` [Writable](51-stream-part1.md#writable-streams) stream.
 The `output` stream is used to print prompts for user input that arrives on,
 and is read from, the `input` stream.
 
@@ -809,7 +809,7 @@ Added in: v0.7.7
 | v18.0.0 | Passing an invalid callback to the `callback` argument now throws `ERR_INVALID_ARG_TYPE` instead of `ERR_INVALID_CALLBACK`. |
 | v12.7.0 | The stream's write() callback and return value are exposed. |
 
-- `stream` [`<stream.Writable>`](51-stream.md#class-streamwritable)
+- `stream` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable)
 - `dir` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
   - `-1`: to the left from cursor
   - `1`: to the right from cursor
@@ -833,7 +833,7 @@ Added in: v0.7.7
 | v18.0.0 | Passing an invalid callback to the `callback` argument now throws `ERR_INVALID_ARG_TYPE` instead of `ERR_INVALID_CALLBACK`. |
 | v12.7.0 | The stream's write() callback and return value are exposed. |
 
-- `stream` [`<stream.Writable>`](51-stream.md#class-streamwritable)
+- `stream` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Invoked once the operation completes.
 - Returns: [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) `false` if `stream` wishes for the calling code to wait for
   the `'drain'` event to be emitted before continuing to write additional data;
@@ -859,9 +859,9 @@ Added in: v0.1.98
 | v6.0.0 | The `historySize` option can be `0` now. |
 
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
-  - `input` [`<stream.Readable>`](51-stream.md#class-streamreadable) The [Readable](51-stream.md#readable-streams) stream to listen to. This option
+  - `input` [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) The [Readable](51-stream-part1.md#readable-streams) stream to listen to. This option
     is *required*.
-  - `output` [`<stream.Writable>`](51-stream.md#class-streamwritable) The [Writable](51-stream.md#writable-streams) stream to write readline data
+  - `output` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable) The [Writable](51-stream-part1.md#writable-streams) stream to write readline data
     to.
   - `completer` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) An optional function used for Tab autocompletion.
   - `terminal` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) `true` if the `input` and `output` streams should be
@@ -932,7 +932,7 @@ rl.on('line', (line) => {
 If `terminal` is `true` for this instance then the `output` stream will get
 the best compatibility if it defines an `output.columns` property and emits
 a `'resize'` event on the `output` if or when the columns ever change
-([`process.stdout`](43-process.md#processstdout) does this automatically when it is a TTY).
+([`process.stdout`](43-process-part3.md#processstdout) does this automatically when it is a TTY).
 
 When creating a `readline.Interface` using `stdin` as input, the program
 will not terminate until it receives an [EOF character](https://en.wikipedia.org/wiki/End-of-file#EOF_character). To exit without
@@ -977,7 +977,7 @@ Added in: v0.7.7
 | v18.0.0 | Passing an invalid callback to the `callback` argument now throws `ERR_INVALID_ARG_TYPE` instead of `ERR_INVALID_CALLBACK`. |
 | v12.7.0 | The stream's write() callback and return value are exposed. |
 
-- `stream` [`<stream.Writable>`](51-stream.md#class-streamwritable)
+- `stream` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable)
 - `x` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 - `y` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Invoked once the operation completes.
@@ -999,7 +999,7 @@ Added in: v0.7.7
 | v18.0.0 | Passing an invalid callback to the `callback` argument now throws `ERR_INVALID_ARG_TYPE` instead of `ERR_INVALID_CALLBACK`. |
 | v12.7.0 | The stream's write() callback and return value are exposed. |
 
-- `stream` [`<stream.Writable>`](51-stream.md#class-streamwritable)
+- `stream` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable)
 - `dx` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 - `dy` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Invoked once the operation completes.
@@ -1014,10 +1014,10 @@ position in a given [TTY](57-tty.md) `stream`.
 
 Added in: v0.7.7
 
-- `stream` [`<stream.Readable>`](51-stream.md#class-streamreadable)
+- `stream` [`<stream.Readable>`](51-stream-part1.md#class-streamreadable)
 - `interface` [`<readline.InterfaceConstructor>`](46-readline.md#class-readlineinterfaceconstructor)
 
-The `readline.emitKeypressEvents()` method causes the given [Readable](51-stream.md#readable-streams)
+The `readline.emitKeypressEvents()` method causes the given [Readable](51-stream-part1.md#readable-streams)
 stream to begin emitting `'keypress'` events corresponding to received input.
 
 Optionally, `interface` specifies a `readline.Interface` instance for which
@@ -1100,7 +1100,7 @@ rl.on('line', (line) => {
 ## Example: Read file stream line-by-Line
 
 A common use case for `readline` is to consume an input file one line at a
-time. The easiest way to do so is leveraging the [`fs.ReadStream`](24-fs.md#class-fsreadstream) API as
+time. The easiest way to do so is leveraging the [`fs.ReadStream`](24-fs-part6.md#class-fsreadstream) API as
 well as a `for await...of` loop:
 
 *ES module version:*

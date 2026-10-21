@@ -771,7 +771,7 @@ NODE_OPTIONS="--report-uncaught-exception \
 ```
 
 Specific API documentation can be found under
-[`process API documentation`](43-process.md) section.
+[`process API documentation`](43-process-part1.md) section.
 
 ## Interaction with workers
 

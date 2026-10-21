@@ -185,7 +185,7 @@ reserved mount point that cannot exist on the real file system, and the mount
 point is chosen at runtime rather than being a fixed path. When `useVfs` is
 enabled, the injected main script itself is placed at the root of the mount
 and executed from there, so `__filename` and `__dirname` point inside the
-virtual file system instead of reflecting [`process.execPath`](43-process.md#processexecpath). Bundled
+virtual file system instead of reflecting [`process.execPath`](43-process-part1.md#processexecpath). Bundled
 code therefore reaches the assets through `__dirname`-relative paths and
 relative [`require()`](33-modules.md#requireid) calls, without having to know the mount point:
 
@@ -446,13 +446,13 @@ An error is thrown when no matching asset can be found.
 
 Added in: v21.7.0, v20.12.0
 
-Similar to [`sea.getAsset()`](#seagetassetkey-encoding), but returns the result in a [`<Blob>`](07-buffer.md#class-blob).
+Similar to [`sea.getAsset()`](#seagetassetkey-encoding), but returns the result in a [`<Blob>`](07-buffer-part1.md#class-blob).
 An error is thrown when no matching asset can be found.
 
 - `key`  [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) the key for the asset in the dictionary specified by the `assets` field in the single-executable application configuration.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `type` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) An optional mime type for the blob.
-- Returns: [`<Blob>`](07-buffer.md#class-blob)
+- Returns: [`<Blob>`](07-buffer-part1.md#class-blob)
 
 ### `sea.getRawAsset(key)`
 
@@ -527,21 +527,21 @@ Currently, it does not have any of the properties that non-injected
 ### `__filename` and `module.filename` in the injected main script
 
 The values of `__filename` and `module.filename` in the injected main script
-are equal to [`process.execPath`](43-process.md#processexecpath).
+are equal to [`process.execPath`](43-process-part1.md#processexecpath).
 
 ### `__dirname` in the injected main script
 
 The value of `__dirname` in the injected main script is equal to the directory
-name of [`process.execPath`](43-process.md#processexecpath).
+name of [`process.execPath`](43-process-part1.md#processexecpath).
 
 ### `import.meta` in the injected main script
 
 When using `"mainFormat": "module"`, `import.meta` is available in the
 injected main script with the following properties:
 
-- `import.meta.url`: A `file:` URL corresponding to [`process.execPath`](43-process.md#processexecpath).
-- `import.meta.filename`: Equal to [`process.execPath`](43-process.md#processexecpath).
-- `import.meta.dirname`: The directory name of [`process.execPath`](43-process.md#processexecpath).
+- `import.meta.url`: A `file:` URL corresponding to [`process.execPath`](43-process-part1.md#processexecpath).
+- `import.meta.filename`: Equal to [`process.execPath`](43-process-part1.md#processexecpath).
+- `import.meta.dirname`: The directory name of [`process.execPath`](43-process-part1.md#processexecpath).
 - `import.meta.main`: `true`.
 
 `import.meta.resolve` is currently not supported.

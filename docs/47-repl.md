@@ -28,7 +28,7 @@ The `node:repl` module exports the [`repl.REPLServer`](#class-replserver) class.
 instances of [`repl.REPLServer`](#class-replserver) will accept individual lines of user input,
 evaluate those according to a user-defined evaluation function, then output the
 result. Input and output may be from `stdin` and `stdout`, respectively, or may
-be connected to any Node.js [stream](51-stream.md).
+be connected to any Node.js [stream](51-stream-part1.md).
 
 Instances of [`repl.REPLServer`](#class-replserver) support automatic completion of inputs,
 completion preview, simplistic Emacs-style line editing, multi-line inputs,
@@ -195,9 +195,9 @@ REPL session.
 
 This use of the [`domain`](20-domain.md) module in the REPL has these side effects:
 
-- Uncaught exceptions only emit the [`'uncaughtException'`](43-process.md#event-uncaughtexception) event in the
+- Uncaught exceptions only emit the [`'uncaughtException'`](43-process-part1.md#event-uncaughtexception) event in the
   standalone REPL. Adding a listener for this event in a REPL within
-  another Node.js program results in [`ERR_INVALID_REPL_INPUT`](22-errors.md#err_invalid_repl_input).
+  another Node.js program results in [`ERR_INVALID_REPL_INPUT`](22-errors-part2.md#err_invalid_repl_input).
 
   ```js
   const r = repl.start();
@@ -209,8 +209,8 @@ This use of the [`domain`](20-domain.md) module in the REPL has these side effec
 
   r.close();
   ```
-- Trying to use [`process.setUncaughtExceptionCaptureCallback()`](43-process.md#processsetuncaughtexceptioncapturecallbackfn) throws
-  an [`ERR_DOMAIN_CANNOT_SET_UNCAUGHT_EXCEPTION_CAPTURE`](22-errors.md#err_domain_cannot_set_uncaught_exception_capture) error.
+- Trying to use [`process.setUncaughtExceptionCaptureCallback()`](43-process-part3.md#processsetuncaughtexceptioncapturecallbackfn) throws
+  an [`ERR_DOMAIN_CANNOT_SET_UNCAUGHT_EXCEPTION_CAPTURE`](22-errors-part1.md#err_domain_cannot_set_uncaught_exception_capture) error.
 
 #### Assignment of the `_` (underscore) variable
 
@@ -290,7 +290,7 @@ By default, uncaught exceptions in the REPL are printed to the output stream
 (as with `Uncaught Error: REPL await` above). `uncaughtException` listeners
 can be added freely in both standalone and nested REPLs. The `handleError`
 option of [`repl.start()`](#replstartoptions) can customize this behavior, including
-forwarding exceptions to [`'uncaughtException'`](43-process.md#event-uncaughtexception) by returning
+forwarding exceptions to [`'uncaughtException'`](43-process-part1.md#event-uncaughtexception) by returning
 `'unhandled'`.
 
 ### Reverse-i-search
@@ -400,7 +400,7 @@ function isRecoverableError(error) {
 ### Customizing REPL output
 
 By default, [`repl.REPLServer`](#class-replserver) instances format output using the
-[`util.inspect()`](60-util.md#utilinspectobject-options) method before writing the output to the provided `Writable`
+[`util.inspect()`](60-util-part1.md#utilinspectobject-options) method before writing the output to the provided `Writable`
 stream (`process.stdout` by default). The `showProxy` inspection option is set
 to true by default and the `colors` option is set to true depending on the
 REPL's `useColors` option.
@@ -410,9 +410,9 @@ default writer to use ANSI style codes to colorize the output from the
 `util.inspect()` method.
 
 If the REPL is run as standalone program, it is also possible to change the
-REPL's [inspection defaults](60-util.md#utilinspectobject-options) from inside the REPL by using the
+REPL's [inspection defaults](60-util-part1.md#utilinspectobject-options) from inside the REPL by using the
 `inspect.replDefaults` property which mirrors the `defaultOptions` from
-[`util.inspect()`](60-util.md#utilinspectobject-options).
+[`util.inspect()`](60-util-part1.md#utilinspectobject-options).
 
 ```console
 > util.inspect.replDefaults.compact = false;
@@ -741,9 +741,9 @@ Added in: v0.1.91
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
   - `prompt` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The input prompt to display. **Default:** `'> '`
     (with a trailing space).
-  - `input` [`<stream.Readable>`](51-stream.md#class-streamreadable) The `Readable` stream from which REPL input will
+  - `input` [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) The `Readable` stream from which REPL input will
     be read. **Default:** `process.stdin`.
-  - `output` [`<stream.Writable>`](51-stream.md#class-streamwritable) The `Writable` stream to which REPL output will
+  - `output` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable) The `Writable` stream to which REPL output will
     be written. **Default:** `process.stdout`.
   - `terminal` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, specifies that the `output` should be
     treated as a TTY terminal.
@@ -767,7 +767,7 @@ Added in: v0.1.91
     will not output the return value of a command if it evaluates to
     `undefined`. **Default:** `false`.
   - `writer` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) The function to invoke to format the output of each
-    command before writing to `output`. **Default:** [`util.inspect()`](60-util.md#utilinspectobject-options).
+    command before writing to `output`. **Default:** [`util.inspect()`](60-util-part1.md#utilinspectobject-options).
   - `completer` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) An optional function used for custom Tab auto
     completion. See [`readline.InterfaceCompleter`](46-readline.md#use-of-the-completer-function) for an example.
   - `replMode` [`<symbol>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#symbol_type) A flag that specifies whether the default evaluator
@@ -790,7 +790,7 @@ Added in: v0.1.91
     - `'ignore'` to skip all remaining error handling.
     - `'unhandled'` to treat the exception as fully unhandled. In this case,
       the error will be passed to process-wide exception handlers, such as
-      the [`'uncaughtException'`](43-process.md#event-uncaughtexception) event.
+      the [`'uncaughtException'`](43-process-part1.md#event-uncaughtexception) event.
       The `'unhandled'` value may or may not be desirable in situations
       where the `REPLServer` instance has been closed, depending on the particular
       use case.

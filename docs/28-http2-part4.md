@@ -6,6 +6,8 @@ Part 4 of 4 of this section.
 
 # HTTP/2 (part 4 of 4)
 
+Continues: HTTP/2. A new section starts here.
+
 ## Collecting HTTP/2 performance metrics
 
 The [Performance Observer](41-perf-hooks.md) API can be used to collect basic performance

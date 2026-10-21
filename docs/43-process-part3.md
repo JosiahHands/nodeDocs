@@ -6,6 +6,8 @@ Part 3 of 3 of this section.
 
 # Process (part 3 of 3)
 
+Continues: Process. A new section starts here.
+
 ## `process.send(message[, sendHandle[, options]][, callback])`
 
 Added in: v0.5.9

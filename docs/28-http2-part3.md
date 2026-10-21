@@ -6,6 +6,8 @@ Part 3 of 4 of this section.
 
 # HTTP/2 (part 3 of 4)
 
+Continues: Core API.
+
 ### `http2.constants`
 
 Added in: v8.4.0

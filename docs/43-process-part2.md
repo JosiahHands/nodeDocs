@@ -6,6 +6,8 @@ Part 2 of 3 of this section.
 
 # Process (part 2 of 3)
 
+Continues: Process. A new section starts here.
+
 ## `process.exitCode`
 
 Added in: v0.11.8

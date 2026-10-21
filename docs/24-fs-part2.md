@@ -6,6 +6,8 @@ Part 2 of 7 of this section.
 
 # File system (part 2 of 7)
 
+Continues: Promises API.
+
 ### `fsPromises.appendFile(path, data[, options])`
 
 Added in: v10.0.0

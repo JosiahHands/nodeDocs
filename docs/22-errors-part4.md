@@ -6,6 +6,8 @@ Part 4 of 5 of this section.
 
 # Errors (part 4 of 5)
 
+Continues: Node.js error codes.
+
 ### `ERR_UNESCAPED_CHARACTERS`
 
 A string that contained unescaped characters was received.

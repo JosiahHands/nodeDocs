@@ -6,6 +6,8 @@ Part 5 of 5 of this section.
 
 # Errors (part 5 of 5)
 
+Continues: OpenSSL Error Codes. Subsection: Trust or Chain Related Errors.
+
 #### `UNABLE_TO_VERIFY_LEAF_SIGNATURE`
 
 No signatures could be verified because the chain contains only one certificate

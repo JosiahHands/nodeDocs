@@ -6,6 +6,8 @@ Part 2 of 3 of this section.
 
 # HTTP (part 2 of 3)
 
+Continues: Class: http.Server.
+
 ### `server.close([callback])`
 
 Added in: v0.1.90

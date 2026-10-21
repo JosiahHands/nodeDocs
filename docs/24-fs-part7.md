@@ -6,6 +6,8 @@ Part 7 of 7 of this section.
 
 # File system (part 7 of 7)
 
+Continues: Common Objects. Subsection: Class: fs.StatFs.
+
 #### `statfs.type`
 
 Added in: v19.6.0, v18.15.0

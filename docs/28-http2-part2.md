@@ -6,6 +6,8 @@ Part 2 of 4 of this section.
 
 # HTTP/2 (part 2 of 4)
 
+Continues: Core API. Subsection: Class: ServerHttp2Stream.
+
 #### `http2stream.pushStream(headers[, options], callback)`
 
 Added in: v8.4.0

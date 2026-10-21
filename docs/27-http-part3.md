@@ -6,6 +6,8 @@ Part 3 of 3 of this section.
 
 # HTTP (part 3 of 3)
 
+Continues: HTTP. A new section starts here.
+
 ## `http.METHODS`
 
 Added in: v0.11.8

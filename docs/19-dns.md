@@ -272,7 +272,7 @@ With the `all` option set to `true`, the arguments for `callback` change to
 `(err, addresses)`, with `addresses` being an array of objects with the
 properties `address` and `family`.
 
-On error, `err` is an [`Error`](22-errors.md#class-error) object, where `err.code` is the error code.
+On error, `err` is an [`Error`](22-errors-part1.md#class-error) object, where `err.code` is the error code.
 Keep in mind that `err.code` will be set to `'ENOTFOUND'` not only when
 the host name does not exist but also when the lookup fails in other ways
 such as no available file descriptors.
@@ -324,7 +324,7 @@ dns.lookup('example.org', options, (err, addresses) =>
 // addresses: [{"address":"2606:2800:21f:cb07:6820:80da:af6b:8b2c","family":6}]
 ```
 
-If this method is invoked as its [`util.promisify()`](60-util.md#utilpromisifyoriginal)ed version, and `all`
+If this method is invoked as its [`util.promisify()`](60-util-part2.md#utilpromisifyoriginal)ed version, and `all`
 is not set to `true`, it returns a `Promise` for an `Object` with `address` and
 `family` properties.
 
@@ -371,7 +371,7 @@ If `address` is not a valid IP address, a `TypeError` will be thrown.
 The `port` will be coerced to a number. If it is not a legal port, a `TypeError`
 will be thrown.
 
-On an error, `err` is an [`Error`](22-errors.md#class-error) object, where `err.code` is the error code.
+On an error, `err` is an [`Error`](22-errors-part1.md#class-error) object, where `err.code` is the error code.
 
 *ES module version:*
 
@@ -393,7 +393,7 @@ dns.lookupService('127.0.0.1', 22, (err, hostname, service) => {
 });
 ```
 
-If this method is invoked as its [`util.promisify()`](60-util.md#utilpromisifyoriginal)ed version, it returns a
+If this method is invoked as its [`util.promisify()`](60-util-part2.md#utilpromisifyoriginal)ed version, it returns a
 `Promise` for an `Object` with `hostname` and `service` properties.
 
 ## `dns.resolve(hostname[, rrtype], callback)`
@@ -433,7 +433,7 @@ records. The type and structure of individual results varies based on `rrtype`:
 | `'TLSA'` | certificate associations | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) | [`dns.resolveTlsa()`](#dnsresolvetlsahostname-callback) |
 | `'TXT'` | text records | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`dns.resolveTxt()`](#dnsresolvetxthostname-callback) |
 
-On error, `err` is an [`Error`](22-errors.md#class-error) object, where `err.code` is one of the
+On error, `err` is an [`Error`](22-errors-part1.md#class-error) object, where `err.code` is one of the
 [DNS error codes](#error-codes).
 
 ## `dns.resolve4(hostname[, options], callback)`
@@ -812,7 +812,7 @@ Added in: v0.1.16
 Performs a reverse DNS query that resolves an IPv4 or IPv6 address to an
 array of host names.
 
-On error, `err` is an [`Error`](22-errors.md#class-error) object, where `err.code` is
+On error, `err` is an [`Error`](22-errors-part1.md#class-error) object, where `err.code` is
 one of the [DNS error codes](#error-codes).
 
 ## `dns.setDefaultResultOrder(order)`
@@ -1038,7 +1038,7 @@ either IPv4 or IPv6 addresses, or both, are returned if found.
 With the `all` option set to `true`, the `Promise` is resolved with `addresses`
 being an array of objects with the properties `address` and `family`.
 
-On error, the `Promise` is rejected with an [`Error`](22-errors.md#class-error) object, where `err.code`
+On error, the `Promise` is rejected with an [`Error`](22-errors-part1.md#class-error) object, where `err.code`
 is the error code.
 Keep in mind that `err.code` will be set to `'ENOTFOUND'` not only when
 the host name does not exist but also when the lookup fails in other ways
@@ -1113,7 +1113,7 @@ If `address` is not a valid IP address, a `TypeError` will be thrown.
 The `port` will be coerced to a number. If it is not a legal port, a `TypeError`
 will be thrown.
 
-On error, the `Promise` is rejected with an [`Error`](22-errors.md#class-error) object, where `err.code`
+On error, the `Promise` is rejected with an [`Error`](22-errors-part1.md#class-error) object, where `err.code`
 is the error code.
 
 *ES module version:*
@@ -1163,7 +1163,7 @@ based on `rrtype`:
 | `'TLSA'` | certificate associations | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) | [`dnsPromises.resolveTlsa()`](#dnspromisesresolvetlsahostname) |
 | `'TXT'` | text records | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] | [`dnsPromises.resolveTxt()`](#dnspromisesresolvetxthostname) |
 
-On error, the `Promise` is rejected with an [`Error`](22-errors.md#class-error) object, where `err.code`
+On error, the `Promise` is rejected with an [`Error`](22-errors-part1.md#class-error) object, where `err.code`
 is one of the [DNS error codes](#error-codes).
 
 ### `dnsPromises.resolve4(hostname[, options])`
@@ -1422,7 +1422,7 @@ Added in: v10.6.0
 Performs a reverse DNS query that resolves an IPv4 or IPv6 address to an
 array of host names.
 
-On error, the `Promise` is rejected with an [`Error`](22-errors.md#class-error) object, where `err.code`
+On error, the `Promise` is rejected with an [`Error`](22-errors-part1.md#class-error) object, where `err.code`
 is one of the [DNS error codes](#error-codes).
 
 ### `dnsPromises.setDefaultResultOrder(order)`

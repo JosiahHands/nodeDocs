@@ -174,7 +174,7 @@ Added in: v18.7.0, v16.17.0
 
 Register a message handler to subscribe to this channel. This message handler
 will be run synchronously whenever a message is published to the channel. Any
-errors thrown in the message handler will trigger an [`'uncaughtException'`](43-process.md#event-uncaughtexception).
+errors thrown in the message handler will trigger an [`'uncaughtException'`](43-process-part1.md#event-uncaughtexception).
 
 *ES module version:*
 
@@ -439,7 +439,7 @@ Added in: v15.1.0, v14.17.0
 
 Register a message handler to subscribe to this channel. This message handler
 will be run synchronously whenever a message is published to the channel. Any
-errors thrown in the message handler will trigger an [`'uncaughtException'`](43-process.md#event-uncaughtexception).
+errors thrown in the message handler will trigger an [`'uncaughtException'`](43-process-part1.md#event-uncaughtexception).
 
 *ES module version:*
 
@@ -1641,54 +1641,54 @@ Stability: 1 - Experimental
 
 ##### Event: `'http.client.request.created'`
 
-- `request` [`<http.ClientRequest>`](27-http.md#class-httpclientrequest)
+- `request` [`<http.ClientRequest>`](27-http-part1.md#class-httpclientrequest)
 
 Emitted when client creates a request object.
 Unlike `http.client.request.start`, this event is emitted before the request has been sent.
 
 ##### Event: `'http.client.request.start'`
 
-- `request` [`<http.ClientRequest>`](27-http.md#class-httpclientrequest)
+- `request` [`<http.ClientRequest>`](27-http-part1.md#class-httpclientrequest)
 
 Emitted when client starts a request.
 
 ##### Event: `'http.client.request.error'`
 
-- `request` [`<http.ClientRequest>`](27-http.md#class-httpclientrequest)
+- `request` [`<http.ClientRequest>`](27-http-part1.md#class-httpclientrequest)
 - `error` [`<Error>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)
 
 Emitted when an error occurs during a client request.
 
 ##### Event: `'http.client.response.finish'`
 
-- `request` [`<http.ClientRequest>`](27-http.md#class-httpclientrequest)
-- `response` [`<http.IncomingMessage>`](27-http.md#class-httpincomingmessage)
+- `request` [`<http.ClientRequest>`](27-http-part1.md#class-httpclientrequest)
+- `response` [`<http.IncomingMessage>`](27-http-part2.md#class-httpincomingmessage)
 
 Emitted when client receives a response.
 
 ##### Event: `'http.server.request.start'`
 
-- `request` [`<http.IncomingMessage>`](27-http.md#class-httpincomingmessage)
-- `response` [`<http.ServerResponse>`](27-http.md#class-httpserverresponse)
+- `request` [`<http.IncomingMessage>`](27-http-part2.md#class-httpincomingmessage)
+- `response` [`<http.ServerResponse>`](27-http-part2.md#class-httpserverresponse)
 - `socket` [`<net.Socket>`](38-net.md#class-netsocket)
-- `server` [`<http.Server>`](27-http.md#class-httpserver)
+- `server` [`<http.Server>`](27-http-part1.md#class-httpserver)
 
 Emitted when server receives a request.
 
 ##### Event: `'http.server.response.created'`
 
-- `request` [`<http.IncomingMessage>`](27-http.md#class-httpincomingmessage)
-- `response` [`<http.ServerResponse>`](27-http.md#class-httpserverresponse)
+- `request` [`<http.IncomingMessage>`](27-http-part2.md#class-httpincomingmessage)
+- `response` [`<http.ServerResponse>`](27-http-part2.md#class-httpserverresponse)
 
 Emitted when server creates a response.
 The event is emitted before the response is sent.
 
 ##### Event: `'http.server.response.finish'`
 
-- `request` [`<http.IncomingMessage>`](27-http.md#class-httpincomingmessage)
-- `response` [`<http.ServerResponse>`](27-http.md#class-httpserverresponse)
+- `request` [`<http.IncomingMessage>`](27-http-part2.md#class-httpincomingmessage)
+- `response` [`<http.ServerResponse>`](27-http-part2.md#class-httpserverresponse)
 - `socket` [`<net.Socket>`](38-net.md#class-netsocket)
-- `server` [`<http.Server>`](27-http.md#class-httpserver)
+- `server` [`<http.Server>`](27-http-part1.md#class-httpserver)
 
 Emitted when server sends a response.
 
@@ -1698,39 +1698,39 @@ Stability: 1 - Experimental
 
 ##### Event: `'http2.client.stream.created'`
 
-- `stream` [`<ClientHttp2Stream>`](28-http2.md#class-clienthttp2stream)
-- `headers` [`<HTTP/2 Headers Object>`](28-http2.md#headers-object)
+- `stream` [`<ClientHttp2Stream>`](28-http2-part1.md#class-clienthttp2stream)
+- `headers` [`<HTTP/2 Headers Object>`](28-http2-part3.md#headers-object)
 
 Emitted when a stream is created on the client.
 
 ##### Event: `'http2.client.stream.start'`
 
-- `stream` [`<ClientHttp2Stream>`](28-http2.md#class-clienthttp2stream)
-- `headers` [`<HTTP/2 Headers Object>`](28-http2.md#headers-object)
+- `stream` [`<ClientHttp2Stream>`](28-http2-part1.md#class-clienthttp2stream)
+- `headers` [`<HTTP/2 Headers Object>`](28-http2-part3.md#headers-object)
 
 Emitted when a stream is started on the client.
 
 ##### Event: `'http2.client.stream.error'`
 
-- `stream` [`<ClientHttp2Stream>`](28-http2.md#class-clienthttp2stream)
+- `stream` [`<ClientHttp2Stream>`](28-http2-part1.md#class-clienthttp2stream)
 - `error` [`<Error>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)
 
 Emitted when an error occurs during the processing of a stream on the client.
 
 ##### Event: `'http2.client.stream.finish'`
 
-- `stream` [`<ClientHttp2Stream>`](28-http2.md#class-clienthttp2stream)
-- `headers` [`<HTTP/2 Headers Object>`](28-http2.md#headers-object)
+- `stream` [`<ClientHttp2Stream>`](28-http2-part1.md#class-clienthttp2stream)
+- `headers` [`<HTTP/2 Headers Object>`](28-http2-part3.md#headers-object)
 - `flags` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 
 Emitted when a stream is received on the client.
 
 ##### Event: `'http2.client.stream.bodyChunkSent'`
 
-- `stream` [`<ClientHttp2Stream>`](28-http2.md#class-clienthttp2stream)
+- `stream` [`<ClientHttp2Stream>`](28-http2-part1.md#class-clienthttp2stream)
 - `writev` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type)
-- `data` [`<Buffer>`](07-buffer.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer)[] | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)[]
-  - `chunk` [`<Buffer>`](07-buffer.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `data` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer)[] | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)[]
+  - `chunk` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
   - `encoding` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `encoding` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 
@@ -1738,49 +1738,49 @@ Emitted when a chunk of the client stream body is being sent.
 
 ##### Event: `'http2.client.stream.bodySent'`
 
-- `stream` [`<ClientHttp2Stream>`](28-http2.md#class-clienthttp2stream)
+- `stream` [`<ClientHttp2Stream>`](28-http2-part1.md#class-clienthttp2stream)
 
 Emitted after the client stream body has been fully sent.
 
 ##### Event: `'http2.client.stream.close'`
 
-- `stream` [`<ClientHttp2Stream>`](28-http2.md#class-clienthttp2stream)
+- `stream` [`<ClientHttp2Stream>`](28-http2-part1.md#class-clienthttp2stream)
 
 Emitted when a stream is closed on the client. The HTTP/2 error code used when
 closing the stream can be retrieved using the `stream.rstCode` property.
 
 ##### Event: `'http2.server.stream.created'`
 
-- `stream` [`<ServerHttp2Stream>`](28-http2.md#class-serverhttp2stream)
-- `headers` [`<HTTP/2 Headers Object>`](28-http2.md#headers-object)
+- `stream` [`<ServerHttp2Stream>`](28-http2-part1.md#class-serverhttp2stream)
+- `headers` [`<HTTP/2 Headers Object>`](28-http2-part3.md#headers-object)
 
 Emitted when a stream is created on the server.
 
 ##### Event: `'http2.server.stream.start'`
 
-- `stream` [`<ServerHttp2Stream>`](28-http2.md#class-serverhttp2stream)
-- `headers` [`<HTTP/2 Headers Object>`](28-http2.md#headers-object)
+- `stream` [`<ServerHttp2Stream>`](28-http2-part1.md#class-serverhttp2stream)
+- `headers` [`<HTTP/2 Headers Object>`](28-http2-part3.md#headers-object)
 
 Emitted when a stream is started on the server.
 
 ##### Event: `'http2.server.stream.error'`
 
-- `stream` [`<ServerHttp2Stream>`](28-http2.md#class-serverhttp2stream)
+- `stream` [`<ServerHttp2Stream>`](28-http2-part1.md#class-serverhttp2stream)
 - `error` [`<Error>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)
 
 Emitted when an error occurs during the processing of a stream on the server.
 
 ##### Event: `'http2.server.stream.finish'`
 
-- `stream` [`<ServerHttp2Stream>`](28-http2.md#class-serverhttp2stream)
-- `headers` [`<HTTP/2 Headers Object>`](28-http2.md#headers-object)
+- `stream` [`<ServerHttp2Stream>`](28-http2-part1.md#class-serverhttp2stream)
+- `headers` [`<HTTP/2 Headers Object>`](28-http2-part3.md#headers-object)
 - `flags` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 
 Emitted when a stream is sent on the server.
 
 ##### Event: `'http2.server.stream.close'`
 
-- `stream` [`<ServerHttp2Stream>`](28-http2.md#class-serverhttp2stream)
+- `stream` [`<ServerHttp2Stream>`](28-http2-part1.md#class-serverhttp2stream)
 
 Emitted when a stream is closed on the server. The HTTP/2 error code used when
 closing the stream can be retrieved using the `stream.rstCode` property.
@@ -1925,13 +1925,13 @@ Emitted when [`child_process.spawn()`](11-child-process.md#child_processspawncom
 - `args` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[]
 - `env` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[]
 
-Emitted when [`process.execve()`](43-process.md#processexecvefile-args-env) is invoked.
+Emitted when [`process.execve()`](43-process-part1.md#processexecvefile-args-env) is invoked.
 
 #### Test Runner
 
 Added in: v26.1.0, v24.16.0
 
-See [Test instrumentation and OpenTelemetry](53-test.md#test-instrumentation-and-opentelemetry) for details.
+See [Test instrumentation and OpenTelemetry](53-test-part3.md#test-instrumentation-and-opentelemetry) for details.
 
 #### Web Locks
 

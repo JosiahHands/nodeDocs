@@ -125,17 +125,17 @@ API usability issues that can lead to accidental security issues.
 As an alternative, use one of the following methods of constructing `Buffer`
 objects:
 
-- [`Buffer.alloc(size[, fill[, encoding]])`](07-buffer.md#static-method-bufferallocsize-fill-encoding): Create a `Buffer` with
+- [`Buffer.alloc(size[, fill[, encoding]])`](07-buffer-part1.md#static-method-bufferallocsize-fill-encoding): Create a `Buffer` with
   *initialized* memory.
-- [`Buffer.allocUnsafe(size)`](07-buffer.md#static-method-bufferallocunsafesize-alignment): Create a `Buffer` with
+- [`Buffer.allocUnsafe(size)`](07-buffer-part1.md#static-method-bufferallocunsafesize-alignment): Create a `Buffer` with
   *uninitialized* memory.
-- [`Buffer.allocUnsafeSlow(size)`](07-buffer.md#static-method-bufferallocunsafeslowsize-alignment): Create a `Buffer` with *uninitialized*
+- [`Buffer.allocUnsafeSlow(size)`](07-buffer-part1.md#static-method-bufferallocunsafeslowsize-alignment): Create a `Buffer` with *uninitialized*
   memory.
-- [`Buffer.from(array)`](07-buffer.md#static-method-bufferfromarray): Create a `Buffer` with a copy of `array`
-- [`Buffer.from(arrayBuffer[, byteOffset[, length]])`](07-buffer.md#static-method-bufferfromarraybuffer-byteoffset-length) -
+- [`Buffer.from(array)`](07-buffer-part1.md#static-method-bufferfromarray): Create a `Buffer` with a copy of `array`
+- [`Buffer.from(arrayBuffer[, byteOffset[, length]])`](07-buffer-part1.md#static-method-bufferfromarraybuffer-byteoffset-length) -
   Create a `Buffer` that wraps the given `arrayBuffer`.
-- [`Buffer.from(buffer)`](07-buffer.md#static-method-bufferfrombuffer): Create a `Buffer` that copies `buffer`.
-- [`Buffer.from(string[, encoding])`](07-buffer.md#static-method-bufferfromstring-encoding): Create a `Buffer`
+- [`Buffer.from(buffer)`](07-buffer-part1.md#static-method-bufferfrombuffer): Create a `Buffer` that copies `buffer`.
+- [`Buffer.from(string[, encoding])`](07-buffer-part1.md#static-method-bufferfromstring-encoding): Create a `Buffer`
   that copies `string`.
 
 Without `--pending-deprecation`, runtime warnings occur only for code not in
@@ -210,7 +210,7 @@ to the `constants` property exposed by the relevant module. For instance,
 
 Type: End-of-Life
 
-Use of the [`crypto.pbkdf2()`](15-crypto.md#cryptopbkdf2password-salt-iterations-keylen-digest-callback) API without specifying a digest was deprecated
+Use of the [`crypto.pbkdf2()`](15-crypto-part5.md#cryptopbkdf2password-salt-iterations-keylen-digest-callback) API without specifying a digest was deprecated
 in Node.js 6.0 because the method defaulted to using the non-recommended
 `'SHA1'` digest. Previously, a deprecation warning was printed. Starting in
 Node.js 8.0.0, calling `crypto.pbkdf2()` or `crypto.pbkdf2Sync()` with
@@ -294,7 +294,7 @@ in Node.js 10.0.0 onwards. See <https://github.com/nodejs/node/pull/12562>.
 
 Type: End-of-Life
 
-The [`fs.read()`](24-fs.md#fsreadfd-buffer-offset-length-position-callback) legacy `String` interface is deprecated. Use the `Buffer`
+The [`fs.read()`](24-fs-part4.md#fsreadfd-buffer-offset-length-position-callback) legacy `String` interface is deprecated. Use the `Buffer`
 API as mentioned in the documentation instead.
 
 ### DEP0015: `fs.readSync` legacy String interface
@@ -310,7 +310,7 @@ API as mentioned in the documentation instead.
 
 Type: End-of-Life
 
-The [`fs.readSync()`](24-fs.md#fsreadsyncfd-buffer-offset-length-position) legacy `String` interface is deprecated. Use the
+The [`fs.readSync()`](24-fs-part6.md#fsreadsyncfd-buffer-offset-length-position) legacy `String` interface is deprecated. Use the
 `Buffer` API as mentioned in the documentation instead.
 
 ### DEP0016: `GLOBAL`/`root`
@@ -462,7 +462,7 @@ The `REPLServer.prototype.convertToContext()` API has been removed.
 
 Type: Runtime
 
-The `node:sys` module is deprecated. Please use the [`util`](60-util.md) module instead.
+The `node:sys` module is deprecated. Please use the [`util`](60-util-part1.md) module instead.
 
 ### DEP0026: `util.print()`
 
@@ -558,7 +558,7 @@ npx codemod@latest @nodejs/util-print-to-console-log
 Type: End-of-Life
 
 The `SlowBuffer` class has been removed. Please use
-[`Buffer.allocUnsafeSlow(size)`](07-buffer.md#static-method-bufferallocunsafeslowsize-alignment) instead.
+[`Buffer.allocUnsafeSlow(size)`](07-buffer-part1.md#static-method-bufferallocunsafeslowsize-alignment) instead.
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/slow-buffer-to-buffer-alloc-unsafe-slow)).
 
@@ -578,7 +578,7 @@ npx codemod@latest @nodejs/slow-buffer-to-buffer-alloc-unsafe-slow
 
 Type: Runtime
 
-The [`ecdh.setPublicKey()`](15-crypto.md#ecdhsetpublickeypublickey-encoding) method is now deprecated as its inclusion in
+The [`ecdh.setPublicKey()`](15-crypto-part2.md#ecdhsetpublickeypublickey-encoding) method is now deprecated as its inclusion in
 the API is not useful.
 
 ### DEP0032: `node:domain` module
@@ -622,8 +622,8 @@ accept [`<EventTarget>`](23-events.md#class-eventtarget) arguments.
 
 Type: Documentation-only
 
-The [`fs.exists(path, callback)`](24-fs.md#fsexistspath-callback) API is deprecated. Please use
-[`fs.stat()`](24-fs.md#fsstatpath-options-callback) or [`fs.access()`](24-fs.md#fsaccesspath-mode-callback) instead.
+The [`fs.exists(path, callback)`](24-fs-part3.md#fsexistspath-callback) API is deprecated. Please use
+[`fs.stat()`](24-fs-part4.md#fsstatpath-options-callback) or [`fs.access()`](24-fs-part2.md#fsaccesspath-mode-callback) instead.
 
 ### DEP0035: `fs.lchmod(path, mode, callback)`
 
@@ -636,7 +636,7 @@ The [`fs.exists(path, callback)`](24-fs.md#fsexistspath-callback) API is depreca
 
 Type: Documentation-only
 
-The [`fs.lchmod(path, mode, callback)`](24-fs.md#fslchmodpath-mode-callback) API is deprecated.
+The [`fs.lchmod(path, mode, callback)`](24-fs-part3.md#fslchmodpath-mode-callback) API is deprecated.
 
 ### DEP0036: `fs.lchmodSync(path, mode)`
 
@@ -649,7 +649,7 @@ The [`fs.lchmod(path, mode, callback)`](24-fs.md#fslchmodpath-mode-callback) API
 
 Type: Documentation-only
 
-The [`fs.lchmodSync(path, mode)`](24-fs.md#fslchmodsyncpath-mode) API is deprecated.
+The [`fs.lchmodSync(path, mode)`](24-fs-part5.md#fslchmodsyncpath-mode) API is deprecated.
 
 ### DEP0037: `fs.lchown(path, uid, gid, callback)`
 
@@ -663,7 +663,7 @@ The [`fs.lchmodSync(path, mode)`](24-fs.md#fslchmodsyncpath-mode) API is depreca
 
 Type: Deprecation revoked
 
-The [`fs.lchown(path, uid, gid, callback)`](24-fs.md#fslchownpath-uid-gid-callback) API was deprecated. The
+The [`fs.lchown(path, uid, gid, callback)`](24-fs-part3.md#fslchownpath-uid-gid-callback) API was deprecated. The
 deprecation was revoked because the requisite supporting APIs were added in
 libuv.
 
@@ -679,7 +679,7 @@ libuv.
 
 Type: Deprecation revoked
 
-The [`fs.lchownSync(path, uid, gid)`](24-fs.md#fslchownsyncpath-uid-gid) API was deprecated. The deprecation was
+The [`fs.lchownSync(path, uid, gid)`](24-fs-part5.md#fslchownsyncpath-uid-gid) API was deprecated. The deprecation was
 revoked because the requisite supporting APIs were added in libuv.
 
 ### DEP0039: `require.extensions`
@@ -771,7 +771,7 @@ The `tls.SecurePair` class is deprecated. Please use
 
 Type: Runtime
 
-The [`util.isArray()`](60-util.md#utilisarrayobject) API is deprecated. Please use `Array.isArray()`
+The [`util.isArray()`](60-util-part3.md#utilisarrayobject) API is deprecated. Please use `Array.isArray()`
 instead.
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/util-is)):
@@ -816,7 +816,7 @@ npx codemod@latest @nodejs/util-is
 Type: End-of-Life
 
 The `util.isBuffer()` API has been removed. Please use
-[`Buffer.isBuffer()`](07-buffer.md#static-method-bufferisbufferobj) instead.
+[`Buffer.isBuffer()`](07-buffer-part1.md#static-method-bufferisbufferobj) instead.
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/util-is)):
 
@@ -1132,7 +1132,7 @@ npx codemod@latest @nodejs/util-log-to-console-log
 
 Type: Runtime
 
-The [`util._extend()`](60-util.md#util_extendtarget-source) API is deprecated because it's an unmaintained
+The [`util._extend()`](60-util-part3.md#util_extendtarget-source) API is deprecated because it's an unmaintained
 legacy API that was exposed to user land by accident.
 Please use `target = Object.assign(target, source)` instead.
 
@@ -1467,7 +1467,7 @@ Type: End-of-Life
 Type: End-of-Life
 
 Using a property named `inspect` on an object to specify a custom inspection
-function for [`util.inspect()`](60-util.md#utilinspectobject-options) is deprecated. Use [`util.inspect.custom`](60-util.md#utilinspectcustom)
+function for [`util.inspect()`](60-util-part1.md#utilinspectobject-options) is deprecated. Use [`util.inspect.custom`](60-util-part2.md#utilinspectcustom)
 instead. For backward compatibility with Node.js prior to version 6.4.0, both
 can be specified.
 
@@ -1630,7 +1630,7 @@ confusion.
 Type: End-of-Life
 
 Node.js used to support all GCM authentication tag lengths which are accepted by
-OpenSSL when calling [`decipher.setAuthTag()`](15-crypto.md#deciphersetauthtagbuffer-encoding). Beginning with Node.js
+OpenSSL when calling [`decipher.setAuthTag()`](15-crypto-part1.md#deciphersetauthtagbuffer-encoding). Beginning with Node.js
 v11.0.0, only authentication tag lengths of 128, 120, 112, 104, 96, 64, and 32
 bits are allowed. Authentication tags of other lengths are invalid per
 [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf).
@@ -1674,7 +1674,7 @@ or `module.exports` instead.
 
 Type: Runtime
 
-The [`crypto.fips`](15-crypto.md#cryptofips) property is deprecated. Please use `crypto.setFips()`
+The [`crypto.fips`](15-crypto-part4.md#cryptofips) property is deprecated. Please use `crypto.setFips()`
 and `crypto.getFips()` instead.
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/crypto-fips-to-getFips)).
@@ -1845,7 +1845,7 @@ could lead to hard-to-find errors and crashes.
 Type: Documentation-only (supports [`--pending-deprecation`](13-cli.md#--pending-deprecation))
 
 Using `process.binding()` in general should be avoided. The type checking
-methods in particular can be replaced by using [`util.types`](60-util.md#utiltypes).
+methods in particular can be replaced by using [`util.types`](60-util-part2.md#utiltypes).
 
 This deprecation has been superseded by the deprecation of the
 `process.binding()` API ([DEP0111](#DEP0111)).
@@ -1860,7 +1860,7 @@ This deprecation has been superseded by the deprecation of the
 
 Type: Documentation-only (supports [`--pending-deprecation`](13-cli.md#--pending-deprecation))
 
-When assigning a non-string property to [`process.env`](43-process.md#processenv), the assigned value is
+When assigning a non-string property to [`process.env`](43-process-part1.md#processenv), the assigned value is
 implicitly converted to a string. This behavior is deprecated if the assigned
 value is not a string, boolean, or number. In the future, such assignment might
 result in a thrown error. Please convert the property to a string before
@@ -1878,8 +1878,8 @@ assigning it to `process.env`.
 Type: End-of-Life
 
 `decipher.finaltol()` has never been documented and was an alias for
-[`decipher.final()`](15-crypto.md#decipherfinaloutputencoding). This API has been removed, and it is recommended to use
-[`decipher.final()`](15-crypto.md#decipherfinaloutputencoding) instead.
+[`decipher.final()`](15-crypto-part1.md#decipherfinaloutputencoding). This API has been removed, and it is recommended to use
+[`decipher.final()`](15-crypto-part1.md#decipherfinaloutputencoding) instead.
 
 ### DEP0106: `crypto.createCipher` and `crypto.createDecipher`
 
@@ -1897,9 +1897,9 @@ Type: End-of-Life
 as they use a weak key derivation function (MD5 with no salt) and static
 initialization vectors.
 It is recommended to derive a key using
-[`crypto.pbkdf2()`](15-crypto.md#cryptopbkdf2password-salt-iterations-keylen-digest-callback) or [`crypto.scrypt()`](15-crypto.md#cryptoscryptpassword-salt-keylen-options-callback) with random salts and to use
-[`crypto.createCipheriv()`](15-crypto.md#cryptocreatecipherivalgorithm-key-iv-options) and [`crypto.createDecipheriv()`](15-crypto.md#cryptocreatedecipherivalgorithm-key-iv-options) to obtain the
-[`Cipheriv`](15-crypto.md#class-cipheriv) and [`Decipheriv`](15-crypto.md#class-decipheriv) objects respectively.
+[`crypto.pbkdf2()`](15-crypto-part5.md#cryptopbkdf2password-salt-iterations-keylen-digest-callback) or [`crypto.scrypt()`](15-crypto-part5.md#cryptoscryptpassword-salt-keylen-options-callback) with random salts and to use
+[`crypto.createCipheriv()`](15-crypto-part3.md#cryptocreatecipherivalgorithm-key-iv-options) and [`crypto.createDecipheriv()`](15-crypto-part3.md#cryptocreatedecipherivalgorithm-key-iv-options) to obtain the
+[`Cipheriv`](15-crypto-part1.md#class-cipheriv) and [`Decipheriv`](15-crypto-part1.md#class-decipheriv) objects respectively.
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/crypto-createcipheriv-migration)):
 
@@ -1956,7 +1956,7 @@ npx codemod@latest @nodejs/zlib-bytesread-to-byteswritten
 Type: End-of-Life
 
 Some previously supported (but strictly invalid) URLs were accepted through the
-[`http.request()`](27-http.md#httprequestoptions-callback), [`http.get()`](27-http.md#httpgetoptions-callback), [`https.request()`](29-https.md#httpsrequestoptions-callback),
+[`http.request()`](27-http-part3.md#httprequestoptions-callback), [`http.get()`](27-http-part3.md#httpgetoptions-callback), [`https.request()`](29-https.md#httpsrequestoptions-callback),
 [`https.get()`](29-https.md#httpsgetoptions-callback), and [`tls.checkServerIdentity()`](55-tls.md#tlscheckserveridentityhostname-cert) APIs because those were
 accepted by the legacy `url.parse()` API. The mentioned APIs now use the WHATWG
 URL parser that requires strictly valid URLs. Passing an invalid URL is
@@ -2048,9 +2048,9 @@ of Node.js core and was removed.
 Type: Documentation-only (supports [`--pending-deprecation`](13-cli.md#--pending-deprecation))
 
 In recent versions of Node.js, there is no difference between
-[`crypto.randomBytes()`](15-crypto.md#cryptorandombytessize-callback) and `crypto.pseudoRandomBytes()`. The latter is
+[`crypto.randomBytes()`](15-crypto-part5.md#cryptorandombytessize-callback) and `crypto.pseudoRandomBytes()`. The latter is
 deprecated along with the undocumented aliases `crypto.prng()` and
-`crypto.rng()` in favor of [`crypto.randomBytes()`](15-crypto.md#cryptorandombytessize-callback) and might be removed in a
+`crypto.rng()` in favor of [`crypto.randomBytes()`](15-crypto-part5.md#cryptorandombytessize-callback) and might be removed in a
 future release.
 
 ### DEP0116: Legacy URL API
@@ -2118,7 +2118,7 @@ like `dns.lookup(false)` due to backward compatibility. This has been removed.
 Type: Documentation-only (supports [`--pending-deprecation`](13-cli.md#--pending-deprecation))
 
 `process.binding('uv').errname()` is deprecated. Please use
-[`util.getSystemErrorName()`](60-util.md#utilgetsystemerrornameerr) instead.
+[`util.getSystemErrorName()`](60-util-part1.md#utilgetsystemerrornameerr) instead.
 
 ### DEP0120: Windows Performance Counter support
 
@@ -2344,8 +2344,8 @@ Passing a callback to [`worker.terminate()`](67-worker-threads.md#workerterminat
 
 Type: Documentation-only
 
-Prefer [`response.socket`](27-http.md#responsesocket) over [`response.connection`](27-http.md#responseconnection) and
-[`request.socket`](27-http.md#requestsocket) over [`request.connection`](27-http.md#requestconnection).
+Prefer [`response.socket`](27-http-part2.md#responsesocket) over [`response.connection`](27-http-part2.md#responseconnection) and
+[`request.socket`](27-http-part1.md#requestsocket) over [`request.connection`](27-http-part1.md#requestconnection).
 
 ### DEP0134: `process._tickCallback`
 
@@ -2371,10 +2371,10 @@ an officially supported API.
 
 Type: End-of-Life
 
-[`WriteStream.open()`](24-fs.md#class-fswritestream) and [`ReadStream.open()`](24-fs.md#class-fsreadstream) are undocumented internal
+[`WriteStream.open()`](24-fs-part7.md#class-fswritestream) and [`ReadStream.open()`](24-fs-part6.md#class-fsreadstream) are undocumented internal
 APIs that do not make sense to use in userland. File streams should always be
-opened through their corresponding factory methods [`fs.createWriteStream()`](24-fs.md#fscreatewritestreampath-options)
-and [`fs.createReadStream()`](24-fs.md#fscreatereadstreampath-options)) or by passing a file descriptor in options.
+opened through their corresponding factory methods [`fs.createWriteStream()`](24-fs-part3.md#fscreatewritestreampath-options)
+and [`fs.createReadStream()`](24-fs-part3.md#fscreatereadstreampath-options)) or by passing a file descriptor in options.
 
 ### DEP0136: `http` `finished`
 
@@ -2386,11 +2386,11 @@ and [`fs.createReadStream()`](24-fs.md#fscreatereadstreampath-options)) or by pa
 
 Type: Documentation-only
 
-[`response.finished`](27-http.md#responsefinished) indicates whether [`response.end()`](27-http.md#responseenddata-encoding-callback) has been
+[`response.finished`](27-http-part2.md#responsefinished) indicates whether [`response.end()`](27-http-part2.md#responseenddata-encoding-callback) has been
 called, not whether `'finish'` has been emitted and the underlying data
 is flushed.
 
-Use [`response.writableFinished`](27-http.md#responsewritablefinished) or [`response.writableEnded`](27-http.md#responsewritableended)
+Use [`response.writableFinished`](27-http-part2.md#responsewritablefinished) or [`response.writableEnded`](27-http-part2.md#responsewritableended)
 accordingly instead to avoid the ambiguity.
 
 To maintain existing behavior `response.finished` should be replaced with
@@ -2407,7 +2407,7 @@ To maintain existing behavior `response.finished` should be replaced with
 
 Type: End-of-Life
 
-Allowing a [`fs.FileHandle`](24-fs.md#class-filehandle) object to be closed on garbage collection used
+Allowing a [`fs.FileHandle`](24-fs-part1.md#class-filehandle) object to be closed on garbage collection used
 to be allowed, but now throws an error.
 
 Please ensure that all `fs.FileHandle` objects are explicitly closed using
@@ -2436,7 +2436,7 @@ async function openAndClose() {
 
 Type: Documentation-only
 
-[`process.mainModule`](43-process.md#processmainmodule) is a CommonJS-only feature while `process` global
+[`process.mainModule`](43-process-part2.md#processmainmodule) is a CommonJS-only feature while `process` global
 object is shared with non-CommonJS environment. Its use within ECMAScript
 modules is unsupported.
 
@@ -2474,7 +2474,7 @@ API.
 
 Type: Documentation-only
 
-Use [`request.destroy()`](27-http.md#requestdestroyerror) instead of [`request.abort()`](27-http.md#requestabort).
+Use [`request.destroy()`](27-http-part1.md#requestdestroyerror) instead of [`request.abort()`](27-http-part1.md#requestabort).
 
 ### DEP0141: `repl.inputStream` and `repl.outputStream`
 
@@ -2565,7 +2565,7 @@ const moduleParents = Object.values(require.cache)
 
 Type: Documentation-only
 
-[`socket.bufferSize`](38-net.md#socketbuffersize) is just an alias for [`writable.writableLength`](51-stream.md#writablewritablelength).
+[`socket.bufferSize`](38-net.md#socketbuffersize) is just an alias for [`writable.writableLength`](51-stream-part1.md#writablewritablelength).
 
 ### DEP0146: `new crypto.Certificate()`
 
@@ -2577,8 +2577,8 @@ Type: Documentation-only
 
 Type: Documentation-only
 
-The [`crypto.Certificate()` constructor](15-crypto.md#legacy-api) is deprecated. Use
-[static methods of `crypto.Certificate()`](15-crypto.md#class-certificate) instead.
+The [`crypto.Certificate()` constructor](15-crypto-part1.md#legacy-api) is deprecated. Use
+[static methods of `crypto.Certificate()`](15-crypto-part1.md#class-certificate) instead.
 
 ### DEP0147: `fs.rmdir(path, { recursive: true })`
 
@@ -2633,7 +2633,7 @@ Use [subpath patterns](36-packages.md#subpath-patterns) instead.
 
 Type: Documentation-only
 
-Prefer [`message.socket`](27-http.md#messagesocket) over [`message.connection`](27-http.md#messageconnection).
+Prefer [`message.socket`](27-http-part2.md#messagesocket) over [`message.connection`](27-http-part2.md#messageconnection).
 
 ### DEP0150: Changing the value of `process.config`
 
@@ -2746,8 +2746,8 @@ for package `"exports"` and `"imports"` pattern resolutions.
 
 Type: Documentation-only
 
-Move to [`<Stream>`](51-stream.md#stream) API instead, as the [`http.ClientRequest`](27-http.md#class-httpclientrequest),
-[`http.ServerResponse`](27-http.md#class-httpserverresponse), and [`http.IncomingMessage`](27-http.md#class-httpincomingmessage) are all stream-based.
+Move to [`<Stream>`](51-stream-part1.md#stream) API instead, as the [`http.ClientRequest`](27-http-part1.md#class-httpclientrequest),
+[`http.ServerResponse`](27-http-part2.md#class-httpserverresponse), and [`http.IncomingMessage`](27-http-part2.md#class-httpincomingmessage) are all stream-based.
 Check `stream.destroyed` instead of the `.aborted` property, and listen for
 `'close'` instead of `'abort'`, `'aborted'` event.
 
@@ -2755,7 +2755,7 @@ The `.aborted` property and `'abort'` event are only useful for detecting
 `.abort()` calls. For closing a request early, use the Stream
 `.destroy([error])` then check the `.destroyed` property and `'close'` event
 should have the same effect. The receiving end should also check the
-[`readable.readableEnded`](51-stream.md#readablereadableended) value on [`http.IncomingMessage`](27-http.md#class-httpincomingmessage) to get whether
+[`readable.readableEnded`](51-stream-part2.md#readablereadableended) value on [`http.IncomingMessage`](27-http-part2.md#class-httpincomingmessage) to get whether
 it was an aborted or graceful destroy.
 
 ### DEP0157: Thenable support in streams
@@ -2799,7 +2799,7 @@ Type: Documentation-only
 This method was deprecated because it is not compatible with
 `Uint8Array.prototype.slice()`, which is a superclass of `Buffer`.
 
-Use [`buffer.subarray`](07-buffer.md#bufsubarraystart-end) which does the same thing instead.
+Use [`buffer.subarray`](07-buffer-part2.md#bufsubarraystart-end) which does the same thing instead.
 
 ### DEP0159: `ERR_INVALID_CALLBACK`
 
@@ -2849,7 +2849,7 @@ The `process._getActiveHandles()` and `process._getActiveRequests()`
 functions are not intended for public use and can be removed in future
 releases.
 
-Use [`process.getActiveResourcesInfo()`](43-process.md#processgetactiveresourcesinfo) to get a list of types of active
+Use [`process.getActiveResourcesInfo()`](43-process-part2.md#processgetactiveresourcesinfo) to get a list of types of active
 resources and not the actual references.
 
 ### DEP0162: `fs.write()`, `fs.writeFileSync()` coercion to string
@@ -2865,8 +2865,8 @@ resources and not the actual references.
 Type: End-of-Life
 
 Implicit coercion of objects with own `toString` property, passed as second
-parameter in [`fs.write()`](24-fs.md#fswritefd-buffer-offset-length-position-callback), [`fs.writeFile()`](24-fs.md#fswritefilefile-data-options-callback), [`fs.appendFile()`](24-fs.md#fsappendfilepath-data-options-callback),
-[`fs.writeFileSync()`](24-fs.md#fswritefilesyncfile-data-options), and [`fs.appendFileSync()`](24-fs.md#fsappendfilesyncpath-data-options) is deprecated.
+parameter in [`fs.write()`](24-fs-part5.md#fswritefd-buffer-offset-length-position-callback), [`fs.writeFile()`](24-fs-part5.md#fswritefilefile-data-options-callback), [`fs.appendFile()`](24-fs-part3.md#fsappendfilepath-data-options-callback),
+[`fs.writeFileSync()`](24-fs-part6.md#fswritefilesyncfile-data-options), and [`fs.appendFileSync()`](24-fs-part5.md#fsappendfilesyncpath-data-options) is deprecated.
 Convert them to primitive strings.
 
 ### DEP0163: `channel.subscribe(onMessage)`, `channel.unsubscribe(onMessage)`
@@ -2900,7 +2900,7 @@ Type: End-of-Life
 
 Values other than `undefined`, `null`, integer numbers, and integer strings
 (e.g., `'1'`) are deprecated as value for the `code` parameter in
-[`process.exit()`](43-process.md#processexitcode) and as value to assign to [`process.exitCode`](43-process.md#processexitcode_1).
+[`process.exit()`](43-process-part1.md#processexitcode) and as value to assign to [`process.exitCode`](43-process-part1.md#processexitcode_1).
 
 ### DEP0165: `--trace-atomics-wait`
 
@@ -2965,7 +2965,7 @@ The implicit suppression of uncaught exceptions in Node-API callbacks is now
 deprecated.
 
 Set the flag [`--force-node-api-uncaught-exceptions-policy`](13-cli.md#--force-node-api-uncaught-exceptions-policy) to force Node.js
-to emit an [`'uncaughtException'`](43-process.md#event-uncaughtexception) event if the exception is not handled in
+to emit an [`'uncaughtException'`](43-process-part1.md#event-uncaughtexception) event if the exception is not handled in
 Node-API callbacks.
 
 ### DEP0169: Insecure url.parse()
@@ -3013,9 +3013,9 @@ will throw an error (which the [WHATWG URL API](59-url.md#the-whatwg-url-api) al
 
 Type: Documentation-only
 
-In a future version of Node.js, [`message.headers`](27-http.md#messageheaders),
-[`message.headersDistinct`](27-http.md#messageheadersdistinct), [`message.trailers`](27-http.md#messagetrailers), and
-[`message.trailersDistinct`](27-http.md#messagetrailersdistinct) will be read-only.
+In a future version of Node.js, [`message.headers`](27-http-part2.md#messageheaders),
+[`message.headersDistinct`](27-http-part2.md#messageheadersdistinct), [`message.trailers`](27-http-part2.md#messagetrailers), and
+[`message.trailersDistinct`](27-http-part2.md#messagetrailersdistinct) will be read-only.
 
 ### DEP0172: The `asyncResource` property of `AsyncResource` bound functions
 
@@ -3055,7 +3055,7 @@ The `assert.CallTracker` API has been removed.
 
 Type: Runtime
 
-Calling [`util.promisify`](60-util.md#utilpromisifyoriginal) on a function that returns a `Promise` will ignore
+Calling [`util.promisify`](60-util-part2.md#utilpromisifyoriginal) on a function that returns a `Promise` will ignore
 the result of said promise, which can lead to unhandled promise rejections.
 
 ### DEP0175: `util.toUSVString`
@@ -3068,7 +3068,7 @@ the result of said promise, which can lead to unhandled promise rejections.
 
 Type: Documentation-only
 
-The [`util.toUSVString()`](60-util.md#utiltousvstringstring) API is deprecated. Please use
+The [`util.toUSVString()`](60-util-part2.md#utiltousvstringstring) API is deprecated. Please use
 [`String.prototype.toWellFormed`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toWellFormed) instead.
 
 ### DEP0176: `fs.F_OK`, `fs.R_OK`, `fs.W_OK`, `fs.X_OK`
@@ -3120,7 +3120,7 @@ Please use `value instanceof WebAssembly.Module` instead.
 Type: End-of-Life
 
 The `dirent.path` property has been removed due to its lack of consistency across
-release lines. Please use [`dirent.parentPath`](24-fs.md#direntparentpath) instead.
+release lines. Please use [`dirent.parentPath`](24-fs-part6.md#direntparentpath) instead.
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/dirent-path-to-parent-path)):
 
@@ -3141,7 +3141,7 @@ Type: Runtime
 
 Calling `Hash` class directly with `Hash()` or `new Hash()` is
 deprecated due to being internals, not intended for public use.
-Please use the [`crypto.createHash()`](15-crypto.md#cryptocreatehashalgorithm-options) method to create Hash instances.
+Please use the [`crypto.createHash()`](15-crypto-part3.md#cryptocreatehashalgorithm-options) method to create Hash instances.
 
 ### DEP0180: `fs.Stats` constructor
 
@@ -3170,7 +3170,7 @@ Type: Runtime
 
 Calling `Hmac` class directly with `Hmac()` or `new Hmac()` is
 deprecated due to being internals, not intended for public use.
-Please use the [`crypto.createHmac()`](15-crypto.md#cryptocreatehmacalgorithm-key-options) method to create Hmac instances.
+Please use the [`crypto.createHmac()`](15-crypto-part3.md#cryptocreatehmacalgorithm-key-options) method to create Hmac instances.
 
 ### DEP0182: Short GCM authentication tags without explicit `authTagLength`
 
@@ -3184,13 +3184,13 @@ Please use the [`crypto.createHmac()`](15-crypto.md#cryptocreatehmacalgorithm-ke
 
 Type: End-of-Life
 
-For ciphers in GCM mode, the [`decipher.setAuthTag()`](15-crypto.md#deciphersetauthtagbuffer-encoding) function used to accept
+For ciphers in GCM mode, the [`decipher.setAuthTag()`](15-crypto-part1.md#deciphersetauthtagbuffer-encoding) function used to accept
 authentication tags of any valid length (see also [DEP0090](#DEP0090)). This
 exception has been removed to better align with recommendations per
 [NIST SP 800-38D](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-38d.pdf), and applications that intend to use authentication tags
 that are shorter than the default authentication tag length (i.e., shorter than
 16 bytes for AES-GCM) must explicitly set the `authTagLength` option of the
-[`crypto.createDecipheriv()`](15-crypto.md#cryptocreatedecipherivalgorithm-key-iv-options) function to the appropriate length.
+[`crypto.createDecipheriv()`](15-crypto-part3.md#cryptocreatedecipherivalgorithm-key-iv-options) function to the appropriate length.
 
 ### DEP0183: OpenSSL engine-based APIs
 
@@ -3206,7 +3206,7 @@ OpenSSL 3 has deprecated support for custom engines with a recommendation to
 switch to its new provider model. The `clientCertEngine` option for
 `https.request()`, [`tls.createSecureContext()`](55-tls.md#tlscreatesecurecontextoptions), and [`tls.createServer()`](55-tls.md#tlscreateserveroptions-secureconnectionlistener);
 the `privateKeyEngine` and `privateKeyIdentifier` for [`tls.createSecureContext()`](55-tls.md#tlscreatesecurecontextoptions);
-and [`crypto.setEngine()`](15-crypto.md#cryptosetengineengine-flags) all depend on this functionality from OpenSSL.
+and [`crypto.setEngine()`](15-crypto-part5.md#cryptosetengineengine-flags) all depend on this functionality from OpenSSL.
 
 ### DEP0184: Instantiating `node:zlib` classes without `new`
 
@@ -3419,7 +3419,7 @@ a shell, use [`child_process.execFile`](11-child-process.md#child_processexecfil
 
 Type: Documentation-only
 
-The [`util.types.isNativeError`](60-util.md#utiltypesisnativeerrorvalue) API is deprecated. Please use [`Error.isError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/isError) instead.
+The [`util.types.isNativeError`](60-util-part3.md#utiltypesisnativeerrorvalue) API is deprecated. Please use [`Error.isError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error/isError) instead.
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/types-is-native-error)):
 
@@ -3464,7 +3464,7 @@ an internal nodejs implementation rather than a public facing API, use `node:htt
 
 Type: Documentation-only
 
-Allowing a [`fs.Dir`](24-fs.md#class-fsdir) object to be closed on garbage collection is
+Allowing a [`fs.Dir`](24-fs-part6.md#class-fsdir) object to be closed on garbage collection is
 deprecated. In the future, doing so might result in a thrown error that will
 terminate the process.
 
@@ -3510,7 +3510,7 @@ import { opendir } from 'node:fs/promises';
 
 Type: Runtime
 
-Passing the `type` option to [`Duplex.toWeb()`](51-stream.md#streamduplextowebstreamduplex-options) is deprecated. To specify the
+Passing the `type` option to [`Duplex.toWeb()`](51-stream-part3.md#streamduplextowebstreamduplex-options) is deprecated. To specify the
 type of the readable half of the constructed readable-writable pair, use the
 `readableType` option instead.
 
@@ -3525,7 +3525,7 @@ type of the readable half of the constructed readable-writable pair, use the
 Type: Documentation-only
 
 The `Http1IncomingMessage` and `Http1ServerResponse` options of
-[`http2.createServer()`](28-http2.md#http2createserveroptions-onrequesthandler) and [`http2.createSecureServer()`](28-http2.md#http2createsecureserveroptions-onrequesthandler) are
+[`http2.createServer()`](28-http2-part2.md#http2createserveroptions-onrequesthandler) and [`http2.createSecureServer()`](28-http2-part2.md#http2createsecureserveroptions-onrequesthandler) are
 deprecated. Use `http1Options.IncomingMessage` and
 `http1Options.ServerResponse` instead.
 
@@ -3562,14 +3562,14 @@ Type: Runtime
 
 Passing a [`CryptoKey`](65-webcrypto.md#class-cryptokey) to `node:crypto` functions is deprecated and
 will throw an error in a future version. This includes
-[`crypto.createPublicKey()`](15-crypto.md#cryptocreatepublickeykey), [`crypto.createPrivateKey()`](15-crypto.md#cryptocreateprivatekeykey),
-[`crypto.sign()`](15-crypto.md#cryptosignalgorithm-data-key-callback), [`crypto.verify()`](15-crypto.md#cryptoverifyalgorithm-data-key-signature-callback),
-[`crypto.publicEncrypt()`](15-crypto.md#cryptopublicencryptkey-buffer), [`crypto.publicDecrypt()`](15-crypto.md#cryptopublicdecryptkey-buffer),
-[`crypto.privateEncrypt()`](15-crypto.md#cryptoprivateencryptprivatekey-buffer), [`crypto.privateDecrypt()`](15-crypto.md#cryptoprivatedecryptprivatekey-buffer),
-[`Sign.prototype.sign()`](15-crypto.md#signsignprivatekey-outputencoding), [`Verify.prototype.verify()`](15-crypto.md#verifyverifyobject-signature-signatureencoding),
-[`crypto.createHmac()`](15-crypto.md#cryptocreatehmacalgorithm-key-options), [`crypto.createCipheriv()`](15-crypto.md#cryptocreatecipherivalgorithm-key-iv-options),
-[`crypto.createDecipheriv()`](15-crypto.md#cryptocreatedecipherivalgorithm-key-iv-options), [`crypto.encapsulate()`](15-crypto.md#cryptoencapsulatekey-callback), and
-[`crypto.decapsulate()`](15-crypto.md#cryptodecapsulatekey-ciphertext-callback).
+[`crypto.createPublicKey()`](15-crypto-part4.md#cryptocreatepublickeykey), [`crypto.createPrivateKey()`](15-crypto-part3.md#cryptocreateprivatekeykey),
+[`crypto.sign()`](15-crypto-part5.md#cryptosignalgorithm-data-key-callback), [`crypto.verify()`](15-crypto-part6.md#cryptoverifyalgorithm-data-key-signature-callback),
+[`crypto.publicEncrypt()`](15-crypto-part5.md#cryptopublicencryptkey-buffer), [`crypto.publicDecrypt()`](15-crypto-part5.md#cryptopublicdecryptkey-buffer),
+[`crypto.privateEncrypt()`](15-crypto-part5.md#cryptoprivateencryptprivatekey-buffer), [`crypto.privateDecrypt()`](15-crypto-part5.md#cryptoprivatedecryptprivatekey-buffer),
+[`Sign.prototype.sign()`](15-crypto-part2.md#signsignprivatekey-outputencoding), [`Verify.prototype.verify()`](15-crypto-part1.md#verifyverifyobject-signature-signatureencoding),
+[`crypto.createHmac()`](15-crypto-part3.md#cryptocreatehmacalgorithm-key-options), [`crypto.createCipheriv()`](15-crypto-part3.md#cryptocreatecipherivalgorithm-key-iv-options),
+[`crypto.createDecipheriv()`](15-crypto-part3.md#cryptocreatedecipherivalgorithm-key-iv-options), [`crypto.encapsulate()`](15-crypto-part4.md#cryptoencapsulatekey-callback), and
+[`crypto.decapsulate()`](15-crypto-part4.md#cryptodecapsulatekey-ciphertext-callback).
 
 ### DEP0204: `KeyObject.from()` with non-extractable `CryptoKey`
 
@@ -3582,7 +3582,7 @@ will throw an error in a future version. This includes
 
 Type: Runtime
 
-Passing a non-extractable [`CryptoKey`](65-webcrypto.md#class-cryptokey) to [`KeyObject.from()`](15-crypto.md#static-method-keyobjectfromkey) is
+Passing a non-extractable [`CryptoKey`](65-webcrypto.md#class-cryptokey) to [`KeyObject.from()`](15-crypto-part2.md#static-method-keyobjectfromkey) is
 deprecated and will throw an error in a future version.
 
 ### DEP0205: `module.register()`

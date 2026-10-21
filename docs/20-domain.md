@@ -354,7 +354,7 @@ single domain.
 - Returns: [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) The intercepted function
 
 This method is almost identical to [`domain.bind(callback)`](#domainbindcallback). However, in
-addition to catching thrown errors, it will also intercept [`Error`](22-errors.md#class-error)
+addition to catching thrown errors, it will also intercept [`Error`](22-errors-part1.md#class-error)
 objects sent as the first argument to the function.
 
 In this way, the common `if (err) return callback(err);` pattern can be replaced

@@ -1,0 +1,35 @@
+name: Assemble index.html (base64 parts)
+on:
+  push:
+    branches: [main]
+    paths: ['build/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: assemble
+  cancel-in-progress: false
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Assemble and verify
+        run: |
+          if [ ! -f build/b64.0 ] || [ ! -f build/b64.1 ] || [ ! -f build/b64.2 ]; then
+            echo "Not all three parts are present yet; nothing to do."
+            echo "SKIP=1" >> "$GITHUB_ENV"
+            exit 0
+          fi
+          cat build/b64.0 build/b64.1 build/b64.2 | base64 -d > index.html
+          echo "8fbb0103872d5e28ca69e50df84c9a2a482b40580fdf0a81a399749fafa24c21  index.html" | sha256sum -c -
+          ls -l index.html
+      - name: Commit index.html and remove build/
+        if: env.SKIP != '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm -r --quiet build
+          git add index.html
+          git commit -m "Assemble index.html from build parts (sha256 verified) and remove build/"
+          git push

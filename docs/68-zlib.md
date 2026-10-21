@@ -23,7 +23,7 @@ import zlib from 'node:zlib';
 const zlib = require('node:zlib');
 ```
 
-Compression and decompression are built around the Node.js [Streams API](51-stream.md).
+Compression and decompression are built around the Node.js [Streams API](51-stream-part1.md).
 
 Compressing or decompressing a stream (such as a file) can be accomplished by
 piping the source stream through a `zlib` `Transform` stream into a destination
@@ -844,10 +844,10 @@ ignored by the decompression classes.
 - `level` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) (compression only)
 - `memLevel` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) (compression only)
 - `strategy` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) (compression only)
-- `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) (deflate/inflate only,
+- `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) (deflate/inflate only,
   empty dictionary by default)
 - `info` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) (If `true`, returns an object with `buffer` and `engine`.)
-- `maxOutputLength` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Limits output size when using [convenience methods](#convenience-methods). **Default:** [`buffer.kMaxLength`](07-buffer.md#bufferkmaxlength)
+- `maxOutputLength` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Limits output size when using [convenience methods](#convenience-methods). **Default:** [`buffer.kMaxLength`](07-buffer-part3.md#bufferkmaxlength)
 - `rejectGarbageAfterEnd` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, decompression fails when
   trailing input is detected after the end of the compressed stream. This
   includes unreadable bytes and, when decompressing gzip, additional gzip
@@ -873,7 +873,7 @@ Each Brotli-based class takes an `options` object. All options are optional.
 - `finishFlush` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `zlib.constants.BROTLI_OPERATION_FINISH`
 - `chunkSize` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `16 * 1024`
 - `params` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) Key-value object containing indexed [Brotli parameters](#brotli-constants).
-- `maxOutputLength` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Limits output size when using [convenience methods](#convenience-methods). **Default:** [`buffer.kMaxLength`](07-buffer.md#bufferkmaxlength)
+- `maxOutputLength` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Limits output size when using [convenience methods](#convenience-methods). **Default:** [`buffer.kMaxLength`](07-buffer-part3.md#bufferkmaxlength)
 - `info` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, returns an object with `buffer` and `engine`. **Default:** `false`
 - `rejectGarbageAfterEnd` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, decompression fails when
   input remains after the first complete compressed stream. **Default:** `false`
@@ -1060,10 +1060,10 @@ main();
 
 Added in: v26.8.0
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) A complete ZIP archive.
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) A complete ZIP archive.
 
-Parses the archive's central directory. Throws an [`ERR_ZIP_INVALID_ARCHIVE`](22-errors.md#err_zip_invalid_archive)
-or [`ERR_ZIP_UNSUPPORTED_FEATURE`](22-errors.md#err_zip_unsupported_feature) error if `buffer` is not a well-formed,
+Parses the archive's central directory. Throws an [`ERR_ZIP_INVALID_ARCHIVE`](22-errors-part4.md#err_zip_invalid_archive)
+or [`ERR_ZIP_UNSUPPORTED_FEATURE`](22-errors-part4.md#err_zip_unsupported_feature) error if `buffer` is not a well-formed,
 supported archive.
 
 `buffer` is **not copied**: the `ZipBuffer` retains a zero-copy view of it (for
@@ -1078,7 +1078,7 @@ Added in: v26.8.0
 
 - `filename` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The entry's name within the archive. A trailing `/`
   marks a directory entry.
-- `data` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
+- `data` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
   uncompressed content.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) See [`zlib.ZipEntry.create()`](#static-method-zlibzipentrycreatefilename-data-options).
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfilled with the created [`<ZipEntry>`](68-zlib.md#class-zlibzipentry).
@@ -1091,7 +1091,7 @@ Added in: v26.8.0
 
 - `filename` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The entry's name within the archive. A trailing `/`
   marks a directory entry.
-- `data` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
+- `data` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
   uncompressed content.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) See [`zlib.ZipEntry.createSync()`](#static-method-zlibzipentrycreatesyncfilename-data-options).
 - Returns: [`<ZipEntry>`](68-zlib.md#class-zlibzipentry) The created entry.
@@ -1156,7 +1156,7 @@ Added in: v26.8.0
 - `name` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - Returns: [`<ZipEntry>`](68-zlib.md#class-zlibzipentry)
 
-Throws [`ERR_ZIP_ENTRY_NOT_FOUND`](22-errors.md#err_zip_entry_not_found) if the archive has no entry named `name`.
+Throws [`ERR_ZIP_ENTRY_NOT_FOUND`](22-errors-part4.md#err_zip_entry_not_found) if the archive has no entry named `name`.
 
 ### `zipBuffer.has(name)`
 
@@ -1190,7 +1190,7 @@ Added in: v26.8.0
     written somewhere other than the start of its eventual file - for example,
     after `baseOffset` bytes of other content already written to the same
     output. **Default:** `0`.
-- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfilled with a [`<Buffer>`](07-buffer.md#class-buffer) containing the serialized
+- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfilled with a [`<Buffer>`](07-buffer-part1.md#class-buffer) containing the serialized
   archive.
 
 Serializes the current set of entries - in the order they were added or
@@ -1202,7 +1202,7 @@ needed (see [`zlib.createZipArchive()`](#zlibcreateziparchiveentries-options)).
 Added in: v26.8.0
 
 - `options` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) See [`zipBuffer.toBuffer()`](#zipbuffertobufferoptions).
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) The serialized archive.
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) The serialized archive.
 
 The synchronous version of [`zipBuffer.toBuffer()`](#zipbuffertobufferoptions) (see
 [`zlib.createZipArchiveSync()`](#zlibcreateziparchivesyncentries-options)).
@@ -1249,7 +1249,7 @@ Added in: v26.8.0
 
 - `filename` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The entry's name within the archive. A trailing `/`
   marks a directory entry.
-- `data` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
+- `data` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
   uncompressed content. Must be empty when `filename` names a directory.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `comment` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) An entry comment.
@@ -1303,7 +1303,7 @@ entries only make sense with an asynchronous, incrementally-produced
 `source` is drained exactly once, during serialization. Until that happens
 the entry has no readable content, so [`zipEntry.content()`](#zipentrycontentoptions),
 [`zipEntry.contentSync()`](#zipentrycontentsyncoptions), and [`zipEntry.contentIterator()`](#zipentrycontentiteratoroptions) throw
-[`ERR_INVALID_STATE`](22-errors.md#err_invalid_state). If the entry is serialized by adding it to a writable
+[`ERR_INVALID_STATE`](22-errors-part2.md#err_invalid_state). If the entry is serialized by adding it to a writable
 [`ZipFile`](#class-zlibzipfile) with [`zipFile.addEntry()`](#zipfileaddentryentry) (or `addEntrySync()`), it is then
 **promoted in place** to a file-backed entry pointing at the copy just written,
 so it becomes readable (and can be serialized again) for as long as that
@@ -1344,7 +1344,7 @@ Added in: v26.8.0
 
 - `filename` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The entry's name within the archive. A trailing `/`
   marks a directory entry.
-- `data` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
+- `data` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
   uncompressed content. Must be empty when `filename` names a directory.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) See [`zlib.ZipEntry.create()`](#static-method-zlibzipentrycreatefilename-data-options).
 - Returns: [`<ZipEntry>`](68-zlib.md#class-zlibzipentry)
@@ -1355,7 +1355,7 @@ The synchronous version of [`zlib.ZipEntry.create()`](#static-method-zlibzipentr
 
 Added in: v26.8.0
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) A complete ZIP archive.
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) A complete ZIP archive.
 - Returns: [`<Iterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Iterator) of [`<ZipEntry>`](68-zlib.md#class-zlibzipentry).
 
 Parses every entry out of `buffer` directly, without indexing it into a
@@ -1394,14 +1394,14 @@ Added in: v26.8.0
   - `maxSize` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Reject content declaring more than this many
     uncompressed bytes, before allocating anything. **Default:**
     [`zlib.getMaxZipContentSize()`](#zlibgetmaxzipcontentsize).
-- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfilled with a [`<Buffer>`](07-buffer.md#class-buffer) containing the entry's
+- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfilled with a [`<Buffer>`](07-buffer-part1.md#class-buffer) containing the entry's
   decompressed content. The buffer is a fresh copy that shares no memory
   with the archive or with data the entry was created from.
 
-Throws an [`ERR_ZIP_ENTRY_TOO_LARGE`](22-errors.md#err_zip_entry_too_large) error if the entry's declared size
-exceeds `maxSize`, an [`ERR_ZIP_ENTRY_CORRUPT`](22-errors.md#err_zip_entry_corrupt) error if the content fails
+Throws an [`ERR_ZIP_ENTRY_TOO_LARGE`](22-errors-part4.md#err_zip_entry_too_large) error if the entry's declared size
+exceeds `maxSize`, an [`ERR_ZIP_ENTRY_CORRUPT`](22-errors-part4.md#err_zip_entry_corrupt) error if the content fails
 CRC-32 verification or does not match its declared size, and an
-[`ERR_INVALID_STATE`](22-errors.md#err_invalid_state) error for a streaming entry
+[`ERR_INVALID_STATE`](22-errors-part2.md#err_invalid_state) error for a streaming entry
 ([`zlib.ZipEntry.createStream()`](#static-method-zlibzipentrycreatestreamfilename-source-options)) whose content is not yet available (see
 that method for when a streaming entry becomes readable).
 
@@ -1410,7 +1410,7 @@ that method for when a streaming entry becomes readable).
 Added in: v26.8.0
 
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) See [`zipEntry.content()`](#zipentrycontentoptions).
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) The entry's decompressed content.
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) The entry's decompressed content.
 
 The synchronous version of [`zipEntry.content()`](#zipentrycontentoptions).
 
@@ -1422,7 +1422,7 @@ Added in: v26.8.0
   - `verify` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) Verify the entry's CRC-32 checksum. **Default:** `true`.
   - `maxSize` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Reject content declaring more than this many
     uncompressed bytes, before decompressing anything. **Default:** no limit.
-- Returns: [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) of [`<Buffer>`](07-buffer.md#class-buffer) chunks of the entry's decompressed
+- Returns: [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator) of [`<Buffer>`](07-buffer-part1.md#class-buffer) chunks of the entry's decompressed
   content.
 
 Unlike [`zipEntry.content()`](#zipentrycontentoptions), this does not buffer the whole member in
@@ -1555,7 +1555,7 @@ responsibility.
 
 Added in: v26.8.0
 
-- Type: [`<Buffer>`](07-buffer.md#class-buffer)
+- Type: [`<Buffer>`](07-buffer-part1.md#class-buffer)
 
 The entry's raw name bytes, before any character decoding. Useful when the
 archive's names are in an encoding other than UTF-8 or CP437 and the caller
@@ -1565,7 +1565,7 @@ wants to decode them itself.
 
 Added in: v26.8.0
 
-- Type: [`<Buffer>`](07-buffer.md#class-buffer) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type)
+- Type: [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type)
 
 The entry's raw (still compressed, if applicable) content when it is held in
 memory, or `null` when there is no in-memory buffer to expose - for an entry
@@ -1675,7 +1675,7 @@ Added in: v26.8.0
     [`zipFile.delete()`](#zipfiledeletename). **Default:** `false`.
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfilled with a [`<ZipFile>`](68-zlib.md#class-zlibzipfile).
 
-Throws an [`ERR_ZIP_ARCHIVE_TOO_LARGE`](22-errors.md#err_zip_archive_too_large) error if the archive's central
+Throws an [`ERR_ZIP_ARCHIVE_TOO_LARGE`](22-errors-part4.md#err_zip_archive_too_large) error if the archive's central
 directory is too large to buffer in memory.
 
 ### Static method: `zlib.ZipFile.openSync(filename[, options])`
@@ -1694,7 +1694,7 @@ Added in: v26.8.0
 
 - `filename` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The entry's name within the archive. A trailing `/`
   marks a directory entry.
-- `data` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
+- `data` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
   uncompressed content.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) See [`zlib.ZipEntry.create()`](#static-method-zlibzipentrycreatefilename-data-options).
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfilled with the created [`<ZipEntry>`](68-zlib.md#class-zlibzipentry).
@@ -1710,7 +1710,7 @@ Added in: v26.8.0
 
 Writes `entry` where the central directory currently starts, then rewrites
 the central directory to include it, replacing any existing entry of the
-same name. Throws [`ERR_ZIP_NOT_WRITABLE`](22-errors.md#err_zip_not_writable) if the `ZipFile` was not opened
+same name. Throws [`ERR_ZIP_NOT_WRITABLE`](22-errors-part4.md#err_zip_not_writable) if the `ZipFile` was not opened
 with `{ writable: true }`.
 
 The returned (same) `entry` is left readable: a streaming entry created with
@@ -1737,7 +1737,7 @@ Added in: v26.8.0
 
 - `filename` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The entry's name within the archive. A trailing `/`
   marks a directory entry.
-- `data` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
+- `data` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) The entry's complete,
   uncompressed content.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) See [`zlib.ZipEntry.createSync()`](#static-method-zlibzipentrycreatesyncfilename-data-options).
 - Returns: [`<ZipEntry>`](68-zlib.md#class-zlibzipentry) The created entry.
@@ -1780,7 +1780,7 @@ no encoding flag of its own).
 Added in: v26.8.0
 
 - `comment` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) An archive comment. **Default:** [`zipFile.comment`](#zipfilecomment).
-- Returns: [`<stream.Readable>`](51-stream.md#class-streamreadable) A stream of the currently live entries,
+- Returns: [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) A stream of the currently live entries,
   serialized as a fresh archive with no dead space left by prior [`zipFile.addEntry()`](#zipfileaddentryentry)/[`zipFile.delete()`](#zipfiledeletename) calls.
 
 Does not modify the open file; pipe the result into a new one:
@@ -1795,7 +1795,7 @@ zip.compact().pipe(createWriteStream('compacted.zip'));
 Added in: v26.8.0
 
 - `comment` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) An archive comment. **Default:** [`zipFile.comment`](#zipfilecomment).
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) The currently live entries, serialized as a fresh
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) The currently live entries, serialized as a fresh
   archive with no dead space left by prior [`zipFile.addEntry()`](#zipfileaddentryentry)/[`zipFile.delete()`](#zipfiledeletename) calls.
 
 The synchronous version of [`zipFile.compact()`](#zipfilecompactcomment). Does not modify the
@@ -1810,7 +1810,7 @@ Added in: v26.8.0
   and was removed, `false` otherwise.
 
 Rewrites the central directory without writing any new content - the
-archive does not grow. Throws [`ERR_ZIP_NOT_WRITABLE`](22-errors.md#err_zip_not_writable) if the `ZipFile` was
+archive does not grow. Throws [`ERR_ZIP_NOT_WRITABLE`](22-errors-part4.md#err_zip_not_writable) if the `ZipFile` was
 not opened with `{ writable: true }`.
 
 ### `zipFile.deleteSync(name)`
@@ -1868,9 +1868,9 @@ disk here and no content is buffered: the returned entry reads (and, for
 [`zipEntry.content()`](#zipentrycontentoptions), decompresses) its member straight from the file on
 each access, and the `ZipFile` retains no member content. The entry is valid
 only while this `ZipFile` is open. Reading its content later may throw
-[`ERR_ZIP_ENTRY_TOO_LARGE`](22-errors.md#err_zip_entry_too_large) if the member is too large to hold in a single
+[`ERR_ZIP_ENTRY_TOO_LARGE`](22-errors-part4.md#err_zip_entry_too_large) if the member is too large to hold in a single
 buffer; use [`zipEntry.contentIterator()`](#zipentrycontentiteratoroptions) (or [`zipFile.stream()`](#zipfilestreamname-options))
-instead. Throws [`ERR_ZIP_ENTRY_NOT_FOUND`](22-errors.md#err_zip_entry_not_found) if the archive has no entry
+instead. Throws [`ERR_ZIP_ENTRY_NOT_FOUND`](22-errors-part4.md#err_zip_entry_not_found) if the archive has no entry
 named `name`.
 
 ### `zipFile.getSync(name)`
@@ -1915,13 +1915,13 @@ Added in: v26.8.0
   - `verify` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) Verify the entry's CRC-32 checksum. **Default:** `true`.
   - `maxSize` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Reject content declaring more than this many
     uncompressed bytes. **Default:** no limit.
-- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfilled with a [`<stream.Readable>`](51-stream.md#class-streamreadable) of the member's
+- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfilled with a [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) of the member's
   decompressed content, without buffering the whole member in memory.
 
 Convenience wrapper that resolves to a `Readable` over
 [`zipEntry.contentIterator()`](#zipentrycontentiteratoroptions) of [`zipFile.get()`](#zipfilegetname)`(name)`; the
 compressed bytes are read from disk as the stream is consumed. The returned
-promise rejects with [`ERR_ZIP_ENTRY_NOT_FOUND`](22-errors.md#err_zip_entry_not_found) if the archive has no entry
+promise rejects with [`ERR_ZIP_ENTRY_NOT_FOUND`](22-errors-part4.md#err_zip_entry_not_found) if the archive has no entry
 named `name`.
 
 ### `zipFile.values()`
@@ -1956,12 +1956,12 @@ Added in: v0.5.8
 | --- | --- |
 | v11.7.0, v10.16.0 | This class was renamed from `Zlib` to `ZlibBase`. |
 
-- Extends: [`stream.Transform`](51-stream.md#class-streamtransform)
+- Extends: [`stream.Transform`](51-stream-part2.md#class-streamtransform)
 
 Not exported by the `node:zlib` module. It is documented here because it is the
 base class of the compressor/decompressor classes.
 
-This class inherits from [`stream.Transform`](51-stream.md#class-streamtransform), allowing `node:zlib` objects to
+This class inherits from [`stream.Transform`](51-stream-part2.md#class-streamtransform), allowing `node:zlib` objects to
 be used in pipes and similar stream operations.
 
 ### `zlib.bytesWritten`
@@ -2071,9 +2071,9 @@ Each Zstd-based class takes an `options` object. All options are optional.
 - `pledgedSrcSize` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Expected total size of the uncompressed input. It
   must be a non-negative safe integer and must match the input size when
   compression finishes. Only applicable to Zstd compressors.
-- `maxOutputLength` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Limits output size when using [convenience methods](#convenience-methods). **Default:** [`buffer.kMaxLength`](07-buffer.md#bufferkmaxlength)
+- `maxOutputLength` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Limits output size when using [convenience methods](#convenience-methods). **Default:** [`buffer.kMaxLength`](07-buffer-part3.md#bufferkmaxlength)
 - `info` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, returns an object with `buffer` and `engine`. **Default:** `false`
-- `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) Optional dictionary used
+- `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) Optional dictionary used
   to improve compression efficiency when compressing or decompressing data that
   shares common patterns with the dictionary.
 - `rejectGarbageAfterEnd` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, decompression fails when
@@ -2118,7 +2118,7 @@ Provides an object enumerating Zlib-related constants.
 
 Added in: v22.2.0, v20.15.0
 
-- `data` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) When `data` is a string,
+- `data` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) When `data` is a string,
   it will be encoded as UTF-8 before being used for computation.
 - `value` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) An optional starting value. It must be a 32-bit unsigned
   integer. **Default:** `0`
@@ -2275,12 +2275,12 @@ them) emits an experimental warning the first time; merely importing
     self-describing even when something else is written before it - for
     example, appending the archive after `baseOffset` bytes already written to
     the same file, rather than at its start. **Default:** `0`.
-- Returns: [`<stream.Readable>`](51-stream.md#class-streamreadable) A byte stream of the serialized archive.
+- Returns: [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) A byte stream of the serialized archive.
 
 Serializes `entries` into a ZIP archive, switching to Zip64 structures
 automatically once the entry count, or any offset or size, exceeds what the
 classic 32-/16-bit ZIP fields can hold. The returned `Readable` is also an
-`AsyncIterable` of the same [`<Buffer>`](07-buffer.md#class-buffer) chunks it streams.
+`AsyncIterable` of the same [`<Buffer>`](07-buffer-part1.md#class-buffer) chunks it streams.
 
 Entries are written in iteration order and nothing deduplicates names: an
 iterable that yields two entries with the same name produces an archive
@@ -2292,7 +2292,7 @@ The entries are owned by the returned stream: each is consumed as the archive
 is produced and must not be reused afterwards. This matters for streaming
 entries (from [`zlib.ZipEntry.createStream()`](#static-method-zlibzipentrycreatestreamfilename-source-options)), which hold an underlying
 source such as a file read stream. If the returned stream is destroyed before
-it is fully consumed - for example, the destination of a [`pipeline()`](51-stream.md#streampipelinesource-transforms-destination-callback)
+it is fully consumed - for example, the destination of a [`pipeline()`](51-stream-part2.md#streampipelinesource-transforms-destination-callback)
 fails - it disposes the entry it was serializing and every entry still queued
 behind it, destroying their sources so no descriptor leaks. Consume the stream
 to the end, or destroy it (directly, through a failed `pipeline()`, or with
@@ -2300,7 +2300,7 @@ to the end, or destroy it (directly, through a failed `pipeline()`, or with
 nor destroyed cannot release anything. A [`ZipEntry`](#class-zlibzipentry) that is never handed to
 an archive can be released directly with `Symbol.dispose` / `Symbol.asyncDispose`.
 
-Throws an [`ERR_ZIP_ARCHIVE_TOO_LARGE`](22-errors.md#err_zip_archive_too_large) error if the archive comment
+Throws an [`ERR_ZIP_ARCHIVE_TOO_LARGE`](22-errors-part4.md#err_zip_archive_too_large) error if the archive comment
 exceeds 65,535 bytes when encoded as UTF-8.
 
 *ES module version:*
@@ -2369,7 +2369,7 @@ them) emits an experimental warning the first time; merely importing
 
 - `entries` [`<Iterable>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol) of [`ZipEntry`](#class-zlibzipentry).
 - `options` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) See [`zlib.createZipArchive()`](#zlibcreateziparchiveentries-options).
-- Returns: [`<Iterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Iterator) of [`<Buffer>`](07-buffer.md#class-buffer) chunks making up the serialized archive.
+- Returns: [`<Iterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Iterator) of [`<Buffer>`](07-buffer-part1.md#class-buffer) chunks making up the serialized archive.
 
 The synchronous version of [`zlib.createZipArchive()`](#zlibcreateziparchiveentries-options). Blocks the
 Node.js event loop and further JavaScript execution until the whole
@@ -2403,7 +2403,7 @@ them) emits an experimental warning the first time; merely importing
   - `comment` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) An archive comment; a string `options` is shorthand for
     `{ comment: options }`.
   - `baseOffset` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) See [`zlib.createZipArchive()`](#zlibcreateziparchiveentries-options).
-- Returns: [`<stream.Readable>`](51-stream.md#class-streamreadable) of [`<Buffer>`](07-buffer.md#class-buffer) chunks making up the serialized
+- Returns: [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) of [`<Buffer>`](07-buffer-part1.md#class-buffer) chunks making up the serialized
   archive.
 
 Builds an archive from files on disk. For each `[sourcePath, entryName]` pair
@@ -2488,7 +2488,7 @@ by design and are not affected by this setting.
 
 ## Convenience methods
 
-All of these take a [`<Buffer>`](07-buffer.md#class-buffer), [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray), [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView), [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), or string
+All of these take a [`<Buffer>`](07-buffer-part1.md#class-buffer), [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray), [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView), [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), or string
 as the first argument, an optional second argument
 to supply options to the `zlib` classes and will call the supplied callback
 with `callback(error, result)`.
@@ -2500,7 +2500,7 @@ without a callback.
 
 Added in: v11.7.0, v10.16.0
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<brotli options>`](68-zlib.md#class-brotlioptions)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2508,7 +2508,7 @@ Added in: v11.7.0, v10.16.0
 
 Added in: v11.7.0, v10.16.0
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<brotli options>`](68-zlib.md#class-brotlioptions)
 
 Compress a chunk of data with [`BrotliCompress`](#class-zlibbrotlicompress).
@@ -2517,7 +2517,7 @@ Compress a chunk of data with [`BrotliCompress`](#class-zlibbrotlicompress).
 
 Added in: v11.7.0, v10.16.0
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<brotli options>`](68-zlib.md#class-brotlioptions)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2525,7 +2525,7 @@ Added in: v11.7.0, v10.16.0
 
 Added in: v11.7.0, v10.16.0
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<brotli options>`](68-zlib.md#class-brotlioptions)
 
 Decompress a chunk of data with [`BrotliDecompress`](#class-zlibbrotlidecompress).
@@ -2542,7 +2542,7 @@ Added in: v0.6.0
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2558,7 +2558,7 @@ Added in: v0.11.12
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 
 Compress a chunk of data with [`Deflate`](#class-zlibdeflate).
@@ -2574,7 +2574,7 @@ Added in: v0.6.0
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2590,7 +2590,7 @@ Added in: v0.11.12
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 
 Compress a chunk of data with [`DeflateRaw`](#class-zlibdeflateraw).
@@ -2607,7 +2607,7 @@ Added in: v0.6.0
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2623,7 +2623,7 @@ Added in: v0.11.12
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 
 Decompress a chunk of data with [`Gunzip`](#class-zlibgunzip).
@@ -2640,7 +2640,7 @@ Added in: v0.6.0
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2656,7 +2656,7 @@ Added in: v0.11.12
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 
 Compress a chunk of data with [`Gzip`](#class-zlibgzip).
@@ -2673,7 +2673,7 @@ Added in: v0.6.0
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2689,7 +2689,7 @@ Added in: v0.11.12
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 
 Decompress a chunk of data with [`Inflate`](#class-zlibinflate).
@@ -2706,7 +2706,7 @@ Added in: v0.6.0
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2722,7 +2722,7 @@ Added in: v0.11.12
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 
 Decompress a chunk of data with [`InflateRaw`](#class-zlibinflateraw).
@@ -2739,7 +2739,7 @@ Added in: v0.6.0
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2755,7 +2755,7 @@ Added in: v0.11.12
 | v8.0.0 | The `buffer` parameter can be any `TypedArray` or `DataView`. |
 | v8.0.0 | The `buffer` parameter can be an `Uint8Array` now. |
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zlib options>`](68-zlib.md#class-options)
 
 Decompress a chunk of data with [`Unzip`](#class-zlibunzip).
@@ -2772,7 +2772,7 @@ Added in: v23.8.0, v22.15.0
 
 Stability: 1 - Experimental
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zstd options>`](68-zlib.md#class-zstdoptions)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2782,7 +2782,7 @@ Added in: v23.8.0, v22.15.0
 
 Stability: 1 - Experimental
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zstd options>`](68-zlib.md#class-zstdoptions)
 
 Compress a chunk of data with [`ZstdCompress`](#class-zlibzstdcompress).
@@ -2793,7 +2793,7 @@ Added in: v23.8.0, v22.15.0
 
 Stability: 1 - Experimental
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zstd options>`](68-zlib.md#class-zstdoptions)
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
@@ -2803,7 +2803,7 @@ Added in: v23.8.0, v22.15.0
 
 Stability: 1 - Experimental
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - `options` [`<zstd options>`](68-zlib.md#class-zstdoptions)
 
 Decompress a chunk of data with [`ZstdDecompress`](#class-zlibzstddecompress).
@@ -2908,7 +2908,7 @@ Added in: v25.9.0
     - `BROTLI_PARAM_LGBLOCK` -- input block size (log2).
       See the [Brotli compressor options](#compressor-options) in the zlib documentation for the
       full list.
-  - `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+  - `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A stateful transform.
 
 Create a Brotli compression transform. Output is compatible with
@@ -2926,7 +2926,7 @@ Added in: v25.9.0
   - `windowBits` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `Z_DEFAULT_WINDOWBITS` (15).
   - `memLevel` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `9`.
   - `strategy` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `Z_DEFAULT_STRATEGY`.
-  - `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+  - `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A stateful transform.
 
 Create a deflate compression transform. Output is compatible with
@@ -2944,7 +2944,7 @@ Added in: v25.9.0
   - `windowBits` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `Z_DEFAULT_WINDOWBITS` (15).
   - `memLevel` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `9`.
   - `strategy` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `Z_DEFAULT_STRATEGY`.
-  - `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+  - `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A stateful transform.
 
 Create a gzip compression transform. Output is compatible with `zlib.gunzip()`
@@ -2969,7 +2969,7 @@ Added in: v25.9.0
       full list.
   - `pledgedSrcSize` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Expected uncompressed size as a non-negative safe
     integer (optional hint).
-  - `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+  - `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A stateful transform.
 
 Create a Zstandard compression transform. Output is compatible with
@@ -2990,7 +2990,7 @@ Added in: v25.9.0
       Window Brotli" mode (not compatible with [RFC 7932](https://www.rfc-editor.org/rfc/rfc7932.html)).
       See the [Brotli decompressor options](#decompressor-options) in the zlib documentation for
       details.
-  - `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+  - `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A stateful transform.
 
 Create a Brotli decompression transform.
@@ -3004,7 +3004,7 @@ Added in: v25.9.0
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `chunkSize` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Output buffer size. **Default:** `65536` (64 KB).
   - `windowBits` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `Z_DEFAULT_WINDOWBITS` (15).
-  - `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+  - `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A stateful transform.
 
 Create a deflate decompression transform.
@@ -3018,7 +3018,7 @@ Added in: v25.9.0
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `chunkSize` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Output buffer size. **Default:** `65536` (64 KB).
   - `windowBits` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `Z_DEFAULT_WINDOWBITS` (15).
-  - `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+  - `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A stateful transform.
 
 Create a gzip decompression transform.
@@ -3036,7 +3036,7 @@ Added in: v25.9.0
       will allocate. Limits memory usage against malicious input.
       See the [Zstd decompressor options](#decompressor-options-1) in the zlib documentation for
       details.
-  - `dictionary` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+  - `dictionary` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A stateful transform.
 
 Create a Zstandard decompression transform.

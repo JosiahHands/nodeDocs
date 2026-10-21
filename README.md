@@ -30,6 +30,6 @@ These steps are a suggestion and have not been tested yet.
 - Code blocks and the History and "Added in" version lines are read aloud too. A lighter version without them can be made on request.
 - DTLS: the DTLS page is documented on nodejs.org but is not in the official sidebar table of contents, so it is not included. It can be added on request.
 
-## License
+## Attribution
 
-The Node.js documentation is published by the OpenJS Foundation and Node.js contributors. See [LICENSE](LICENSE), which is the Node.js license text copied verbatim from https://raw.githubusercontent.com/nodejs/node/main/LICENSE.
+Documentation by the OpenJS Foundation and Node.js contributors; source nodejs.org.

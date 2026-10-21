@@ -1,0 +1,86 @@
+# Node.js v26.12.1 API Documentation (Markdown)
+
+This is the official Node.js v26.12.1 API documentation, converted to Markdown for reading aloud.
+
+Source: [https://nodejs.org/docs/latest/api/](https://nodejs.org/docs/latest/api/) (downloaded on October 21, 2026, when "latest" was v26.12.1). The text is unchanged apart from formatting and short labels that mark the CommonJS and ES module versions of code examples. Each file has a link back to its original page.
+
+## How to listen
+
+1. Open any file below on GitHub in Microsoft Edge.
+2. Start Read Aloud: press Ctrl+Shift+U, or right-click the page and choose "Read aloud".
+3. Use the links at the top and bottom of each file to go to the previous or next section.
+
+## Contents (68 sections, in the official order)
+
+1. [About this documentation](docs/01-documentation.md)
+2. [Usage and example](docs/02-synopsis.md)
+3. [Assertion testing](docs/03-assert.md)
+4. [Asynchronous context tracking](docs/04-async-context.md)
+5. [Async hooks](docs/05-async-hooks.md)
+6. [Benchmark runner](docs/06-bench.md)
+7. [Buffer](docs/07-buffer.md)
+8. [C++ addons](docs/08-addons.md)
+9. [C/C++ addons with Node-API](docs/09-n-api.md)
+10. [C++ embedder API](docs/10-embedding.md)
+11. [Child processes](docs/11-child-process.md)
+12. [Cluster](docs/12-cluster.md)
+13. [Command-line options](docs/13-cli.md)
+14. [Console](docs/14-console.md)
+15. [Crypto](docs/15-crypto.md)
+16. [Debugger](docs/16-debugger.md)
+17. [Deprecated APIs](docs/17-deprecations.md)
+18. [Diagnostics Channel](docs/18-diagnostics-channel.md)
+19. [DNS](docs/19-dns.md)
+20. [Domain](docs/20-domain.md)
+21. [Environment Variables](docs/21-environment-variables.md)
+22. [Errors](docs/22-errors.md)
+23. [Events](docs/23-events.md)
+24. [File system](docs/24-fs.md)
+25. [FFI](docs/25-ffi.md)
+26. [Globals](docs/26-globals.md)
+27. [HTTP](docs/27-http.md)
+28. [HTTP/2](docs/28-http2.md)
+29. [HTTPS](docs/29-https.md)
+30. [Inspector](docs/30-inspector.md)
+31. [Internationalization](docs/31-intl.md)
+32. [Iterable Streams API](docs/32-stream-iter.md)
+33. [Modules: CommonJS modules](docs/33-modules.md)
+34. [Modules: ECMAScript modules](docs/34-esm.md)
+35. [Modules: node:module API](docs/35-module.md)
+36. [Modules: Packages](docs/36-packages.md)
+37. [Modules: TypeScript](docs/37-typescript.md)
+38. [Net](docs/38-net.md)
+39. [OS](docs/39-os.md)
+40. [Path](docs/40-path.md)
+41. [Performance hooks](docs/41-perf-hooks.md)
+42. [Permissions](docs/42-permissions.md)
+43. [Process](docs/43-process.md)
+44. [Punycode](docs/44-punycode.md)
+45. [Query strings](docs/45-querystring.md)
+46. [Readline](docs/46-readline.md)
+47. [REPL](docs/47-repl.md)
+48. [Report](docs/48-report.md)
+49. [Single executable applications](docs/49-single-executable-applications.md)
+50. [SQLite](docs/50-sqlite.md)
+51. [Stream](docs/51-stream.md)
+52. [String decoder](docs/52-string-decoder.md)
+53. [Test runner](docs/53-test.md)
+54. [Timers](docs/54-timers.md)
+55. [TLS/SSL](docs/55-tls.md)
+56. [Trace events](docs/56-tracing.md)
+57. [TTY](docs/57-tty.md)
+58. [UDP/datagram](docs/58-dgram.md)
+59. [URL](docs/59-url.md)
+60. [Utilities](docs/60-util.md)
+61. [V8](docs/61-v8.md)
+62. [Virtual File System](docs/62-vfs.md)
+63. [VM](docs/63-vm.md)
+64. [WASI](docs/64-wasi.md)
+65. [Web Crypto API](docs/65-webcrypto.md)
+66. [Web Streams API](docs/66-webstreams.md)
+67. [Worker threads](docs/67-worker-threads.md)
+68. [Zlib](docs/68-zlib.md)
+
+## License
+
+The Node.js documentation is published by the OpenJS Foundation and Node.js contributors. See the [Node.js license](https://github.com/nodejs/node/blob/main/LICENSE).

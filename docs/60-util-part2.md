@@ -6,6 +6,8 @@ Part 2 of 3 of this section.
 
 # Utilities (part 2 of 3)
 
+Continues: util.inspect(object[, showHidden[, depth[, colors]]]).
+
 ### `util.inspect.custom`
 
 Added in: v6.6.0

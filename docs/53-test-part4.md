@@ -6,6 +6,8 @@ Part 4 of 4 of this section.
 
 # Test runner (part 4 of 4)
 
+Continues: Class: TestContext. Subsection: context.assert.
+
 #### `context.assert.lastCalledWith(fn[, ...args])`
 
 Added in: v26.12.0

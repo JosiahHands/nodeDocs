@@ -6,6 +6,8 @@ Part 3 of 3 of this section.
 
 # Utilities (part 3 of 3)
 
+Continues: util.types.
+
 ### `util.types.isFloat32Array(value)`
 
 Added in: v10.0.0

@@ -6,6 +6,8 @@ Part 3 of 4 of this section.
 
 # Test runner (part 3 of 4)
 
+Continues: Class: TestsStream.
+
 ### Event lifecycle
 
 The tables above group the events; the diagram below places them on a

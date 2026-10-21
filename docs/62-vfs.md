@@ -36,7 +36,7 @@ It does not isolate untrusted code from the host file system or from other
 Node.js capabilities. Code that can access a [`VirtualFileSystem`](#class-virtualfilesystem) instance,
 mount it, select its provider, or pass paths to it is trusted application code.
 
-Mounting a VFS only redirects supported [`node:fs`](24-fs.md) calls whose resolved paths
+Mounting a VFS only redirects supported [`node:fs`](24-fs-part1.md) calls whose resolved paths
 are under the mount point. It does not prevent code from using other paths or
 other Node.js APIs to access resources available to the process.
 [`RealFSProvider`](#class-realfsprovider) maps VFS paths under its configured root and rejects paths
@@ -62,7 +62,7 @@ console.log(myVfs.readFileSync('/dir/hello.txt', 'utf8')); // 'Hello, VFS!'
 `vfs.create()` returns a [`VirtualFileSystem`](#class-virtualfilesystem) instance backed by a
 [`MemoryProvider`](#class-memoryprovider) by default. The instance exposes synchronous,
 callback-based, and promise-based file system methods that mirror the
-shape of the [`node:fs`](24-fs.md) API. All paths are POSIX-style and absolute
+shape of the [`node:fs`](24-fs-part1.md) API. All paths are POSIX-style and absolute
 (starting with `/`).
 
 By default, the file tree is private to the VFS instance. To expose
@@ -99,8 +99,8 @@ Added in: v26.10.0
 
 - `entry` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `name` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) A short identifier, used in diagnostics.
-  - `canHandle` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Called with the resolved path and its [`fs.Stats`](24-fs.md#class-fsstats). Returns `true` if this provider should back the source.
-  - `create` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Called with the resolved path and its [`fs.Stats`](24-fs.md#class-fsstats).
+  - `canHandle` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Called with the resolved path and its [`fs.Stats`](24-fs-part6.md#class-fsstats). Returns `true` if this provider should back the source.
+  - `create` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Called with the resolved path and its [`fs.Stats`](24-fs-part6.md#class-fsstats).
     Returns the [`<VirtualProvider>`](62-vfs.md#class-virtualprovider) backing the source.
 
 Registers a provider that [`--vfs-load`](13-cli.md#--vfs-loadsource) can select for a source it
@@ -218,8 +218,8 @@ fs.readFileSync(`${mountPoint}/data.txt`, 'utf8'); // 'Hello'
 ```
 
 Like any mount point, the mount point cannot be removed or renamed, nor
-replaced by renaming something else onto it: [`fs.rmdir()`](24-fs.md#fsrmdirpath-options-callback) and
-[`fs.rename()`](24-fs.md#fsrenameoldpath-newpath-callback) fail with `EBUSY`. A recursive [`fs.rm()`](24-fs.md#fsrmpath-options-callback) of the mount
+replaced by renaming something else onto it: [`fs.rmdir()`](24-fs-part4.md#fsrmdirpath-options-callback) and
+[`fs.rename()`](24-fs-part4.md#fsrenameoldpath-newpath-callback) fail with `EBUSY`. A recursive [`fs.rm()`](24-fs-part4.md#fsrmpath-options-callback) of the mount
 point empties the file system before failing the same way.
 
 Each `VirtualFileSystem` instance may be mounted at most once at a
@@ -321,7 +321,7 @@ Added in: v26.4.0
 ### APIs
 
 `VirtualFileSystem` implements the following methods, with the same
-signatures as their [`node:fs`](24-fs.md) counterparts:
+signatures as their [`node:fs`](24-fs-part1.md) counterparts:
 
 #### Synchronous API
 
@@ -390,7 +390,7 @@ The promise namespace mirrors `fs.promises` and includes `readFile`,
 ## The reserved root directory
 
 While any virtual file system is mounted, the directory that holds the mount
-points can be read through [`node:fs`](24-fs.md). [`vfs.vfsBase()`](#vfsvfsbase) returns its path,
+points can be read through [`node:fs`](24-fs-part1.md). [`vfs.vfsBase()`](#vfsvfsbase) returns its path,
 `path.join(os.devNull, 'vfs')`. It contains a directory for every mounted file
 system, named like the last segment of its [`vfs.mountPoint`](#vfsmountpoint).
 
@@ -745,8 +745,8 @@ Added in: v26.9.0
 
 ### `Stats` objects
 
-VFS `Stats` objects are real instances of [`fs.Stats`](24-fs.md#class-fsstats) (or
-[`fs.BigIntStats`](24-fs.md#class-fsstats) when `{ bigint: true }` is requested). Their
+VFS `Stats` objects are real instances of [`fs.Stats`](24-fs-part6.md#class-fsstats) (or
+[`fs.BigIntStats`](24-fs-part6.md#class-fsstats) when `{ bigint: true }` is requested). Their
 fields use synthetic but stable values:
 
 - `dev` is `4085` (the VFS device id).

@@ -115,7 +115,7 @@ Added in: v0.1.99
 The `'message'` event is emitted when a new datagram is available on a socket.
 The event handler function is passed two arguments: `msg` and `rinfo`.
 
-- `msg` [`<Buffer>`](07-buffer.md#class-buffer) The message.
+- `msg` [`<Buffer>`](07-buffer-part1.md#class-buffer) The message.
 - `rinfo` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) Remote address information.
   - `address` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The sender address.
   - `family` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The address family (`'IPv4'` or `'IPv6'`).
@@ -242,7 +242,7 @@ A bound datagram socket keeps the Node.js process running to receive
 datagram messages.
 
 If binding fails, an `'error'` event is generated. In rare cases (e.g.,
-attempting to bind with a closed socket), an [`Error`](22-errors.md#class-error) may be thrown.
+attempting to bind with a closed socket), an [`Error`](22-errors-part1.md#class-error) may be thrown.
 
 Example of a UDP server listening on port 41234:
 
@@ -337,7 +337,7 @@ A bound datagram socket keeps the Node.js process running to receive
 datagram messages.
 
 If binding fails, an `'error'` event is generated. In rare cases (e.g.,
-attempting to bind with a closed socket), an [`Error`](22-errors.md#class-error) may be thrown.
+attempting to bind with a closed socket), an [`Error`](22-errors-part1.md#class-error) may be thrown.
 
 An example socket listening on an exclusive port is shown below.
 
@@ -418,7 +418,7 @@ Associates the `dgram.Socket` to a remote address and port. Every
 message sent by this handle is automatically sent to that destination. Also,
 the socket will only receive messages from that remote peer.
 Trying to call `connect()` on an already connected socket will result
-in an [`ERR_SOCKET_DGRAM_IS_CONNECTED`](22-errors.md#err_socket_dgram_is_connected) exception. If `address` is not
+in an [`ERR_SOCKET_DGRAM_IS_CONNECTED`](22-errors-part3.md#err_socket_dgram_is_connected) exception. If `address` is not
 provided, `'127.0.0.1'` (for `udp4` sockets) or `'::1'` (for `udp6` sockets)
 will be used by default. Once the connection is complete, a `'connect'` event
 is emitted and the optional `callback` function is called. In case of failure,
@@ -454,9 +454,9 @@ If the socket is still unbound it is bound synchronously first. After
 `connectSync()` returns, [`socket.remoteAddress()`](#socketremoteaddress) is valid synchronously
 and the `'connect'` event is emitted on the next tick. Trying to call
 `connectSync()` on an already connected socket throws an
-[`ERR_SOCKET_DGRAM_IS_CONNECTED`](22-errors.md#err_socket_dgram_is_connected) exception, and calling it while an
+[`ERR_SOCKET_DGRAM_IS_CONNECTED`](22-errors-part3.md#err_socket_dgram_is_connected) exception, and calling it while an
 asynchronous [`socket.bind()`](#socketbindport-address-callback) is still in progress throws an
-[`ERR_SOCKET_ALREADY_BOUND`](22-errors.md#err_socket_already_bound) exception.
+[`ERR_SOCKET_ALREADY_BOUND`](22-errors-part3.md#err_socket_already_bound) exception.
 
 `address` must be a numeric IP literal; `connectSync()` never performs DNS
 resolution (asynchronous name resolution being the only genuinely blocking part
@@ -468,7 +468,7 @@ Added in: v12.0.0
 
 A synchronous function that disassociates a connected `dgram.Socket` from
 its remote address. Trying to call `disconnect()` on an unbound or already
-disconnected socket will result in an [`ERR_SOCKET_DGRAM_NOT_CONNECTED`](22-errors.md#err_socket_dgram_not_connected)
+disconnected socket will result in an [`ERR_SOCKET_DGRAM_NOT_CONNECTED`](22-errors-part3.md#err_socket_dgram_not_connected)
 exception.
 
 ### `socket.dropMembership(multicastAddress[, multicastInterface])`
@@ -509,7 +509,7 @@ Added in: v8.7.0
 
 - Returns: [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) the `SO_RCVBUF` socket receive buffer size in bytes.
 
-This method throws [`ERR_SOCKET_BUFFER_SIZE`](22-errors.md#err_socket_buffer_size) if called on an unbound socket.
+This method throws [`ERR_SOCKET_BUFFER_SIZE`](22-errors-part3.md#err_socket_buffer_size) if called on an unbound socket.
 
 ### `socket.getSendBufferSize()`
 
@@ -517,7 +517,7 @@ Added in: v8.7.0
 
 - Returns: [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) the `SO_SNDBUF` socket send buffer size in bytes.
 
-This method throws [`ERR_SOCKET_BUFFER_SIZE`](22-errors.md#err_socket_buffer_size) if called on an unbound socket.
+This method throws [`ERR_SOCKET_BUFFER_SIZE`](22-errors-part3.md#err_socket_buffer_size) if called on an unbound socket.
 
 ### `socket.getSendQueueSize()`
 
@@ -556,7 +556,7 @@ Added in: v12.0.0
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
 Returns an object containing the `address`, `family`, and `port` of the remote
-endpoint. This method throws an [`ERR_SOCKET_DGRAM_NOT_CONNECTED`](22-errors.md#err_socket_dgram_not_connected) exception
+endpoint. This method throws an [`ERR_SOCKET_DGRAM_NOT_CONNECTED`](22-errors-part3.md#err_socket_dgram_not_connected) exception
 if the socket is not connected.
 
 ### `socket.send(msg[, offset, length][, port][, address][, callback])`
@@ -575,7 +575,7 @@ Added in: v0.1.99
 | v6.0.0 | On success, `callback` will now be called with an `error` argument of `null` rather than `0`. |
 | v5.7.0 | The `msg` parameter can be an array now. Also, the `offset` and `length` parameters are optional now. |
 
-- `msg` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) Message to be sent.
+- `msg` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) Message to be sent.
 - `offset` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Offset in the buffer where the message starts.
 - `length` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Number of bytes in the message.
 - `port` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Destination port.
@@ -595,7 +595,7 @@ message begins and the number of bytes in the message, respectively.
 If `msg` is a `String`, then it is automatically converted to a `Buffer`
 with `'utf8'` encoding. With messages that
 contain multi-byte characters, `offset` and `length` will be calculated with
-respect to [byte length](07-buffer.md#static-method-bufferbytelengthstring-encoding) and not the character position.
+respect to [byte length](07-buffer-part1.md#static-method-bufferbytelengthstring-encoding) and not the character position.
 If `msg` is an array, `offset` and `length` must not be specified.
 
 The `address` argument is a string. If the value of `address` is a host name,
@@ -621,7 +621,7 @@ Offset and length are optional but both *must* be set if either are used.
 They are supported only when the first argument is a `Buffer`, a `TypedArray`,
 or a `DataView`.
 
-This method throws [`ERR_SOCKET_BAD_PORT`](22-errors.md#err_socket_bad_port) if called on an unbound socket.
+This method throws [`ERR_SOCKET_BAD_PORT`](22-errors-part3.md#err_socket_bad_port) if called on an unbound socket.
 
 Example of sending a UDP packet to a port on `localhost`;
 
@@ -821,14 +821,14 @@ socket.bind(1234, () => {
 #### Call results
 
 A call on a socket that is not ready to send or no longer open may throw a *Not
-running* [`Error`](22-errors.md#class-error).
+running* [`Error`](22-errors-part1.md#class-error).
 
 If `multicastInterface` cannot be parsed into an IP then an *EINVAL*
-[`System Error`](22-errors.md#class-systemerror) is thrown.
+[`System Error`](22-errors-part1.md#class-systemerror) is thrown.
 
 On IPv4, if `multicastInterface` is a valid address but does not match any
 interface, or if the address does not match the family then
-a [`System Error`](22-errors.md#class-systemerror) such as `EADDRNOTAVAIL` or `EPROTONOSUP` is thrown.
+a [`System Error`](22-errors-part1.md#class-systemerror) such as `EADDRNOTAVAIL` or `EPROTONOSUP` is thrown.
 
 On IPv6, most errors with specifying or omitting scope will result in the socket
 continuing to use (or returning to) the system's default interface selection.
@@ -873,7 +873,7 @@ Added in: v8.7.0
 Sets the `SO_RCVBUF` socket option. Sets the maximum socket receive buffer
 in bytes.
 
-This method throws [`ERR_SOCKET_BUFFER_SIZE`](22-errors.md#err_socket_buffer_size) if called on an unbound socket.
+This method throws [`ERR_SOCKET_BUFFER_SIZE`](22-errors-part3.md#err_socket_buffer_size) if called on an unbound socket.
 
 ### `socket.setSendBufferSize(size)`
 
@@ -884,7 +884,7 @@ Added in: v8.7.0
 Sets the `SO_SNDBUF` socket option. Sets the maximum socket send buffer
 in bytes.
 
-This method throws [`ERR_SOCKET_BUFFER_SIZE`](22-errors.md#err_socket_buffer_size) if called on an unbound socket.
+This method throws [`ERR_SOCKET_BUFFER_SIZE`](22-errors-part3.md#err_socket_buffer_size) if called on an unbound socket.
 
 ### `socket.setTTL(ttl)`
 

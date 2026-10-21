@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: UDP/datagram](58-dgram.md) | [Next: Utilities](60-util.md)
+[Contents](../README.md) | [Previous: UDP/datagram](58-dgram.md) | [Next: Utilities, part 1 of 3](60-util-part1.md)
 
 Source: [https://nodejs.org/docs/latest/api/url.html](https://nodejs.org/docs/latest/api/url.html)
 
@@ -632,10 +632,10 @@ Added in: v16.7.0
 | --- | --- |
 | v24.0.0, v22.17.0 | Marking the API stable. |
 
-- `blob` [`<Blob>`](07-buffer.md#class-blob)
+- `blob` [`<Blob>`](07-buffer-part1.md#class-blob)
 - Returns: [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 
-Creates a `'blob:nodedata:...'` URL string that represents the given [`<Blob>`](07-buffer.md#class-blob)
+Creates a `'blob:nodedata:...'` URL string that represents the given [`<Blob>`](07-buffer-part1.md#class-blob)
 object and can be used to retrieve the `Blob` later.
 
 ```js
@@ -653,7 +653,7 @@ const otherBlob = resolveObjectURL(id);
 console.log(otherBlob.size);
 ```
 
-The data stored by the registered [`<Blob>`](07-buffer.md#class-blob) will be retained in memory until `URL.revokeObjectURL()` is called to remove it.
+The data stored by the registered [`<Blob>`](07-buffer-part1.md#class-blob) will be retained in memory until `URL.revokeObjectURL()` is called to remove it.
 
 `Blob` objects are registered within the current thread. If using Worker
 Threads, `Blob` objects registered within one Worker will not be available
@@ -672,7 +672,7 @@ Added in: v16.7.0
 - `id` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) A `'blob:nodedata:...` URL string returned by a prior call to
   `URL.createObjectURL()`.
 
-Removes the stored [`<Blob>`](07-buffer.md#class-blob) identified by the given ID. Attempting to revoke a
+Removes the stored [`<Blob>`](07-buffer-part1.md#class-blob) identified by the given ID. Attempting to revoke a
 ID that isn't registered will silently fail.
 
 #### `URL.canParse(input[, base])`
@@ -1343,8 +1343,8 @@ fileURLToPath('file:///hello world');      // Correct:   /hello world (POSIX)
     return as a windows filepath, `false` for posix, and
     `undefined` for the system default.
     **Default:** `undefined`.
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) The fully-resolved platform-specific Node.js file path
-  as a [`<Buffer>`](07-buffer.md#class-buffer).
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) The fully-resolved platform-specific Node.js file path
+  as a [`<Buffer>`](07-buffer-part1.md#class-buffer).
 
 Like `url.fileURLToPath(...)` except that instead of returning a string
 representation of the path, a `Buffer` is returned. This conversion is
@@ -1494,7 +1494,7 @@ Added in: v15.7.0, v14.18.0
     Authorization header.
 
 This utility function converts a URL object into an ordinary options object as
-expected by the [`http.request()`](27-http.md#httprequestoptions-callback) and [`https.request()`](29-https.md#httpsrequestoptions-callback) APIs.
+expected by the [`http.request()`](27-http-part3.md#httprequestoptions-callback) and [`https.request()`](29-https.md#httpsrequestoptions-callback) APIs.
 
 *ES module version:*
 
@@ -1695,14 +1695,14 @@ url.format({
 ```
 
 If `urlObject` is not an object or a string, `url.format()` will throw a
-[`TypeError`](22-errors.md#class-typeerror).
+[`TypeError`](22-errors-part1.md#class-typeerror).
 
 The formatting process operates as follows:
 
 - A new empty string `result` is created.
 - If `urlObject.protocol` is a string, it is appended as-is to `result`.
 - Otherwise, if `urlObject.protocol` is not `undefined` and is not a string, an
-  [`Error`](22-errors.md#class-error) is thrown.
+  [`Error`](22-errors-part1.md#class-error) is thrown.
 - For all string values of `urlObject.protocol` that *do not end* with an ASCII
   colon (`:`) character, the literal string `:` will be appended to `result`.
 - If either of the following conditions is true, then the literal string `//`
@@ -1717,7 +1717,7 @@ The formatting process operates as follows:
 - If the `urlObject.host` property is `undefined` then:
   - If the `urlObject.hostname` is a string, it is appended to `result`.
   - Otherwise, if `urlObject.hostname` is not `undefined` and is not a string,
-    an [`Error`](22-errors.md#class-error) is thrown.
+    an [`Error`](22-errors-part1.md#class-error) is thrown.
   - If the `urlObject.port` property value is truthy, and `urlObject.hostname`
     is not `undefined`:
     - The literal string `:` is appended to `result`, and
@@ -1730,7 +1730,7 @@ The formatting process operates as follows:
     (`/`), then the literal string `'/'` is appended to `result`.
   - The value of `urlObject.pathname` is appended to `result`.
 - Otherwise, if `urlObject.pathname` is not `undefined` and is not a string, an
-  [`Error`](22-errors.md#class-error) is thrown.
+  [`Error`](22-errors-part1.md#class-error) is thrown.
 - If the `urlObject.search` property is `undefined` and if the `urlObject.query`
   property is an `Object`, the literal string `?` is appended to `result`
   followed by the output of calling the [`querystring`](45-querystring.md) module's `stringify()`
@@ -1740,13 +1740,13 @@ The formatting process operates as follows:
     mark (`?`) character, the literal string `?` is appended to `result`.
   - The value of `urlObject.search` is appended to `result`.
 - Otherwise, if `urlObject.search` is not `undefined` and is not a string, an
-  [`Error`](22-errors.md#class-error) is thrown.
+  [`Error`](22-errors-part1.md#class-error) is thrown.
 - If the `urlObject.hash` property is a string:
   - If the value of `urlObject.hash` *does not start* with the ASCII hash (`#`)
     character, the literal string `#` is appended to `result`.
   - The value of `urlObject.hash` is appended to `result`.
 - Otherwise, if the `urlObject.hash` property is not `undefined` and is not a
-  string, an [`Error`](22-errors.md#class-error) is thrown.
+  string, an [`Error`](22-errors-part1.md#class-error) is thrown.
 - `result` is returned.
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/node-url-to-whatwg-url)).
@@ -1974,4 +1974,4 @@ console.log(myURL.origin);
 // Prints https://xn--1xa.example.com
 ```
 
-[Contents](../README.md) | [Previous: UDP/datagram](58-dgram.md) | [Next: Utilities](60-util.md)
+[Contents](../README.md) | [Previous: UDP/datagram](58-dgram.md) | [Next: Utilities, part 1 of 3](60-util-part1.md)

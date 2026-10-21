@@ -258,7 +258,7 @@ a [`port.postMessage()`](#portpostmessagevalue-transferlist) call, an error is t
 In particular, this makes sense for objects that can be cloned, rather than
 transferred, and which are used by other objects on the sending side.
 For example, Node.js marks the `ArrayBuffer`s it uses for its
-[`Buffer` pool](07-buffer.md#static-method-bufferallocunsafesize-alignment) with this.
+[`Buffer` pool](07-buffer-part1.md#static-method-bufferallocunsafesize-alignment) with this.
 `ArrayBuffer.prototype.transfer()` is disallowed on such array buffer
 instances.
 
@@ -483,24 +483,24 @@ Added in: v22.5.0, v20.19.0
 
 Stability: 1.1 - Active development
 
-- `threadId` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) The target thread ID. If the thread ID is invalid, a [`ERR_WORKER_MESSAGING_FAILED`](22-errors.md#err_worker_messaging_failed) error will be thrown. If the target thread ID is the current thread ID,
-  a [`ERR_WORKER_MESSAGING_SAME_THREAD`](22-errors.md#err_worker_messaging_same_thread) error will be thrown.
+- `threadId` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) The target thread ID. If the thread ID is invalid, a [`ERR_WORKER_MESSAGING_FAILED`](22-errors-part4.md#err_worker_messaging_failed) error will be thrown. If the target thread ID is the current thread ID,
+  a [`ERR_WORKER_MESSAGING_SAME_THREAD`](22-errors-part4.md#err_worker_messaging_same_thread) error will be thrown.
 - `value` [`<any>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#Data_types) The value to send.
 - `transferList` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)[] If one or more `MessagePort`-like objects are passed in `value`,
-  a `transferList` is required for those items or [`ERR_MISSING_MESSAGE_PORT_IN_TRANSFER_LIST`](22-errors.md#err_missing_message_port_in_transfer_list) is thrown.
+  a `transferList` is required for those items or [`ERR_MISSING_MESSAGE_PORT_IN_TRANSFER_LIST`](22-errors-part4.md#err_missing_message_port_in_transfer_list) is thrown.
   See [`port.postMessage()`](#portpostmessagevalue-transferlist) for more information.
 - `timeout` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Time to wait for the message to be delivered in milliseconds.
   By default it's `undefined`, which means wait forever. If the operation times out,
-  a [`ERR_WORKER_MESSAGING_TIMEOUT`](22-errors.md#err_worker_messaging_timeout) error is thrown.
+  a [`ERR_WORKER_MESSAGING_TIMEOUT`](22-errors-part4.md#err_worker_messaging_timeout) error is thrown.
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) A promise which is fulfilled if the message was successfully processed by destination thread.
 
 Sends a value to another worker, identified by its thread ID.
 
 If the target thread has no listener for the `workerMessage` event, then the operation will throw
-a [`ERR_WORKER_MESSAGING_FAILED`](22-errors.md#err_worker_messaging_failed) error.
+a [`ERR_WORKER_MESSAGING_FAILED`](22-errors-part4.md#err_worker_messaging_failed) error.
 
 If the target thread threw an error while processing the `workerMessage` event, then the operation will throw
-a [`ERR_WORKER_MESSAGING_ERRORED`](22-errors.md#err_worker_messaging_errored) error.
+a [`ERR_WORKER_MESSAGING_ERRORED`](22-errors-part4.md#err_worker_messaging_errored) error.
 
 This method should be used when the target thread is not the direct
 parent or child of the current thread.
@@ -1163,15 +1163,15 @@ In particular, the significant differences to `JSON` are:
 - `value` may contain [`WebAssembly.Module`](https://developer.mozilla.org/en-US/docs/WebAssembly/Reference/JavaScript_interface/Module) instances.
 - `value` may not contain native (C++-backed) objects other than:
   - [`<CryptoKey>`](65-webcrypto.md#class-cryptokey)s,
-  - [`<FileHandle>`](24-fs.md#class-filehandle)s,
+  - [`<FileHandle>`](24-fs-part1.md#class-filehandle)s,
   - [`<Histogram>`](41-perf-hooks.md#class-histogram)s,
-  - [`<KeyObject>`](15-crypto.md#class-keyobject)s,
+  - [`<KeyObject>`](15-crypto-part2.md#class-keyobject)s,
   - [`<MessagePort>`](67-worker-threads.md#class-messageport)s,
   - [`<net.BlockList>`](38-net.md#class-netblocklist)s,
   - [`<net.Server>`](38-net.md#class-netserver)s (TCP only, when listed in `transferList`),
   - [`<net.Socket>`](38-net.md#class-netsocket)s (TCP only, when listed in `transferList`),
   - [`<net.SocketAddress>`](38-net.md#class-netsocketaddress)es,
-  - [`<X509Certificate>`](15-crypto.md#class-x509certificate)s.
+  - [`<X509Certificate>`](15-crypto-part2.md#class-x509certificate)s.
 
 *ES module version:*
 
@@ -1202,7 +1202,7 @@ port2.postMessage(circularData);
 ```
 
 `transferList` may be a list of [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer), [`MessagePort`](#class-messageport),
-[`FileHandle`](24-fs.md#class-filehandle), [`<net.Server>`](38-net.md#class-netserver), [`<net.Socket>`](38-net.md#class-netsocket), and [`<net.BoundSocket>`](38-net.md#class-netboundsocket) objects.
+[`FileHandle`](24-fs-part1.md#class-filehandle), [`<net.Server>`](38-net.md#class-netserver), [`<net.Socket>`](38-net.md#class-netsocket), and [`<net.BoundSocket>`](38-net.md#class-netboundsocket) objects.
 After transferring, they are not usable on the sending side of the channel
 anymore (even if they are not contained in `value`).
 
@@ -1283,7 +1283,7 @@ behind this API, see the [serialization API of the `node:v8` module](61-v8.md#se
 
 #### Considerations when transferring TypedArrays and Buffers
 
-All [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<Buffer>`](07-buffer.md#class-buffer) instances are views over an underlying
+All [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<Buffer>`](07-buffer-part1.md#class-buffer) instances are views over an underlying
 [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer). That is, it is the `ArrayBuffer` that actually stores
 the raw data while the `TypedArray` and `Buffer` objects provide a
 way of viewing and manipulating the data. It is possible and common
@@ -1322,7 +1322,7 @@ which sends a copy of the entire `Buffer` pool.
 This behavior may come with unintended higher memory
 usage and possible security concerns.
 
-See [`Buffer.allocUnsafe()`](07-buffer.md#static-method-bufferallocunsafesize-alignment) for more details on `Buffer` pooling.
+See [`Buffer.allocUnsafe()`](07-buffer-part1.md#static-method-bufferallocunsafesize-alignment) for more details on `Buffer` pooling.
 
 The `ArrayBuffer`s for `Buffer` instances created using
 `Buffer.alloc()` or `Buffer.allocUnsafeSlow()` can always be
@@ -1333,7 +1333,7 @@ those `ArrayBuffer`s unusable.
 
 Because object cloning uses the [HTML structured clone algorithm](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Structured_clone_algorithm),
 non-enumerable properties, property accessors, and object prototypes are
-not preserved. In particular, [`<Buffer>`](07-buffer.md#class-buffer) objects will be read as
+not preserved. In particular, [`<Buffer>`](07-buffer-part1.md#class-buffer) objects will be read as
 plain [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)s on the receiving side, and instances of JavaScript
 classes will be cloned as plain JavaScript objects.
 
@@ -1432,22 +1432,22 @@ Most Node.js APIs are available inside of it.
 
 Notable differences inside a Worker environment are:
 
-- The [`process.stdin`](43-process.md#processstdin), [`process.stdout`](43-process.md#processstdout), and [`process.stderr`](43-process.md#processstderr)
+- The [`process.stdin`](43-process-part3.md#processstdin), [`process.stdout`](43-process-part3.md#processstdout), and [`process.stderr`](43-process-part3.md#processstderr)
   streams may be redirected by the parent thread.
 - The [`require('node:worker_threads').isMainThread`](#worker_threadsismainthread) property is set to `false`.
 - The [`require('node:worker_threads').parentPort`](#worker_threadsparentport) message port is available.
-- [`process.exit()`](43-process.md#processexitcode) does not stop the whole program, just the single thread,
-  and [`process.abort()`](43-process.md#processabort) is not available.
-- [`process.chdir()`](43-process.md#processchdirdirectory) and `process` methods that set group or user ids
+- [`process.exit()`](43-process-part1.md#processexitcode) does not stop the whole program, just the single thread,
+  and [`process.abort()`](43-process-part1.md#processabort) is not available.
+- [`process.chdir()`](43-process-part1.md#processchdirdirectory) and `process` methods that set group or user ids
   are not available.
-- [`process.env`](43-process.md#processenv) is a copy of the parent thread's environment variables,
+- [`process.env`](43-process-part1.md#processenv) is a copy of the parent thread's environment variables,
   unless otherwise specified. Changes to one copy are not visible in other
   threads, and are not visible to native add-ons (unless
   [`worker.SHARE_ENV`](#worker_threadsshare_env) is passed as the `env` option to the
   [`Worker`](#class-worker) constructor). On Windows, unlike the main thread, a copy of the
   environment variables operates in a case-sensitive manner.
-- [`process.title`](43-process.md#processtitle) cannot be modified.
-- Signals are not delivered through [`process.on('...')`](43-process.md#signal-events).
+- [`process.title`](43-process-part3.md#processtitle) cannot be modified.
+- Signals are not delivered through [`process.on('...')`](43-process-part1.md#signal-events).
 - Execution may stop at any point as a result of [`worker.terminate()`](#workerterminate)
   being invoked.
 - IPC channels from parent processes are not accessible.
@@ -1561,7 +1561,7 @@ Added in: v10.5.0
   - `execArgv` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] List of node CLI options passed to the worker.
     V8 options (such as `--max-old-space-size`) and options that affect the
     process (such as `--title`) are not supported. If set, this is provided
-    as [`process.execArgv`](43-process.md#processexecargv) inside the worker. By default, options are
+    as [`process.execArgv`](43-process-part1.md#processexecargv) inside the worker. By default, options are
     inherited from the parent thread.
     Passing an explicit `execArgv` (including an empty array) replaces that
     inheritance: the worker receives only the listed flags. Under the
@@ -1582,14 +1582,14 @@ Added in: v10.5.0
     is thrown if the object cannot be cloned (e.g. because it contains
     `function`s).
   - `trackUnmanagedFds` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If this is set to `true`, then the Worker
-    tracks raw file descriptors managed through [`fs.open()`](24-fs.md#fsopenpath-flags-mode-callback) and
-    [`fs.close()`](24-fs.md#fsclosefd-callback), and closes them when the Worker exits, similar to other
+    tracks raw file descriptors managed through [`fs.open()`](24-fs-part4.md#fsopenpath-flags-mode-callback) and
+    [`fs.close()`](24-fs-part3.md#fsclosefd-callback), and closes them when the Worker exits, similar to other
     resources like network sockets or file descriptors managed through
-    the [`FileHandle`](24-fs.md#class-filehandle) API. This option is automatically inherited by all
+    the [`FileHandle`](24-fs-part1.md#class-filehandle) API. This option is automatically inherited by all
     nested `Worker`s. **Default:** `true`.
   - `transferList` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)[] If one or more `MessagePort`-like objects
     are passed in `workerData`, a `transferList` is required for those
-    items or [`ERR_MISSING_MESSAGE_PORT_IN_TRANSFER_LIST`](22-errors.md#err_missing_message_port_in_transfer_list) is thrown.
+    items or [`ERR_MISSING_MESSAGE_PORT_IN_TRANSFER_LIST`](22-errors-part4.md#err_missing_message_port_in_transfer_list) is thrown.
     See [`port.postMessage()`](#portpostmessagevalue-transferlist) for more information.
   - `resourceLimits` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) An optional set of resource limits for the new JS
     engine instance. Reaching these limits leads to termination of the `Worker`
@@ -1634,7 +1634,7 @@ Added in: v10.5.0
 - `exitCode` [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 
 The `'exit'` event is emitted once the worker has stopped. If the worker
-exited by calling [`process.exit()`](43-process.md#processexitcode), the `exitCode` parameter is the
+exited by calling [`process.exit()`](43-process-part1.md#processexitcode), the `exitCode` parameter is the
 passed exit code. If the worker was terminated, the `exitCode` parameter is
 `1`.
 
@@ -1674,8 +1674,8 @@ Added in: v24.6.0, v22.19.0
 
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-This method returns a `Promise` that will resolve to an object identical to [`process.threadCpuUsage()`](43-process.md#processthreadcpuusagepreviousvalue),
-or reject with an [`ERR_WORKER_NOT_RUNNING`](22-errors.md#err_worker_not_running) error if the worker is no longer running.
+This method returns a `Promise` that will resolve to an object identical to [`process.threadCpuUsage()`](43-process-part3.md#processthreadcpuusagepreviousvalue),
+or reject with an [`ERR_WORKER_NOT_RUNNING`](22-errors-part4.md#err_worker_not_running) error if the worker is no longer running.
 This methods allows the statistics to be observed from outside the actual thread.
 
 ### `worker.getHeapSnapshot([options])`
@@ -1700,7 +1700,7 @@ See [`v8.getHeapSnapshot()`](61-v8.md#v8getheapsnapshotoptions) for more details
 
 If the Worker thread is no longer running, which may occur before the
 [`'exit'` event](#event-exit) is emitted, the returned `Promise` is rejected
-immediately with an [`ERR_WORKER_NOT_RUNNING`](22-errors.md#err_worker_not_running) error.
+immediately with an [`ERR_WORKER_NOT_RUNNING`](22-errors-part4.md#err_worker_not_running) error.
 
 ### `worker.getHeapStatistics()`
 
@@ -1709,7 +1709,7 @@ Added in: v24.0.0, v22.16.0
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 This method returns a `Promise` that will resolve to an object identical to [`v8.getHeapStatistics()`](61-v8.md#v8getheapstatistics),
-or reject with an [`ERR_WORKER_NOT_RUNNING`](22-errors.md#err_worker_not_running) error if the worker is no longer running.
+or reject with an [`ERR_WORKER_NOT_RUNNING`](22-errors-part4.md#err_worker_not_running) error if the worker is no longer running.
 This methods allows the statistics to be observed from outside the actual thread.
 
 ### `worker.performance`
@@ -1961,33 +1961,33 @@ w.on('online', async () => {
 
 Added in: v10.5.0
 
-- Type: [`<stream.Readable>`](51-stream.md#class-streamreadable)
+- Type: [`<stream.Readable>`](51-stream-part1.md#class-streamreadable)
 
-This is a readable stream which contains data written to [`process.stderr`](43-process.md#processstderr)
+This is a readable stream which contains data written to [`process.stderr`](43-process-part3.md#processstderr)
 inside the worker thread. If `stderr: true` was not passed to the
 [`Worker`](#class-worker) constructor, then data is piped to the parent thread's
-[`process.stderr`](43-process.md#processstderr) stream.
+[`process.stderr`](43-process-part3.md#processstderr) stream.
 
 ### `worker.stdin`
 
 Added in: v10.5.0
 
-- Type: [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) | [`<stream.Writable>`](51-stream.md#class-streamwritable)
+- Type: [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) | [`<stream.Writable>`](51-stream-part1.md#class-streamwritable)
 
 If `stdin: true` was passed to the [`Worker`](#class-worker) constructor, this is a
 writable stream. The data written to this stream will be made available in
-the worker thread as [`process.stdin`](43-process.md#processstdin).
+the worker thread as [`process.stdin`](43-process-part3.md#processstdin).
 
 ### `worker.stdout`
 
 Added in: v10.5.0
 
-- Type: [`<stream.Readable>`](51-stream.md#class-streamreadable)
+- Type: [`<stream.Readable>`](51-stream-part1.md#class-streamreadable)
 
-This is a readable stream which contains data written to [`process.stdout`](43-process.md#processstdout)
+This is a readable stream which contains data written to [`process.stdout`](43-process-part3.md#processstdout)
 inside the worker thread. If `stdout: true` was not passed to the
 [`Worker`](#class-worker) constructor, then data is piped to the parent thread's
-[`process.stdout`](43-process.md#processstdout) stream.
+[`process.stdout`](43-process-part3.md#processstdout) stream.
 
 ### `worker.terminate()`
 

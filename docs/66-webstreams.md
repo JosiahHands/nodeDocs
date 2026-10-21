@@ -20,7 +20,7 @@ An implementation of the [WHATWG Streams Standard](https://streams.spec.whatwg.o
 ## Overview
 
 The [WHATWG Streams Standard](https://streams.spec.whatwg.org/) (or "web streams") defines an API for handling
-streaming data. It is similar to the Node.js [Streams](51-stream.md) API but emerged later
+streaming data. It is similar to the Node.js [Streams](51-stream-part1.md) API but emerged later
 and has become the "standard" API for streaming data across many JavaScript
 environments.
 
@@ -96,16 +96,16 @@ const stream = new ReadableStream({
 
 ### Node.js streams interoperability
 
-Node.js streams can be converted to web streams and vice versa via the `toWeb` and `fromWeb` methods present on [`stream.Readable`](51-stream.md#class-streamreadable), [`stream.Writable`](51-stream.md#class-streamwritable) and [`stream.Duplex`](51-stream.md#class-streamduplex) objects.
+Node.js streams can be converted to web streams and vice versa via the `toWeb` and `fromWeb` methods present on [`stream.Readable`](51-stream-part1.md#class-streamreadable), [`stream.Writable`](51-stream-part1.md#class-streamwritable) and [`stream.Duplex`](51-stream-part2.md#class-streamduplex) objects.
 
 For more details refer to the relevant documentation:
 
-- [`stream.Readable.toWeb`](51-stream.md#streamreadabletowebstreamreadable-options)
-- [`stream.Readable.fromWeb`](51-stream.md#streamreadablefromwebreadablestream-options)
-- [`stream.Writable.toWeb`](51-stream.md#streamwritabletowebstreamwritable)
-- [`stream.Writable.fromWeb`](51-stream.md#streamwritablefromwebwritablestream-options)
-- [`stream.Duplex.toWeb`](51-stream.md#streamduplextowebstreamduplex-options)
-- [`stream.Duplex.fromWeb`](51-stream.md#streamduplexfromwebpair-options)
+- [`stream.Readable.toWeb`](51-stream-part3.md#streamreadabletowebstreamreadable-options)
+- [`stream.Readable.fromWeb`](51-stream-part2.md#streamreadablefromwebreadablestream-options)
+- [`stream.Writable.toWeb`](51-stream-part3.md#streamwritabletowebstreamwritable)
+- [`stream.Writable.fromWeb`](51-stream-part3.md#streamwritablefromwebwritablestream-options)
+- [`stream.Duplex.toWeb`](51-stream-part3.md#streamduplextowebstreamduplex-options)
+- [`stream.Duplex.fromWeb`](51-stream-part3.md#streamduplexfromwebpair-options)
 
 ## API
 
@@ -457,7 +457,7 @@ async function* asyncIterableGenerator() {
 ```
 
 To pipe the resulting [`<ReadableStream>`](66-webstreams.md#class-readablestream) into a [`<WritableStream>`](66-webstreams.md#class-writablestream) the [`<Iterable>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Iteration_protocols#the_iterable_protocol)
-should yield a sequence of [`<Buffer>`](07-buffer.md#class-buffer), [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray), or [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) objects.
+should yield a sequence of [`<Buffer>`](07-buffer-part1.md#class-buffer), [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray), or [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) objects.
 
 *ES module version:*
 
@@ -669,7 +669,7 @@ Added in: v16.5.0
 | --- | --- |
 | v21.7.0, v20.17.0 | Added `min` option. |
 
-- `view` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+- `view` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `min` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) When set, the returned promise will only be
     fulfilled as soon as `min` number of elements are available.
@@ -683,7 +683,7 @@ Requests the next chunk of data from the underlying [`<ReadableStream>`](66-webs
 and returns a promise that is fulfilled with the data once it is
 available.
 
-Do not pass a pooled [`<Buffer>`](07-buffer.md#class-buffer) object instance in to this method.
+Do not pass a pooled [`<Buffer>`](07-buffer-part1.md#class-buffer) object instance in to this method.
 Pooled `Buffer` objects are created using `Buffer.allocUnsafe()`,
 or `Buffer.from()`, or are often returned by various `node:fs` module
 callbacks. These types of `Buffer`s use a shared underlying
@@ -777,7 +777,7 @@ queue.
 
 Added in: v16.5.0
 
-- `chunk` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+- `chunk` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 
 Appends a new chunk of data to the [`<ReadableStream>`](66-webstreams.md#class-readablestream)'s queue.
 
@@ -822,7 +822,7 @@ to `readableStreamBYOBRequest.view`.
 
 Added in: v16.5.0
 
-- `view` [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+- `view` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 
 Signals that the request has been fulfilled with bytes written
 to a new `Buffer`, `TypedArray`, or `DataView`.
@@ -831,7 +831,7 @@ to a new `Buffer`, `TypedArray`, or `DataView`.
 
 Added in: v16.5.0
 
-- Type: [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
+- Type: [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView)
 
 ### Class: `WritableStream`
 
@@ -1470,7 +1470,7 @@ const {
 
 Added in: v16.7.0
 
-- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
+- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfills with an `ArrayBuffer` containing the full
   contents of the stream.
 
@@ -1510,8 +1510,8 @@ arrayBuffer(readable).then((data) => {
 
 Added in: v16.7.0
 
-- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
-- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfills with a [`<Blob>`](07-buffer.md#class-blob) containing the full contents
+- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
+- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfills with a [`<Blob>`](07-buffer-part1.md#class-blob) containing the full contents
   of the stream.
 
 *ES module version:*
@@ -1545,8 +1545,8 @@ blob(readable).then((data) => {
 
 Added in: v16.7.0
 
-- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
-- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfills with a [`<Buffer>`](07-buffer.md#class-buffer) containing the full
+- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
+- Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfills with a [`<Buffer>`](07-buffer-part1.md#class-buffer) containing the full
   contents of the stream.
 
 *ES module version:*
@@ -1584,7 +1584,7 @@ buffer(readable).then((data) => {
 
 Added in: v25.6.0, v24.14.0
 
-- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
+- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfills with a [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) containing the full
   contents of the stream.
 
@@ -1623,7 +1623,7 @@ bytes(readable).then((data) => {
 
 Added in: v16.7.0
 
-- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
+- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfills with the contents of the stream parsed as a
   UTF-8 encoded string that is then passed through `JSON.parse()`.
 
@@ -1674,7 +1674,7 @@ json(readable).then((data) => {
 
 Added in: v16.7.0
 
-- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
+- `stream` [`<ReadableStream>`](66-webstreams.md#class-readablestream) | [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) | [`<AsyncIterator>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/AsyncIterator)
 - Returns: [`<Promise>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) Fulfills with the contents of the stream parsed as a
   UTF-8 encoded string.
 

@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Errors](22-errors.md) | [Next: File system](24-fs.md)
+[Contents](../README.md) | [Previous: Errors, part 5 of 5](22-errors-part5.md) | [Next: File system, part 1 of 7](24-fs-part1.md)
 
 Source: [https://nodejs.org/docs/latest/api/events.html](https://nodejs.org/docs/latest/api/events.html)
 
@@ -11,8 +11,8 @@ event-driven architecture in which certain kinds of objects (called "emitters")
 emit named events that cause `Function` objects ("listeners") to be called.
 
 For instance: a [`net.Server`](38-net.md#class-netserver) object emits an event each time a peer
-connects to it; a [`fs.ReadStream`](24-fs.md#class-fsreadstream) emits an event when the file is opened;
-a [stream](51-stream.md) emits an event whenever data is available to be read.
+connects to it; a [`fs.ReadStream`](24-fs-part6.md#class-fsreadstream) emits an event when the file is opened;
+a [stream](51-stream-part1.md) emits an event whenever data is available to be read.
 
 All objects that emit events are instances of the `EventEmitter` class. These
 objects expose an `eventEmitter.on()` function that allows one or more
@@ -1245,7 +1245,7 @@ emitter.once('event', () => {
 The [`--trace-warnings`](13-cli.md#--trace-warnings) command-line flag can be used to display the
 stack trace for such warnings.
 
-The emitted warning can be inspected with [`process.on('warning')`](43-process.md#event-warning) and will
+The emitted warning can be inspected with [`process.on('warning')`](43-process-part1.md#event-warning) and will
 have the additional `emitter`, `type`, and `count` properties, referring to
 the event emitter instance, the event's name and the number of attached
 listeners, respectively.
@@ -2638,4 +2638,4 @@ Node.js-specific extension to the `EventTarget` class that removes the
 and `removeEventListener()` is that `removeListener()` will return a reference
 to the `EventTarget`.
 
-[Contents](../README.md) | [Previous: Errors](22-errors.md) | [Next: File system](24-fs.md)
+[Contents](../README.md) | [Previous: Errors, part 5 of 5](22-errors-part5.md) | [Next: File system, part 1 of 7](24-fs-part1.md)

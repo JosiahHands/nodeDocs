@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: File system](24-fs.md) | [Next: Globals](26-globals.md)
+[Contents](../README.md) | [Previous: File system, part 7 of 7](24-fs-part7.md) | [Next: Globals](26-globals.md)
 
 Source: [https://nodejs.org/docs/latest/api/ffi.html](https://nodejs.org/docs/latest/api/ffi.html)
 
@@ -50,7 +50,7 @@ restricted unless the [`--allow-ffi`](13-cli.md#--allow-ffi) flag is provided.
 Some FFI operations require runtime allocation of executable memory. If an
 otherwise eligible Fast API function cannot be created because executable memory
 is unavailable, creation throws
-[`ERR_RX_MEMORY_NOT_SUPPORTED`](22-errors.md#err_rx_memory_not_supported) rather than
+[`ERR_RX_MEMORY_NOT_SUPPORTED`](22-errors-part3.md#err_rx_memory_not_supported) rather than
 selecting another call path. Callback allocation can also report this error.
 Loading the module or a library does not itself require generated trampolines.
 
@@ -463,7 +463,7 @@ Returns an object containing all previously resolved symbol addresses.
 Creates a native callback pointer backed by a JavaScript function.
 
 If libffi cannot allocate a closure and executable memory is unavailable, this
-method throws [`ERR_RX_MEMORY_NOT_SUPPORTED`](22-errors.md#err_rx_memory_not_supported).
+method throws [`ERR_RX_MEMORY_NOT_SUPPORTED`](22-errors-part3.md#err_rx_memory_not_supported).
 Other closure allocation failures throw `ERR_FFI_CALL_FAILED`. Platform-specific
 libffi implementations may provide callbacks without dynamically generated code.
 
@@ -643,7 +643,7 @@ met:
 - The process can allocate executable memory. Node.js checks once per process
   whether it can allocate memory and mark it executable. If that check fails,
   creating an otherwise eligible function throws
-  [`ERR_RX_MEMORY_NOT_SUPPORTED`](22-errors.md#err_rx_memory_not_supported).
+  [`ERR_RX_MEMORY_NOT_SUPPORTED`](22-errors-part3.md#err_rx_memory_not_supported).
 - Neither the return type nor any argument type is `function`.
 - The signature has at most 8 arguments, and every argument fits in the
   argument registers available to the trampoline on the current platform.
@@ -793,7 +793,7 @@ Added in: v26.1.0
 - `pointer` [`<bigint>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#bigint_type)
 - `length` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 - `copy` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) When `false`, creates a zero-copy view. **Default:** `true`.
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer)
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer)
 
 Creates a `Buffer` from native memory.
 
@@ -862,7 +862,7 @@ available storage. This function does not allocate memory on its own.
 
 Added in: v26.1.0
 
-- `buffer` [`<Buffer>`](07-buffer.md#class-buffer)
+- `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer)
 - `pointer` [`<bigint>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#bigint_type)
 - `length` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 
@@ -909,7 +909,7 @@ available storage. This function does not allocate memory on its own.
 
 Added in: v26.1.0
 
-- `source` [`<Buffer>`](07-buffer.md#class-buffer) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<SharedArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) | [`<ArrayBufferView>`](https://developer.mozilla.org/docs/Web/API/ArrayBufferView)
+- `source` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<ArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer) | [`<SharedArrayBuffer>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer) | [`<ArrayBufferView>`](https://developer.mozilla.org/docs/Web/API/ArrayBufferView)
 - Returns: [`<bigint>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#bigint_type)
 
 Returns the raw memory address of JavaScript-managed byte storage.
@@ -956,4 +956,4 @@ In particular:
 As a general rule, prefer copied values unless zero-copy access is required,
 and keep callback and pointer lifetimes explicit on the native side.
 
-[Contents](../README.md) | [Previous: File system](24-fs.md) | [Next: Globals](26-globals.md)
+[Contents](../README.md) | [Previous: File system, part 7 of 7](24-fs-part7.md) | [Next: Globals](26-globals.md)

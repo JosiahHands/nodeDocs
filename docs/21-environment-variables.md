@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Domain](20-domain.md) | [Next: Errors](22-errors.md)
+[Contents](../README.md) | [Previous: Domain](20-domain.md) | [Next: Errors, part 1 of 5](22-errors-part1.md)
 
 Source: [https://nodejs.org/docs/latest/api/environment_variables.html](https://nodejs.org/docs/latest/api/environment_variables.html)
 
@@ -16,7 +16,7 @@ for more details refer to the [CLI Environment Variables documentation](13-cli.m
 The basic API for interacting with environment variables is `process.env`, it consists of an object
 with pre-populated user environment variables that can be modified and expanded.
 
-For more details refer to the [`process.env` documentation](43-process.md#processenv).
+For more details refer to the [`process.env` documentation](43-process-part1.md#processenv).
 
 ## DotEnv
 
@@ -144,7 +144,7 @@ export MY_VAR = my variable
 
 There following two functions allow you to directly interact with `.env` files:
 
-- [`process.loadEnvFile`](43-process.md#processloadenvfilepath) loads an `.env` file and populates `process.env` with its variables
-- [`util.parseEnv`](60-util.md#utilparseenvcontent) parses the raw content of an `.env` file and returns its value in an object
+- [`process.loadEnvFile`](43-process-part2.md#processloadenvfilepath) loads an `.env` file and populates `process.env` with its variables
+- [`util.parseEnv`](60-util-part2.md#utilparseenvcontent) parses the raw content of an `.env` file and returns its value in an object
 
-[Contents](../README.md) | [Previous: Domain](20-domain.md) | [Next: Errors](22-errors.md)
+[Contents](../README.md) | [Previous: Domain](20-domain.md) | [Next: Errors, part 1 of 5](22-errors-part1.md)

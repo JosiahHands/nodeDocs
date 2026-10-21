@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: FFI](25-ffi.md) | [Next: HTTP](27-http.md)
+[Contents](../README.md) | [Previous: FFI](25-ffi.md) | [Next: HTTP, part 1 of 3](27-http-part1.md)
 
 Source: [https://nodejs.org/docs/latest/api/globals.html](https://nodejs.org/docs/latest/api/globals.html)
 
@@ -195,7 +195,7 @@ Added in: v16.0.0
 
 Stability: 3 - Legacy. Use `Buffer.from(data, 'base64')` instead.
 
-Global alias for [`buffer.atob()`](07-buffer.md#bufferatobdata).
+Global alias for [`buffer.atob()`](07-buffer-part3.md#bufferatobdata).
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/buffer-atob-btoa)):
 
@@ -207,7 +207,7 @@ npx codemod@latest @nodejs/buffer-atob-btoa
 
 Added in: v18.0.0
 
-See [`<Blob>`](07-buffer.md#class-blob).
+See [`<Blob>`](07-buffer-part1.md#class-blob).
 
 ## Class: `BroadcastChannel`
 
@@ -221,7 +221,7 @@ Added in: v16.0.0
 
 Stability: 3 - Legacy. Use `buf.toString('base64')` instead.
 
-Global alias for [`buffer.btoa()`](07-buffer.md#bufferbtoadata).
+Global alias for [`buffer.btoa()`](07-buffer-part3.md#bufferbtoadata).
 
 An automated migration is available ([source](https://github.com/nodejs/userland-migrations/tree/main/recipes/buffer-atob-btoa)):
 
@@ -235,7 +235,7 @@ Added in: v0.1.103
 
 - Type: [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 
-Used to handle binary data. See the [buffer section](07-buffer.md).
+Used to handle binary data. See the [buffer section](07-buffer-part1.md).
 
 ## Class: `ByteLengthQueuingStrategy`
 
@@ -483,7 +483,7 @@ The following globals are available to use with `fetch`:
 
 Added in: v20.0.0
 
-See [`<File>`](07-buffer.md#class-file).
+See [`<File>`](07-buffer-part3.md#class-file).
 
 ## Class: `FormData`
 
@@ -764,7 +764,7 @@ Added in: v0.1.7
 
 - Type: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
-The process object. See the [`process` object](43-process.md#process) section.
+The process object. See the [`process` object](43-process-part1.md#process) section.
 
 ## `queueMicrotask(callback)`
 
@@ -773,11 +773,11 @@ Added in: v11.0.0
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Function to be queued.
 
 The `queueMicrotask()` method queues a microtask to invoke `callback`. If
-`callback` throws an exception, the [`process` object](43-process.md#process) `'uncaughtException'`
+`callback` throws an exception, the [`process` object](43-process-part1.md#process) `'uncaughtException'`
 event will be emitted.
 
 The microtask queue is managed by V8 and may be used in a similar manner to
-the [`process.nextTick()`](43-process.md#processnexttickcallback-args) queue, which is managed by Node.js. The
+the [`process.nextTick()`](43-process-part2.md#processnexttickcallback-args) queue, which is managed by Node.js. The
 `process.nextTick()` queue is always processed before the microtask queue
 within each turn of the Node.js event loop.
 
@@ -975,7 +975,7 @@ only if the Node.js binary was compiled with including support for the `node:cr
 
 Added in: v11.0.0
 
-The WHATWG `TextDecoder` class. See the [`TextDecoder`](60-util.md#class-utiltextdecoder) section.
+The WHATWG `TextDecoder` class. See the [`TextDecoder`](60-util-part2.md#class-utiltextdecoder) section.
 
 ## Class: `TextDecoderStream`
 
@@ -993,7 +993,7 @@ A browser-compatible implementation of [`TextDecoderStream`](66-webstreams.md#cl
 
 Added in: v11.0.0
 
-The WHATWG `TextEncoder` class. See the [`TextEncoder`](60-util.md#class-utiltextencoder) section.
+The WHATWG `TextEncoder` class. See the [`TextEncoder`](60-util-part2.md#class-utiltextencoder) section.
 
 ## Class: `TextEncoderStream`
 
@@ -1129,7 +1129,7 @@ accepted and how failures are reported:
   working directory, because there is no document base URL. Within a worker
   they are resolved against the worker's own URL (as is done in the spec).
 - For `blob:` URLs, the script must be held in memory, so blobs backed by a file,
-  such as those returned by [`fs.openAsBlob()`](24-fs.md#fsopenasblobpath-options), cannot be used.
+  such as those returned by [`fs.openAsBlob()`](24-fs-part4.md#fsopenasblobpath-options), cannot be used.
 
 [Type stripping](37-typescript.md#type-stripping) only applies to module workers loaded from
 `file:` URLs. The `type` option, not the file extension, decides how an entry is
@@ -1170,7 +1170,7 @@ Inside a worker, [`worker_threads.parentPort`][] is the port behind
 `false`, and `workerData` is `undefined`.
 
 Web Workers, like `node:worker_threads` workers, keep the event loop alive by
-default. In Node.js, Web Workers implement the [Refable protocol](43-process.md#processrefmayberefable), and can be
+default. In Node.js, Web Workers implement the [Refable protocol](43-process-part2.md#processrefmayberefable), and can be
 ref'd and unref'd using `process.ref(worker)` and `process.unref(worker)`.
 
 As a rule of thumb, use [`node:worker_threads`](67-worker-threads.md) directly when a program
@@ -1217,4 +1217,4 @@ Added in: v18.0.0
 
 A browser-compatible implementation of [`WritableStreamDefaultWriter`](66-webstreams.md#class-writablestreamdefaultwriter).
 
-[Contents](../README.md) | [Previous: FFI](25-ffi.md) | [Next: HTTP](27-http.md)
+[Contents](../README.md) | [Previous: FFI](25-ffi.md) | [Next: HTTP, part 1 of 3](27-http-part1.md)

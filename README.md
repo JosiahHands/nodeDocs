@@ -2,11 +2,11 @@
 
 The complete Node.js API documentation (v26.12.1) as one continuous web page, made for listening from start to finish with Microsoft Edge Read Aloud.
 
-**Open the page: https://raw.githack.com/JosiahHands/nodeDocs/main/index.html**
+**Open the page: https://nodedocs.pages.dev/**
 
-This link is served by raw.githack.com, a free third-party service (not GitHub) that shows files from this repository as a web page. GitHub Pages is not switched on for this repository. To switch it on: Settings, Pages, Deploy from a branch, branch main, folder / (root). The page should then appear at https://josiahhands.github.io/nodeDocs/ (untested).
+The site is hosted on Cloudflare Pages, connected to this repository: each push to the main branch is published there automatically.
 
-The same page in the repository: [index.html](index.html)
+The same page in the repository: [index.html](index.html), with its styles in [style.css](style.css).
 
 ## Limitations (please read first)
 
@@ -19,6 +19,7 @@ The same page in the repository: [index.html](index.html)
 - Source: the official Node.js API documentation, https://nodejs.org/docs/latest/api/
 - Version: v26.12.1
 - Contents: all 68 modules of the official table of contents, in the official order, on one page. A short contents list at the top links to each module. Links between modules jump within the page.
+- Styles: basic reading styles in style.css (system font, 18px text, line height 1.6, a centered column of about 50rem, light and dark mode that follow the system setting, wrapped code blocks, bordered tables).
 - Code samples that the website shows in two versions keep both, each with a short visible label (ES module version or CommonJS version). Other code blocks start with "Code example:", and every code block ends with "End of code."
 - Type names are written for listening, for example "path (string or Buffer): filename or file descriptor" instead of the bracketed form used on nodejs.org.
 - Earlier Markdown and plain text versions of this documentation are available in the repository history.
@@ -32,7 +33,7 @@ The same page in the repository: [index.html](index.html)
 
 These steps are a suggestion and have not been tested yet.
 
-1. Open https://raw.githack.com/JosiahHands/nodeDocs/main/index.html in Microsoft Edge.
+1. Open https://nodedocs.pages.dev/ in Microsoft Edge.
 2. Press Ctrl+Shift+U to start Read Aloud.
 3. Optional: press F9 first to open Immersive Reader, then start Read Aloud. This is also untested, and it may not work for a page this large.
 

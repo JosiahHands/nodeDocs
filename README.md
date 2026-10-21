@@ -4,6 +4,8 @@ The complete Node.js API documentation (v26.12.1) as one continuous web page, ma
 
 **Open the page: https://nodedocs.pages.dev/**
 
+**Short version: https://nodedocs.pages.dev/summary.html** is a summary of the whole documentation at about 1% of its length (about 5,500 words, roughly 37 minutes of listening), one section per module in the same order. Its Markdown twin is [summary.md](summary.md).
+
 The site is hosted on Cloudflare Pages, connected to this repository: each push to the main branch is published there automatically.
 
 The same page in the repository: [index.html](index.html), with its styles in [style.css](style.css).

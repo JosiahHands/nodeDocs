@@ -6,6 +6,8 @@ Part 4 of 4 of this section.
 
 # C/C++ addons with Node-API (part 4 of 4)
 
+Continues: C/C++ addons with Node-API. A new section starts here.
+
 ## Object wrap
 
 Node-API offers a way to "wrap" C++ classes and instances so that the class

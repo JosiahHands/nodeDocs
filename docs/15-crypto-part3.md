@@ -6,6 +6,8 @@ Part 3 of 6 of this section.
 
 # Crypto (part 3 of 6)
 
+Continues: Class: X509Certificate.
+
 ### `x509.checkHost(name[, options])`
 
 Added in: v15.6.0

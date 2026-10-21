@@ -6,6 +6,8 @@ Part 2 of 6 of this section.
 
 # Crypto (part 2 of 6)
 
+Continues: Class: DiffieHellman.
+
 ### `diffieHellman.getPublicKey([encoding])`
 
 Added in: v0.5.0

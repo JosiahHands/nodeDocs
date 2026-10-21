@@ -6,6 +6,8 @@ Part 3 of 4 of this section.
 
 # C/C++ addons with Node-API (part 3 of 4)
 
+Continues: Working with JavaScript values. Subsection: Functions to convert from Node-API to C types.
+
 #### `napi_get_prototype`
 
 Added in: v8.0.0**N-API Version:** 1

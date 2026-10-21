@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: HTTP/2](28-http2.md) | [Next: Inspector](30-inspector.md)
+[Contents](../README.md) | [Previous: HTTP/2, part 4 of 4](28-http2-part4.md) | [Next: Inspector](30-inspector.md)
 
 Source: [https://nodejs.org/docs/latest/api/https.html](https://nodejs.org/docs/latest/api/https.html)
 
@@ -55,13 +55,13 @@ Added in: v0.4.5
 | v5.3.0 | support `0` `maxCachedSessions` to disable TLS session caching. |
 | v2.5.0 | parameter `maxCachedSessions` added to `options` for TLS sessions reuse. |
 
-An [`Agent`](#class-httpsagent) object for HTTPS similar to [`http.Agent`](27-http.md#class-httpagent). See
+An [`Agent`](#class-httpsagent) object for HTTPS similar to [`http.Agent`](27-http-part1.md#class-httpagent). See
 [`https.request()`](#httpsrequestoptions-callback) for more information.
 
 Like `http.Agent`, the `createConnection(options[, callback])` method can be overridden
 to customize how TLS connections are established.
 
-> See [`agent.createConnection()`](27-http.md#agentcreateconnectionoptions-callback) for details on overriding this method,
+> See [`agent.createConnection()`](27-http-part1.md#agentcreateconnectionoptions-callback) for details on overriding this method,
 > including asynchronous socket creation with a callback.
 
 ### `new Agent([options])`
@@ -75,7 +75,7 @@ to customize how TLS connections are established.
 | v12.5.0 | do not automatically set servername if the target host was specified using an IP address. |
 
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) Set of configurable options to set on the agent.
-  Can have the same fields as for [`http.Agent(options)`](27-http.md#new-agentoptions), and
+  Can have the same fields as for [`http.Agent(options)`](27-http-part1.md#new-agentoptions), and
   - `maxCachedSessions` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) maximum number of TLS cached sessions.
     Use `0` to disable TLS session caching. **Default:** `100`.
   - `servername` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) the value of [Server Name Indication extension](https://en.wikipedia.org/wiki/Server_Name_Indication) to be sent to the server. Use
@@ -94,7 +94,7 @@ for connection reuse or TLS session reuse by an `https.Agent`, unless the
 
 Added in: v13.2.0, v12.16.0
 
-- `line` [`<Buffer>`](07-buffer.md#class-buffer) Line of ASCII text, in NSS `SSLKEYLOGFILE` format.
+- `line` [`<Buffer>`](07-buffer-part1.md#class-buffer) Line of ASCII text, in NSS `SSLKEYLOGFILE` format.
 - `tlsSocket` [`<tls.TLSSocket>`](55-tls.md#tlstlssocket) The `tls.TLSSocket` instance on which it was
   generated.
 
@@ -120,7 +120,7 @@ Added in: v0.3.4
 
 - Extends: [`<tls.Server>`](55-tls.md#class-tlsserver)
 
-See [`http.Server`](27-http.md#class-httpserver) for more information.
+See [`http.Server`](27-http-part1.md#class-httpserver) for more information.
 
 ### `server.close([callback])`
 
@@ -129,7 +129,7 @@ Added in: v0.1.90
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 - Returns: [`<https.Server>`](29-https.md#class-httpsserver)
 
-See [`server.close()`](27-http.md#serverclosecallback) in the `node:http` module.
+See [`server.close()`](27-http-part2.md#serverclosecallback) in the `node:http` module.
 
 ### `server[Symbol.asyncDispose]()`
 
@@ -148,13 +148,13 @@ fulfills when the server has closed.
 
 Added in: v18.2.0
 
-See [`server.closeAllConnections()`](27-http.md#servercloseallconnections) in the `node:http` module.
+See [`server.closeAllConnections()`](27-http-part2.md#servercloseallconnections) in the `node:http` module.
 
 ### `server.closeIdleConnections()`
 
 Added in: v18.2.0
 
-See [`server.closeIdleConnections()`](27-http.md#servercloseidleconnections) in the `node:http` module.
+See [`server.closeIdleConnections()`](27-http-part2.md#servercloseidleconnections) in the `node:http` module.
 
 ### `server.headersTimeout`
 
@@ -162,7 +162,7 @@ Added in: v11.3.0
 
 - Type: [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `60000`
 
-See [`server.headersTimeout`](27-http.md#serverheaderstimeout) in the `node:http` module.
+See [`server.headersTimeout`](27-http-part2.md#serverheaderstimeout) in the `node:http` module.
 
 ### `server.listen()`
 
@@ -173,7 +173,7 @@ This method is identical to [`server.listen()`](38-net.md#serverlisten) from [`n
 
 - Type: [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `1000`
 
-See [`server.maxHeadersCount`](27-http.md#servermaxheaderscount) in the `node:http` module.
+See [`server.maxHeadersCount`](27-http-part2.md#servermaxheaderscount) in the `node:http` module.
 
 ### `server.requestTimeout`
 
@@ -187,7 +187,7 @@ Added in: v14.11.0
 
 - Type: [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `300000`
 
-See [`server.requestTimeout`](27-http.md#serverrequesttimeout) in the `node:http` module.
+See [`server.requestTimeout`](27-http-part2.md#serverrequesttimeout) in the `node:http` module.
 
 ### `server.setTimeout([msecs][, callback])`
 
@@ -197,7 +197,7 @@ Added in: v0.11.2
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 - Returns: [`<https.Server>`](29-https.md#class-httpsserver)
 
-See [`server.setTimeout()`](27-http.md#serversettimeoutmsecs-callback) in the `node:http` module.
+See [`server.setTimeout()`](27-http-part2.md#serversettimeoutmsecs-callback) in the `node:http` module.
 
 ### `server.timeout`
 
@@ -211,7 +211,7 @@ Added in: v0.11.2
 
 - Type: [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** 0 (no timeout)
 
-See [`server.timeout`](27-http.md#servertimeout) in the `node:http` module.
+See [`server.timeout`](27-http-part2.md#servertimeout) in the `node:http` module.
 
 ### `server.keepAliveTimeout`
 
@@ -219,14 +219,14 @@ Added in: v8.0.0
 
 - Type: [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) **Default:** `5000` (5 seconds)
 
-See [`server.keepAliveTimeout`](27-http.md#serverkeepalivetimeout) in the `node:http` module.
+See [`server.keepAliveTimeout`](27-http-part2.md#serverkeepalivetimeout) in the `node:http` module.
 
 ## `https.createServer([options][, requestListener])`
 
 Added in: v0.3.4
 
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) Accepts `options` from [`tls.createServer()`](55-tls.md#tlscreateserveroptions-secureconnectionlistener),
-  [`tls.createSecureContext()`](55-tls.md#tlscreatesecurecontextoptions) and [`http.createServer()`](27-http.md#httpcreateserveroptions-requestlistener).
+  [`tls.createSecureContext()`](55-tls.md#tlscreatesecurecontextoptions) and [`http.createServer()`](27-http-part3.md#httpcreateserveroptions-requestlistener).
 - `requestListener` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) A listener to be added to the `'request'` event.
 - Returns: [`<https.Server>`](29-https.md#class-httpsserver)
 
@@ -333,9 +333,9 @@ Added in: v0.3.6
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<URL>`](59-url.md#the-whatwg-url-api) Accepts the same `options` as
   [`https.request()`](#httpsrequestoptions-callback), with the method set to GET by default.
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
-- Returns: [`<http.ClientRequest>`](27-http.md#class-httpclientrequest)
+- Returns: [`<http.ClientRequest>`](27-http-part1.md#class-httpclientrequest)
 
-Like [`http.get()`](27-http.md#httpgetoptions-callback) but for HTTPS.
+Like [`http.get()`](27-http-part3.md#httpgetoptions-callback) but for HTTPS.
 
 `options` can be an object, a string, or a [`URL`](59-url.md#the-whatwg-url-api) object. If `options` is a
 string, it is automatically parsed with [`new URL()`](59-url.md#new-urlinput-base). If it is a [`URL`](59-url.md#the-whatwg-url-api)
@@ -411,12 +411,12 @@ Added in: v0.3.6
 
 - `url` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<URL>`](59-url.md#the-whatwg-url-api)
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<URL>`](59-url.md#the-whatwg-url-api) Accepts all `options` from
-  [`http.request()`](27-http.md#httprequestoptions-callback), with some differences in default values:
+  [`http.request()`](27-http-part3.md#httprequestoptions-callback), with some differences in default values:
   - `protocol` **Default:** `'https:'`
   - `port` **Default:** `443`
   - `agent` **Default:** `https.globalAgent`
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
-- Returns: [`<http.ClientRequest>`](27-http.md#class-httpclientrequest)
+- Returns: [`<http.ClientRequest>`](27-http-part1.md#class-httpclientrequest)
 
 Makes a request to a secure web server.
 
@@ -430,7 +430,7 @@ The following additional `options` from [`tls.connect()`](55-tls.md#tlsconnectop
 string, it is automatically parsed with [`new URL()`](59-url.md#new-urlinput-base). If it is a [`URL`](59-url.md#the-whatwg-url-api)
 object, it will be automatically converted to an ordinary `options` object.
 
-`https.request()` returns an instance of the [`http.ClientRequest`](27-http.md#class-httpclientrequest)
+`https.request()` returns an instance of the [`http.ClientRequest`](27-http-part1.md#class-httpclientrequest)
 class. The `ClientRequest` instance is a writable stream. If one needs to
 upload a file with a POST request, then write to the `ClientRequest` object.
 
@@ -706,4 +706,4 @@ All OK. Server matched our pinned cert or public key
 statusCode: 200
 ```
 
-[Contents](../README.md) | [Previous: HTTP/2](28-http2.md) | [Next: Inspector](30-inspector.md)
+[Contents](../README.md) | [Previous: HTTP/2, part 4 of 4](28-http2-part4.md) | [Next: Inspector](30-inspector.md)

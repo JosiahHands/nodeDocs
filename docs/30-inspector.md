@@ -432,7 +432,7 @@ and flow control has been passed to the debugger client.
 See the [security warning](13-cli.md#warning-binding-inspector-to-a-public-ipport-combination-is-insecure) regarding the `host`
 parameter usage.
 
-Throws an [`ERR_INSPECTOR_NOT_AVAILABLE`](22-errors.md#err_inspector_not_available) error if [`--process-timeout`](13-cli.md#--process-timeoutduration) is
+Throws an [`ERR_INSPECTOR_NOT_AVAILABLE`](22-errors-part2.md#err_inspector_not_available) error if [`--process-timeout`](13-cli.md#--process-timeoutduration) is
 used.
 
 ### `inspector.url()`

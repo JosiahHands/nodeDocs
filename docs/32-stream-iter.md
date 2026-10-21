@@ -871,7 +871,7 @@ Added in: v25.9.0
     buffered data drains after `writer.end()`; aborting during that time fails
     the writer and rejects the pending `end()` promise.
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
-  - `writer` [`<Writable>`](51-stream.md#class-streamwritable) The writer side.
+  - `writer` [`<Writable>`](51-stream-part1.md#class-streamwritable) The writer side.
   - `readable` [`<AsyncIterable>`](https://tc39.github.io/ecma262/#sec-asynciterable-interface) whose chunks fulfill with [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)[]
 
 Create a push stream with backpressure. The writer pushes data in; the
@@ -1399,7 +1399,7 @@ Added in: v25.9.0
     `'drop-newest'`. **Default:** `'strict'`.
   - `signal` [`<AbortSignal>`](26-globals.md#class-abortsignal)
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
-  - `writer` [`<Writable>`](51-stream.md#class-streamwritable)
+  - `writer` [`<Writable>`](51-stream-part1.md#class-streamwritable)
   - `broadcast` [`<BroadcastChannel>`](67-worker-threads.md#class-broadcastchannel-extends-eventtarget)
 
 Create a push-model multi-consumer broadcast channel. A single writer pushes
@@ -1686,7 +1686,7 @@ module. See the [`node:zlib/iter` documentation](68-zlib.md#iterable-compression
 ## Classic stream interop
 
 These utility functions bridge between classic
-[`stream.Readable`](51-stream.md#class-streamreadable)/[`stream.Writable`](51-stream.md#class-streamwritable) streams and the `stream/iter`
+[`stream.Readable`](51-stream-part1.md#class-streamreadable)/[`stream.Writable`](51-stream-part1.md#class-streamwritable) streams and the `stream/iter`
 API.
 
 Both `fromReadable()` and `fromWritable()` accept duck-typed objects -- they
@@ -1699,7 +1699,7 @@ Added in: v26.1.0
 
 Stability: 1 - Experimental
 
-- `readable` [`<stream.Readable>`](51-stream.md#class-streamreadable) | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A classic Readable stream or a compatible
+- `readable` [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A classic Readable stream or a compatible
   object with `read()`, `pipe()`, `destroy()`, `on()`, and `removeListener()`
   methods.
 - Returns: [`<AsyncIterable>`](https://tc39.github.io/ecma262/#sec-asynciterable-interface) whose chunks fulfill with [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)[]
@@ -1756,7 +1756,7 @@ Added in: v26.1.0
 
 Stability: 1 - Experimental
 
-- `writable` [`<stream.Writable>`](51-stream.md#class-streamwritable) | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A classic Writable stream or a compatible
+- `writable` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable) | [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A classic Writable stream or a compatible
   object with `write()`, `end()`, `destroy()`, `on()`, and `removeListener()`
   methods.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
@@ -1836,9 +1836,9 @@ Stability: 1 - Experimental
   - `highWaterMark` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) The internal buffer size in bytes before
     backpressure is applied. **Default:** `65536` (64 KB).
   - `signal` [`<AbortSignal>`](26-globals.md#class-abortsignal) An optional signal to abort the readable.
-- Returns: [`<stream.Readable>`](51-stream.md#class-streamreadable)
+- Returns: [`<stream.Readable>`](51-stream-part1.md#class-streamreadable)
 
-Creates a byte-mode [`stream.Readable`](51-stream.md#class-streamreadable) from the `source`
+Creates a byte-mode [`stream.Readable`](51-stream-part1.md#class-streamreadable) from the `source`
 (the native batch format used by the stream/iter API). Each `Uint8Array` in a
 yielded batch is pushed as a separate chunk into the Readable.
 
@@ -1884,9 +1884,9 @@ Stability: 1 - Experimental
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `highWaterMark` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) The internal buffer size in bytes before
     backpressure is applied. **Default:** `65536` (64 KB).
-- Returns: [`<stream.Readable>`](51-stream.md#class-streamreadable)
+- Returns: [`<stream.Readable>`](51-stream-part1.md#class-streamreadable)
 
-Creates a byte-mode [`stream.Readable`](51-stream.md#class-streamreadable) from the `source`.
+Creates a byte-mode [`stream.Readable`](51-stream-part1.md#class-streamreadable) from the `source`.
 The `_read()` method pulls from the iterator
 synchronously, so data is available immediately via `readable.read()`.
 
@@ -1921,9 +1921,9 @@ Stability: 1 - Experimental
 - `writer` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) A stream/iter Writer. Only the `write()` method is
   required; `end()`, `fail()`, `writeSync()`, `writevSync()`, `endSync()`,
   and `writev()` are optional.
-- Returns: [`<stream.Writable>`](51-stream.md#class-streamwritable)
+- Returns: [`<stream.Writable>`](51-stream-part1.md#class-streamwritable)
 
-Creates a classic [`stream.Writable`](51-stream.md#class-streamwritable) backed by a stream/iter Writer.
+Creates a classic [`stream.Writable`](51-stream-part1.md#class-streamwritable) backed by a stream/iter Writer.
 
 Each `_write()` / `_writev()` call attempts the Writer's synchronous method
 first (`writeSync` / `writevSync`), falling back to the async method if the

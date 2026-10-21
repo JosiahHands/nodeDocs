@@ -18,9 +18,9 @@ programs. Some of them are:
   - Locale-sensitive methods like [`String.prototype.localeCompare()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare) and
     [`Date.prototype.toLocaleString()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleString)
 - The [WHATWG URL parser](59-url.md#the-whatwg-url-api)'s [internationalized domain names](https://en.wikipedia.org/wiki/Internationalized_domain_name) (IDNs) support
-- [`require('node:buffer').transcode()`](07-buffer.md#buffertranscodesource-fromenc-toenc)
+- [`require('node:buffer').transcode()`](07-buffer-part3.md#buffertranscodesource-fromenc-toenc)
 - More accurate [REPL](47-repl.md#repl) line editing
-- [`require('node:util').TextDecoder`](60-util.md#class-utiltextdecoder)
+- [`require('node:util').TextDecoder`](60-util-part2.md#class-utiltextdecoder)
 - [`RegExp` Unicode Property Escapes](https://github.com/tc39/proposal-regexp-unicode-property-escapes)
 
 Node.js and the underlying V8 engine use
@@ -55,9 +55,9 @@ option:
 | `Date.prototype.toLocale*String()` | partial (not locale-aware) | partial/full (depends on OS) | partial (English-only) | full |
 | [Legacy URL Parser](59-url.md#legacy-url-api) | partial (no IDN support) | full | full | full |
 | [WHATWG URL Parser](59-url.md#the-whatwg-url-api) | partial (no IDN support) | full | full | full |
-| [`require('node:buffer').transcode()`](07-buffer.md#buffertranscodesource-fromenc-toenc) | none (function does not exist) | full | full | full |
+| [`require('node:buffer').transcode()`](07-buffer-part3.md#buffertranscodesource-fromenc-toenc) | none (function does not exist) | full | full | full |
 | [REPL](47-repl.md#repl) | partial (inaccurate line editing) | full | full | full |
-| [`require('node:util').TextDecoder`](60-util.md#class-utiltextdecoder) | partial (basic encodings support) | partial/full (depends on OS) | partial (Unicode-only) | full |
+| [`require('node:util').TextDecoder`](60-util-part2.md#class-utiltextdecoder) | partial (basic encodings support) | partial/full (depends on OS) | partial (Unicode-only) | full |
 | [`RegExp` Unicode Property Escapes](https://github.com/tc39/proposal-regexp-unicode-property-escapes) | none (invalid `RegExp` error) | full | full | full |
 
 The "(not locale-aware)" designation denotes that the function carries out its

@@ -6,6 +6,8 @@ Part 3 of 4 of this section.
 
 # Buffer (part 3 of 4)
 
+Continues: Class: Buffer.
+
 ### `buf.swap32()`
 
 Added in: v5.10.0

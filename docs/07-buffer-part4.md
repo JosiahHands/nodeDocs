@@ -6,6 +6,8 @@ Part 4 of 4 of this section.
 
 # Buffer (part 4 of 4)
 
+Continues: Buffer.from(), Buffer.alloc(), and Buffer.allocUnsafe().
+
 ### The `--zero-fill-buffers` command-line option
 
 Added in: v5.10.0

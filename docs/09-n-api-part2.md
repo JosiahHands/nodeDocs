@@ -6,6 +6,8 @@ Part 2 of 4 of this section.
 
 # C/C++ addons with Node-API (part 2 of 4)
 
+Continues: Object lifetime management.
+
 ### References to values with a lifespan longer than that of the native method
 
 In some cases, an addon will need to be able to create and reference values

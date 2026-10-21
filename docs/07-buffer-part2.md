@@ -6,6 +6,8 @@ Part 2 of 4 of this section.
 
 # Buffer (part 2 of 4)
 
+Continues: Class: Buffer.
+
 ### `buf.compare(target[, targetStart[, targetEnd[, sourceStart[, sourceEnd]]]])`
 
 Added in: v0.11.13

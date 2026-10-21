@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Crypto](15-crypto.md) | [Next: Deprecated APIs](17-deprecations.md)
+[Contents](../README.md) | [Previous: Crypto, part 6 of 6](15-crypto-part6.md) | [Next: Deprecated APIs](17-deprecations.md)
 
 Source: [https://nodejs.org/docs/latest/api/debugger.html](https://nodejs.org/docs/latest/api/debugger.html)
 
@@ -632,4 +632,4 @@ For help, see: https://nodejs.org/learn/getting-started/debugging
 at the end of the URL is generated on the fly, it varies in different
 debugging sessions.)
 
-[Contents](../README.md) | [Previous: Crypto](15-crypto.md) | [Next: Deprecated APIs](17-deprecations.md)
+[Contents](../README.md) | [Previous: Crypto, part 6 of 6](15-crypto-part6.md) | [Next: Deprecated APIs](17-deprecations.md)

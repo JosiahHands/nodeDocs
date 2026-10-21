@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Command-line options](13-cli.md) | [Next: Crypto](15-crypto.md)
+[Contents](../README.md) | [Previous: Command-line options](13-cli.md) | [Next: Crypto, part 1 of 6](15-crypto-part1.md)
 
 Source: [https://nodejs.org/docs/latest/api/console.html](https://nodejs.org/docs/latest/api/console.html)
 
@@ -13,8 +13,8 @@ The module exports two specific components:
 
 - A `Console` class with methods such as `console.log()`, `console.error()`, and
   `console.warn()` that can be used to write to any Node.js stream.
-- A global `console` instance configured to write to [`process.stdout`](43-process.md#processstdout) and
-  [`process.stderr`](43-process.md#processstderr). The global `console` can be used without calling
+- A global `console` instance configured to write to [`process.stdout`](43-process-part3.md#processstdout) and
+  [`process.stderr`](43-process-part3.md#processstderr). The global `console` can be used without calling
   `require('node:console')`.
 
 ***Warning***: The global console object's methods are neither consistently
@@ -23,7 +23,7 @@ asynchronous like all other Node.js streams. Programs that desire to depend
 on the synchronous / asynchronous behavior of the console functions should
 first figure out the nature of console's backing stream. This is because the
 stream is dependent on the underlying platform and standard stream
-configuration of the current process. See the [note on process I/O](43-process.md#a-note-on-process-io) for
+configuration of the current process. See the [note on process I/O](43-process-part3.md#a-note-on-process-io) for
 more information.
 
 Example using the global `console`:
@@ -111,8 +111,8 @@ const { Console } = console;
 | v8.0.0 | The `ignoreErrors` option was introduced. |
 
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
-  - `stdout` [`<stream.Writable>`](51-stream.md#class-streamwritable)
-  - `stderr` [`<stream.Writable>`](51-stream.md#class-streamwritable)
+  - `stdout` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable)
+  - `stderr` [`<stream.Writable>`](51-stream-part1.md#class-streamwritable)
   - `ignoreErrors` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) Ignore errors when writing to the underlying
     streams. **Default:** `true`.
   - `colorMode` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Set color support for this `Console` instance.
@@ -122,7 +122,7 @@ const { Console } = console;
     and the value returned by `getColorDepth()` on the respective stream. This
     option can not be used, if `inspectOptions.colors` is set as well.
     **Default:** `'auto'`.
-  - `inspectOptions` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) | [`<Map>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map) Specifies options that are passed along to [`util.inspect()`](60-util.md#utilinspectobject-options). Can be an options object or, if different options
+  - `inspectOptions` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) | [`<Map>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map) Specifies options that are passed along to [`util.inspect()`](60-util-part1.md#utilinspectobject-options). Can be an options object or, if different options
     for stdout and stderr are desired, a `Map` from stream objects to options.
   - `groupIndentation` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Set group indentation. **Default:** `2`.
 
@@ -167,7 +167,7 @@ logger.log('count: %d', count);
 ```
 
 The global `console` is a special `Console` whose output is sent to
-[`process.stdout`](43-process.md#processstdout) and [`process.stderr`](43-process.md#processstderr). It is equivalent to calling:
+[`process.stdout`](43-process-part3.md#processstdout) and [`process.stderr`](43-process-part3.md#processstderr). It is equivalent to calling:
 
 ```js
 new Console({ stdout: process.stdout, stderr: process.stderr });
@@ -189,7 +189,7 @@ Added in: v0.1.101
 `console.assert()` writes a message if `value` is [falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy) or omitted. It only
 writes a message and does not otherwise affect execution. The output always
 starts with `"Assertion failed"`. If provided, `message` is formatted using
-[`util.format()`](60-util.md#utilformatformat-args).
+[`util.format()`](60-util-part1.md#utilformatformat-args).
 
 If `value` is [truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy), nothing happens.
 
@@ -290,14 +290,14 @@ Added in: v0.1.101
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `showHidden` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true` then the object's non-enumerable and symbol
     properties will be shown too. **Default:** `false`.
-  - `depth` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Tells [`util.inspect()`](60-util.md#utilinspectobject-options) how many times to recurse while
+  - `depth` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Tells [`util.inspect()`](60-util-part1.md#utilinspectobject-options) how many times to recurse while
     formatting the object. This is useful for inspecting large complicated
     objects. To make it recurse indefinitely, pass `null`. **Default:** `2`.
   - `colors` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If `true`, then the output will be styled with ANSI color
     codes. Colors are customizable;
-    see [customizing `util.inspect()` colors](60-util.md#customizing-utilinspect-colors). **Default:** `false`.
+    see [customizing `util.inspect()` colors](60-util-part1.md#customizing-utilinspect-colors). **Default:** `false`.
 
-Uses [`util.inspect()`](60-util.md#utilinspectobject-options) on `obj` and prints the resulting string to `stdout`.
+Uses [`util.inspect()`](60-util-part1.md#utilinspectobject-options) on `obj` and prints the resulting string to `stdout`.
 This function bypasses any custom `inspect()` function defined on `obj`.
 
 ### `console.dirxml(...data)`
@@ -324,7 +324,7 @@ Added in: v0.1.100
 
 Prints to `stderr` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html) (the arguments are all passed to [`util.format()`](60-util.md#utilformatformat-args)).
+values similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html) (the arguments are all passed to [`util.format()`](60-util-part1.md#utilformatformat-args)).
 
 ```js
 const code = 5;
@@ -335,8 +335,8 @@ console.error('error', code);
 ```
 
 If formatting elements (e.g. `%d`) are not found in the first string then
-[`util.inspect()`](60-util.md#utilinspectobject-options) is called on each argument and the resulting string
-values are concatenated. See [`util.format()`](60-util.md#utilformatformat-args) for more information.
+[`util.inspect()`](60-util-part1.md#utilinspectobject-options) is called on each argument and the resulting string
+values are concatenated. See [`util.format()`](60-util-part1.md#utilformatformat-args) for more information.
 
 ### `console.group([...label])`
 
@@ -381,7 +381,7 @@ Added in: v0.1.100
 
 Prints to `stdout` with newline. Multiple arguments can be passed, with the
 first used as the primary message and all additional used as substitution
-values similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html) (the arguments are all passed to [`util.format()`](60-util.md#utilformatformat-args)).
+values similar to [`printf(3)`](http://man7.org/linux/man-pages/man3/printf.3.html) (the arguments are all passed to [`util.format()`](60-util-part1.md#utilformatformat-args)).
 
 ```js
 const count = 5;
@@ -391,7 +391,7 @@ console.log('count:', count);
 // Prints: count: 5, to stdout
 ```
 
-See [`util.format()`](60-util.md#utilformatformat-args) for more information.
+See [`util.format()`](60-util-part1.md#utilformatformat-args) for more information.
 
 ### `console.table(tabularData[, properties])`
 
@@ -490,7 +490,7 @@ Added in: v0.1.104
 - `message` [`<any>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#Data_types)
 - `...args` [`<any>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#Data_types)
 
-Prints to `stderr` the string `'Trace: '`, followed by the [`util.format()`](60-util.md#utilformatformat-args)
+Prints to `stderr` the string `'Trace: '`, followed by the [`util.format()`](60-util-part1.md#utilformatformat-args)
 formatted message and stack trace to the current position in the code.
 
 ```js
@@ -566,4 +566,4 @@ This method does not display anything unless used in the inspector. The
 `console.timeStamp()` method adds an event with the label `'label'` to the
 **Timeline** panel of the inspector.
 
-[Contents](../README.md) | [Previous: Command-line options](13-cli.md) | [Next: Crypto](15-crypto.md)
+[Contents](../README.md) | [Previous: Command-line options](13-cli.md) | [Next: Crypto, part 1 of 6](15-crypto-part1.md)

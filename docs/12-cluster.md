@@ -262,7 +262,7 @@ Similar to the `'message'` event of `cluster`, but specific to this worker.
 
 Within a worker, `process.on('message')` may also be used.
 
-See [`process` event: `'message'`](43-process.md#event-message).
+See [`process` event: `'message'`](43-process-part1.md#event-message).
 
 Here is an example using the message system. It keeps a count in the primary
 process of the number of HTTP requests received by the workers:
@@ -582,7 +582,7 @@ disconnect, it has the same behavior as `worker.process.kill()`.
 This method is aliased as `worker.destroy()` for backwards compatibility.
 
 In a worker, `process.kill()` exists, but it is not this function;
-it is [`kill()`](43-process.md#processkillpid-signal).
+it is [`kill()`](43-process-part2.md#processkillpid-signal).
 
 ### `worker.process`
 

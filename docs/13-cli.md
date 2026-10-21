@@ -85,7 +85,7 @@ Aborting instead of exiting causes a core file to be generated for post-mortem
 analysis using a debugger (such as `lldb`, `gdb`, and `mdb`).
 
 If this flag is passed, the behavior can still be set to not abort through
-[`process.setUncaughtExceptionCaptureCallback()`](43-process.md#processsetuncaughtexceptioncapturecallbackfn) (and through usage of the
+[`process.setUncaughtExceptionCaptureCallback()`](43-process-part3.md#processsetuncaughtexceptioncapturecallbackfn) (and through usage of the
 `node:domain` module that uses it).
 
 ### `--allow-addons`
@@ -351,7 +351,7 @@ Stability: 1.1 - Active development
 
 When using the [Permission Model](42-permissions.md#permission-model), the process will not be able to use
 OpenSSL STORE loaders by default, for example to load a private key from a
-[`<URL>`](59-url.md#the-whatwg-url-api) passed to [`crypto.createPrivateKey()`](15-crypto.md#cryptocreateprivatekeykey). Attempts to do so will throw
+[`<URL>`](59-url.md#the-whatwg-url-api) passed to [`crypto.createPrivateKey()`](15-crypto-part3.md#cryptocreateprivatekeykey). Attempts to do so will throw
 an `ERR_ACCESS_DENIED` unless the user explicitly passes the
 `--allow-openssl-store` flag. This permission can be dropped at runtime via
 [`permission.drop()`](42-permissions.md#permissiondropscope-reference).
@@ -946,7 +946,7 @@ Stability: 2 - Stable
 
 Disable specific process warnings by `code` or `type`.
 
-Warnings emitted from [`process.emitWarning()`](43-process.md#processemitwarningwarning-options) may contain a
+Warnings emitted from [`process.emitWarning()`](43-process-part1.md#processemitwarningwarning-options) may contain a
 `code` and a `type`. This option will not-emit warnings that have a matching
 `code` or `type`.
 
@@ -1061,7 +1061,7 @@ priority than `--dns-result-order`.
 
 Added in: v6.0.0
 
-Enable [FIPS mode](15-crypto.md#fips-mode) at startup. With OpenSSL 3, a configured provider named
+Enable [FIPS mode](15-crypto-part6.md#fips-mode) at startup. With OpenSSL 3, a configured provider named
 `fips` must be available and initialize successfully. With OpenSSL 1.1.1,
 Node.js must be built against a FIPS-capable OpenSSL.
 
@@ -1071,7 +1071,7 @@ Added in: v26.9.0
 
 Publish OpenSSL FIPS indicator results to the
 [`'crypto.fips.indicator'`](18-diagnostics-channel.md#event-cryptofipsindicator) diagnostics channel. This option requires OpenSSL
-3.4 or later. It does not enable [FIPS mode](15-crypto.md#fips-mode) or change whether an operation
+3.4 or later. It does not enable [FIPS mode](15-crypto-part6.md#fips-mode) or change whether an operation
 is permitted.
 
 ### `--enable-source-maps`
@@ -1412,7 +1412,7 @@ Added in: v19.7.0, v18.15.0
 When used in conjunction with the `node:test` module, a code coverage report is
 generated as part of the test runner output. If no tests are run, a coverage
 report is not generated. See the documentation on
-[collecting code coverage from tests](53-test.md#collecting-code-coverage) for more details.
+[collecting code coverage from tests](53-test-part1.md#collecting-code-coverage) for more details.
 
 ### `--experimental-test-module-mocks`
 
@@ -1443,7 +1443,7 @@ declare tags via the `tags` option on `test()`, `it()`, `suite()`, or
 The expression supports boolean operators (`and`/`&&`, `or`/`||`,
 `not`/`!`), parentheses for grouping, and `*` wildcards inside identifiers.
 Standard precedence applies: `not` binds tighter than `and`, which binds
-tighter than `or`. See [Test tags](53-test.md#test-tags) for the full grammar and behavior.
+tighter than `or`. See [Test tags](53-test-part1.md#test-tags) for the full grammar and behavior.
 
 The flag may be specified more than once; multiple expressions are combined
 with AND, so a test must satisfy every expression to run.
@@ -1508,7 +1508,7 @@ Added in: v6.0.0
 | --- | --- |
 | v26.9.0 | Added the optional `provider` and `strict` modes. |
 
-Enable [FIPS mode](15-crypto.md#fips-mode) at startup and prevent it from being disabled from script
+Enable [FIPS mode](15-crypto-part6.md#fips-mode) at startup and prevent it from being disabled from script
 code. The same OpenSSL requirements as [`--enable-fips`](#--enable-fips) apply.
 
 An optional mode can be specified using `--force-fips=mode`:
@@ -1733,8 +1733,8 @@ Node.js will try to detect the syntax with the following steps:
 1. Run the input as CommonJS.
 2. If step 1 fails, run the input as an ES module.
 3. If step 2 fails with a SyntaxError, strip the types.
-4. If step 3 fails with an error code [`ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`](22-errors.md#err_unsupported_typescript_syntax)
-   or [`ERR_INVALID_TYPESCRIPT_SYNTAX`](22-errors.md#err_invalid_typescript_syntax),
+4. If step 3 fails with an error code [`ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`](22-errors-part4.md#err_unsupported_typescript_syntax)
+   or [`ERR_INVALID_TYPESCRIPT_SYNTAX`](22-errors-part2.md#err_invalid_typescript_syntax),
    throw the error from step 2, including the TypeScript error in the message,
    else run as CommonJS.
 5. If step 4 fails, run the input as an ES module.
@@ -1861,14 +1861,14 @@ required on some platforms for security reasons. It can also reduce attack
 surface on other platforms, but the performance impact may be severe.
 
 When WebAssembly is unavailable in this mode, TypeScript parsing and WebAssembly
-module imports throw [`ERR_WEBASSEMBLY_NOT_SUPPORTED`](22-errors.md#err_webassembly_not_supported). Node.js does not
+module imports throw [`ERR_WEBASSEMBLY_NOT_SUPPORTED`](22-errors-part4.md#err_webassembly_not_supported). Node.js does not
 guarantee alternative implementations of features that require WebAssembly or
 runtime allocation of executable memory when those capabilities are unavailable.
 
 This flag controls V8's runtime code generation. It does not impose an
 operating-system restriction on executable memory allocated by native addons or
 [`node:ffi`](25-ffi.md). FFI operations that require unavailable executable memory can
-throw [`ERR_RX_MEMORY_NOT_SUPPORTED`](22-errors.md#err_rx_memory_not_supported).
+throw [`ERR_RX_MEMORY_NOT_SUPPORTED`](22-errors-part3.md#err_rx_memory_not_supported).
 
 ### `--localstorage-file=file`
 
@@ -2115,7 +2115,7 @@ Added in: v6.9.0
 
 Load an OpenSSL configuration file on startup. The file can activate an
 OpenSSL 3 FIPS provider or configure a FIPS-capable OpenSSL 1.1.1 build. See
-[FIPS mode](15-crypto.md#fips-mode).
+[FIPS mode](15-crypto-part6.md#fips-mode).
 
 This option takes precedence over the `OPENSSL_CONF` environment variable.
 
@@ -2319,7 +2319,7 @@ Child processes that inherit `process.execArgv`, such as those created with
 [`child_process.fork()`](11-child-process.md#child_processforkmodulepath-args-options), apply the timeout from their own start. With
 [`--watch`](#--watch), the timeout applies to each run of the application rather than
 to the process that watches for changes. When
-[running tests from the command line](53-test.md#running-tests-from-the-command-line), the test runner process applies the
+[running tests from the command line](53-test-part1.md#running-tests-from-the-command-line), the test runner process applies the
 timeout to the whole run, and each test file that runs in its own process
 applies it as well.
 
@@ -2637,7 +2637,7 @@ Added in: v18.1.0, v16.17.0
 
 Starts the Node.js command line test runner. This flag cannot be combined with
 `--watch-path`, `--check`, `--eval`, `--interactive`, or the inspector.
-See the documentation on [running tests from the command line](53-test.md#running-tests-from-the-command-line)
+See the documentation on [running tests from the command line](53-test-part1.md#running-tests-from-the-command-line)
 for more details.
 
 ### `--test-concurrency`
@@ -2736,7 +2736,7 @@ Stability: 1.0 - Early development
 Specify a module that will be evaluated before all tests are executed and
 can be used to setup global state or fixtures for tests.
 
-See the documentation on [global setup and teardown](53-test.md#global-setup-and-teardown) for more details.
+See the documentation on [global setup and teardown](53-test-part1.md#global-setup-and-teardown) for more details.
 
 ### `--test-isolation=mode`
 
@@ -2752,7 +2752,7 @@ Configures the type of test isolation used in the test runner. When `mode` is
 `'process'`, each test file is run in a separate child process. When `mode` is
 `'none'`, all test files run in the same process as the test runner. The default
 isolation mode is `'process'`. This flag is ignored if the `--test` flag is not
-present. See the [test runner execution model](53-test.md#test-runner-execution-model) section for more information.
+present. See the [test runner execution model](53-test-part1.md#test-runner-execution-model) section for more information.
 
 ### `--test-name-pattern`
 
@@ -2766,7 +2766,7 @@ Added in: v18.11.0
 
 A regular expression that configures the test runner to only execute tests
 whose name matches the provided pattern. See the documentation on
-[filtering tests by name](53-test.md#filtering-tests-by-name) for more details.
+[filtering tests by name](53-test-part1.md#filtering-tests-by-name) for more details.
 
 If both `--test-name-pattern` and `--test-skip-pattern` are supplied,
 tests must satisfy **both** requirements in order to be executed.
@@ -2808,7 +2808,7 @@ The seed used for randomization is printed in the test summary and can be
 reused with `--test-random-seed`.
 
 For detailed behavior and examples, see
-[randomizing tests execution order](53-test.md#randomizing-tests-execution-order).
+[randomizing tests execution order](53-test-part1.md#randomizing-tests-execution-order).
 
 This flag cannot be used with `--watch` or `--test-rerun-failures`.
 
@@ -2823,7 +2823,7 @@ Added in: v19.6.0, v18.15.0
 | v20.0.0 | The test runner is now stable. |
 
 A test reporter to use when running tests. See the documentation on
-[test reporters](53-test.md#test-reporters) for more details.
+[test reporters](53-test-part1.md#test-reporters) for more details.
 
 ### `--test-reporter-destination`
 
@@ -2836,7 +2836,7 @@ Added in: v19.6.0, v18.15.0
 | v20.0.0 | The test runner is now stable. |
 
 The destination for the corresponding test reporter. See the documentation on
-[test reporters](53-test.md#test-reporters) for more details.
+[test reporters](53-test-part1.md#test-reporters) for more details.
 
 ### `--test-rerun-failures`
 
@@ -2847,7 +2847,7 @@ suite between runs. The test runner will use this file to determine which tests
 have already succeeded or failed, allowing for re-running of failed tests
 without having to re-run the entire test suite. The test runner will create this
 file if it does not exist.
-See the documentation on [test reruns](53-test.md#rerunning-failed-tests) for more details.
+See the documentation on [test reruns](53-test-part1.md#rerunning-failed-tests) for more details.
 
 ### `--test-shard`
 
@@ -2875,7 +2875,7 @@ Added in: v22.1.0
 
 A regular expression that configures the test runner to skip tests
 whose name matches the provided pattern. See the documentation on
-[filtering tests by name](53-test.md#filtering-tests-by-name) for more details.
+[filtering tests by name](53-test-part1.md#filtering-tests-by-name) for more details.
 
 If both `--test-name-pattern` and `--test-skip-pattern` are supplied,
 tests must satisfy **both** requirements in order to be executed.
@@ -2897,7 +2897,7 @@ Added in: v22.3.0
 | --- | --- |
 | v23.4.0, v22.13.0 | Snapshot testing is no longer experimental. |
 
-Regenerates the snapshot files used by the test runner for [snapshot testing](53-test.md#snapshot-testing).
+Regenerates the snapshot files used by the test runner for [snapshot testing](53-test-part1.md#snapshot-testing).
 
 ### `--throw-deprecation`
 
@@ -3100,13 +3100,13 @@ Added in: v12.0.0, v10.17.0
 Using this flag allows to change what should happen when an unhandled rejection
 occurs. One of the following modes can be chosen:
 
-- `throw`: Emit [`unhandledRejection`](43-process.md#event-unhandledrejection). If this hook is not set, raise the
+- `throw`: Emit [`unhandledRejection`](43-process-part1.md#event-unhandledrejection). If this hook is not set, raise the
   unhandled rejection as an uncaught exception. This is the default.
 - `strict`: Raise the unhandled rejection as an uncaught exception. If the
-  exception is handled, [`unhandledRejection`](43-process.md#event-unhandledrejection) is emitted.
-- `warn`: Always trigger a warning, no matter if the [`unhandledRejection`](43-process.md#event-unhandledrejection)
+  exception is handled, [`unhandledRejection`](43-process-part1.md#event-unhandledrejection) is emitted.
+- `warn`: Always trigger a warning, no matter if the [`unhandledRejection`](43-process-part1.md#event-unhandledrejection)
   hook is set or not but do not print the deprecation warning.
-- `warn-with-error-code`: Emit [`unhandledRejection`](43-process.md#event-unhandledrejection). If this hook is not
+- `warn-with-error-code`: Emit [`unhandledRejection`](43-process-part1.md#event-unhandledrejection). If this hook is not
   set, trigger a warning, and set the process exit code to 1.
 - `none`: Silence all warnings.
 
@@ -3145,7 +3145,7 @@ specified proxy.
 Use this only with proxies that are trusted and authorized for the deployment.
 Proxy support is intended for reaching external networks through authorized
 proxy servers, for example when a firewall requires one. It is not for hiding
-traffic or evading network policy. See [Built-in Proxy Support](27-http.md#built-in-proxy-support).
+traffic or evading network policy. See [Built-in Proxy Support](27-http-part3.md#built-in-proxy-support).
 
 This is equivalent to setting the [`NODE_USE_ENV_PROXY=1`](#node_use_env_proxy1) environment variable.
 When both are set, `--use-env-proxy` takes precedence.
@@ -3394,7 +3394,7 @@ node --watch --watch-preserve-output test.js
 
 Added in: v6.0.0
 
-Automatically zero-fills all newly allocated [`Buffer`](07-buffer.md#class-buffer) instances.
+Automatically zero-fills all newly allocated [`Buffer`](07-buffer-part1.md#class-buffer) instances.
 
 ## Environment variables
 
@@ -3472,7 +3472,7 @@ Added in: v7.3.0
 When set, the well known "root" CAs (like VeriSign) will be extended with the
 extra certificates in `file`. The file should consist of one or more trusted
 certificates in PEM format. A message will be emitted (once) with
-[`process.emitWarning()`](43-process.md#processemitwarningwarning-options) if the file is missing or
+[`process.emitWarning()`](43-process-part1.md#processemitwarningwarning-options) if the file is missing or
 malformed, but any errors are otherwise ignored.
 
 Neither the well known nor extra certificates are used when the `ca`
@@ -3834,7 +3834,7 @@ specified proxy.
 Use this only with proxies that are trusted and authorized for the deployment.
 Proxy support is intended for reaching external networks through authorized
 proxy servers, for example when a firewall requires one. It is not for hiding
-traffic or evading network policy. See [Built-in Proxy Support](27-http.md#built-in-proxy-support).
+traffic or evading network policy. See [Built-in Proxy Support](27-http-part3.md#built-in-proxy-support).
 
 This can also be enabled using the [`--use-env-proxy`](#--use-env-proxy) command-line flag.
 When both are set, `--use-env-proxy` takes precedence.
@@ -3935,13 +3935,13 @@ environment variable is arbitrary.
 Added in: v6.11.0
 
 Load an OpenSSL configuration file on startup. The file can be used as part of
-a [FIPS mode](15-crypto.md#fips-mode) configuration.
+a [FIPS mode](15-crypto-part6.md#fips-mode) configuration.
 
 If the variable is set to an empty value, Node.js starts without loading any
 OpenSSL configuration file. This is a way past a default configuration file
 that exists but cannot be read, for example when `/etc/ssl` is not accessible
 to the user Node.js runs as, which is otherwise fatal at startup. No
-configuration is applied in that case, including any [FIPS mode](15-crypto.md#fips-mode) setup the
+configuration is applied in that case, including any [FIPS mode](15-crypto-part6.md#fips-mode) setup the
 file would have performed.
 
 If the [`--openssl-config`](#--openssl-configfile) command-line option is used, the environment

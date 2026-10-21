@@ -6,6 +6,8 @@ Part 2 of 4 of this section.
 
 # Stream (part 2 of 4)
 
+Continues: API for stream consumers. Subsection: Readable streams.
+
 ##### `readable.readableEncoding`
 
 Added in: v12.7.0

@@ -6,6 +6,8 @@ Part 3 of 4 of this section.
 
 # Stream (part 3 of 4)
 
+Continues: API for stream consumers.
+
 ### `stream.Readable.toWeb(streamReadable[, options])`
 
 Added in: v17.0.0

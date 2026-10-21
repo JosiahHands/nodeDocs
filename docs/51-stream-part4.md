@@ -6,6 +6,8 @@ Part 4 of 4 of this section.
 
 # Stream (part 4 of 4)
 
+Continues: Additional notes.
+
 ### Compatibility with older Node.js versions
 
 Prior to Node.js 0.10, the `Readable` stream interface was simpler, but also

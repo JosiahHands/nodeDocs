@@ -6,6 +6,8 @@ Part 2 of 4 of this section.
 
 # Test runner (part 2 of 4)
 
+Continues: Test runner. A new section starts here.
+
 ## `suite([name][, options][, fn])`
 
 Added in: v22.0.0, v20.13.0

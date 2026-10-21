@@ -67,7 +67,7 @@ To disable this feature, use the flag [`--no-strip-types`](13-cli.md#--no-strip-
 
 The built-in TypeScript parser requires WebAssembly. If WebAssembly is
 unavailable, parsing throws
-[`ERR_WEBASSEMBLY_NOT_SUPPORTED`](22-errors.md#err_webassembly_not_supported).
+[`ERR_WEBASSEMBLY_NOT_SUPPORTED`](22-errors-part4.md#err_webassembly_not_supported).
 Node.js does not provide a non-WebAssembly parser as a fallback.
 
 Node.js ignores `tsconfig.json` files and therefore
@@ -147,7 +147,7 @@ namespace TypeOnly {
 }
 ```
 
-This will result in [`ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`](22-errors.md#err_unsupported_typescript_syntax) error:
+This will result in [`ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`](22-errors-part4.md#err_unsupported_typescript_syntax) error:
 
 ```ts
 // This namespace is exporting a value

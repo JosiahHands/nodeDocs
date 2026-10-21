@@ -752,7 +752,7 @@ active server in the event system. If the server is already `unref`ed calling
 
 Added in: v0.3.4
 
-- Extends: [`<stream.Duplex>`](51-stream.md#class-streamduplex)
+- Extends: [`<stream.Duplex>`](51-stream-part2.md#class-streamduplex)
 
 This class is an abstraction of a TCP socket or a streaming [IPC](#ipc-support) endpoint
 (uses named pipes on Windows, and Unix domain sockets otherwise). It is also
@@ -805,7 +805,7 @@ bound (but not yet listening or connected) socket. This allows a port to be
 reserved synchronously on one thread and adopted by a server or outgoing
 connection on another. Pipe binds are not transferable. After the transfer, the
 source `BoundSocket` behaves as if it had been adopted: `address()`, `fd()` and
-`close()` throw [`ERR_SOCKET_HANDLE_ADOPTED`](22-errors.md#err_socket_handle_adopted).
+`close()` throw [`ERR_SOCKET_HANDLE_ADOPTED`](22-errors-part3.md#err_socket_handle_adopted).
 
 ### `new net.Socket([options])`
 
@@ -846,7 +846,7 @@ Added in: v0.3.4
     The socket will emit events like `'error'`, `'end'`, and `'close'`
     as usual. Methods like `pause()` and `resume()` will also behave as
     expected.
-    - `buffer` [`<Buffer>`](07-buffer.md#class-buffer) | [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) | [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Either a reusable chunk of memory to
+    - `buffer` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array) | [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Either a reusable chunk of memory to
       use for storing incoming data or a function that returns such.
     - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) This function is called for every chunk of incoming
       data. Two arguments are passed to it: the number of bytes written to `buffer` and a reference to `buffer`. Return `false` from this function to
@@ -921,7 +921,7 @@ in [`socket.connect(options)`](#socketconnectoptions-connectlistener).
 
 Added in: v0.1.90
 
-- Type: [`<Buffer>`](07-buffer.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
+- Type: [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 
 Emitted when data is received. The argument `data` will be a `Buffer` or
 `String`. Encoding of data is set by [`socket.setEncoding()`](#socketsetencodingencoding).
@@ -1029,7 +1029,7 @@ then the last address is the one that the socket is currently connected to.
 
 Added in: v0.3.8Deprecated in: v14.6.0
 
-Stability: 0 - Deprecated: Use [`writable.writableLength`](51-stream.md#writablewritablelength) instead.
+Stability: 0 - Deprecated: Use [`writable.writableLength`](51-stream-part1.md#writablewritablelength) instead.
 
 - Type: [`<integer>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type)
 
@@ -1200,14 +1200,14 @@ Added in: v0.1.90
 Ensures that no more I/O activity happens on the current connection.
 Destroys the stream and closes the connection.
 
-See [`writable.destroy()`](51-stream.md#writabledestroyerror) for further details.
+See [`writable.destroy()`](51-stream-part1.md#writabledestroyerror) for further details.
 
 ### `socket.destroyed`
 
 - Type: [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) Indicates if the connection is destroyed or not. No further
   data can be transferred using a destroyed connection.
 
-See [`writable.destroyed`](51-stream.md#writabledestroyed) for further details.
+See [`writable.destroyed`](51-stream-part1.md#writabledestroyed) for further details.
 
 ### `socket.destroySoon()`
 
@@ -1221,7 +1221,7 @@ writable it implicitly calls `socket.end()`.
 
 Added in: v0.1.90
 
-- `data` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) | [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
+- `data` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
 - `encoding` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Only used when data is `string`. **Default:** `'utf8'`.
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Optional callback for when the socket is finished.
 - Returns: [`<net.Socket>`](38-net.md#class-netsocket) The socket itself.
@@ -1229,7 +1229,7 @@ Added in: v0.1.90
 Half-closes the socket. i.e., it sends a FIN packet. It is possible the
 server will still send some data.
 
-See [`writable.end()`](51-stream.md#writableendchunk-encoding-callback) for further details.
+See [`writable.end()`](51-stream-part1.md#writableendchunk-encoding-callback) for further details.
 
 ### `socket.localAddress`
 
@@ -1346,8 +1346,8 @@ Added in: v0.1.90
 - `encoding` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)
 - Returns: [`<net.Socket>`](38-net.md#class-netsocket) The socket itself.
 
-Set the encoding for the socket as a [Readable Stream](51-stream.md#class-streamreadable). See
-[`readable.setEncoding()`](51-stream.md#readablesetencodingencoding) for more information.
+Set the encoding for the socket as a [Readable Stream](51-stream-part1.md#class-streamreadable). See
+[`readable.setEncoding()`](51-stream-part2.md#readablesetencodingencoding) for more information.
 
 ### `socket.setKeepAlive()`
 
@@ -1540,7 +1540,7 @@ active socket in the event system. If the socket is already `unref`ed calling
 
 Added in: v0.1.90
 
-- `data` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) | [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
+- `data` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<Uint8Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array)
 - `encoding` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Only used when data is `string`. **Default:** `utf8`.
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function)
 - Returns: [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type)
@@ -1555,7 +1555,7 @@ buffer. Returns `false` if all or part of the data was queued in user memory.
 The optional `callback` parameter will be executed when the data is finally
 written out, which may not be immediately.
 
-See `Writable` stream [`write()`](51-stream.md#writablewritechunk-encoding-callback) method for more
+See `Writable` stream [`write()`](51-stream-part1.md#writablewritechunk-encoding-callback) method for more
 information.
 
 ### `socket.readyState`
@@ -1586,10 +1586,10 @@ Unix domain/named-pipe endpoint (`path`); the two are mutually exclusive. For a
 `path`, the file system entry is reserved in the constructor, so conflicts such
 as `EADDRINUSE` throw synchronously exactly as a TCP bind does. On Linux a
 leading `'\0'` in `path` selects the abstract namespace (no file system entry);
-an abstract path on any other platform throws [`ERR_INVALID_ARG_VALUE`](22-errors.md#err_invalid_arg_value).
+an abstract path on any other platform throws [`ERR_INVALID_ARG_VALUE`](22-errors-part2.md#err_invalid_arg_value).
 
 Adoption transfers ownership of the socket; afterwards `address()` and `close()`
-throw [`ERR_SOCKET_HANDLE_ADOPTED`](22-errors.md#err_socket_handle_adopted). A handle that is never adopted must be
+throw [`ERR_SOCKET_HANDLE_ADOPTED`](22-errors-part3.md#err_socket_handle_adopted). A handle that is never adopted must be
 closed to avoid leaking the socket. Closing a pipe `BoundSocket` removes its
 file system entry; abstract and TCP binds have none to remove.
 
@@ -1644,7 +1644,7 @@ Added in: v26.4.0
   - `path` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Binds a Unix domain socket (or Windows named pipe) at the
     given path instead of a TCP endpoint. A leading `'\0'` selects the Linux
     abstract namespace. Mutually exclusive with `host`, `port`, `ipv6Only`, and
-    `reusePort`; combining them throws [`ERR_INVALID_ARG_VALUE`](22-errors.md#err_invalid_arg_value).
+    `reusePort`; combining them throws [`ERR_INVALID_ARG_VALUE`](22-errors-part2.md#err_invalid_arg_value).
 
 ### `boundSocket.address()`
 
@@ -1685,7 +1685,7 @@ Returns the file descriptor of the bound socket. Ownership remains with the
 `BoundSocket`, so the descriptor must not be closed by the caller. The
 descriptor is only available before the handle is adopted; afterwards it belongs
 to the adopting [`net.Server`](#class-netserver) or [`net.Socket`](#class-netsocket) and `fd()` throws
-[`ERR_SOCKET_HANDLE_ADOPTED`](22-errors.md#err_socket_handle_adopted).
+[`ERR_SOCKET_HANDLE_ADOPTED`](22-errors-part3.md#err_socket_handle_adopted).
 
 ### `boundSocket.close()`
 
@@ -1929,7 +1929,7 @@ Added in: v0.5.0
     **Default:** `false`.
   - `highWaterMark` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Optionally overrides all [`net.Socket`](#class-netsocket)s'
     `readableHighWaterMark` and `writableHighWaterMark`.
-    **Default:** See [`stream.getDefaultHighWaterMark()`](51-stream.md#streamgetdefaulthighwatermarkobjectmode).
+    **Default:** See [`stream.getDefaultHighWaterMark()`](51-stream-part3.md#streamgetdefaulthighwatermarkobjectmode).
   - `keepAlive` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) If set to `true`, it enables keep-alive functionality
     on the socket immediately after a new incoming connection is received,
     similarly on what is done in [`socket.setKeepAlive()`](#socketsetkeepalive). **Default:**

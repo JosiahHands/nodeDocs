@@ -109,7 +109,7 @@ path.win32.basename('C:\\foo.HTML', '.html');
 // Returns: 'foo.HTML'
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if `path` is not a string or if `suffix` is given
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if `path` is not a string or if `suffix` is given
 and is not a string.
 
 ## `path.delimiter`
@@ -165,7 +165,7 @@ path.dirname('/foo/bar/baz/asdf/quux');
 // Returns: '/foo/bar/baz/asdf'
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if `path` is not a string.
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if `path` is not a string.
 
 ## `path.extname(path)`
 
@@ -206,7 +206,7 @@ path.extname('.index.md');
 // Returns: '.md'
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if `path` is not a string.
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if `path` is not a string.
 
 ## `path.format(pathObject)`
 
@@ -308,7 +308,7 @@ path.matchesGlob('/foo/bar', '/foo/*'); // true
 path.matchesGlob('/foo/bar*', 'foo/bird'); // false
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if `path` or `pattern` are not strings.
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if `path` or `pattern` are not strings.
 
 ## `path.isAbsolute(path)`
 
@@ -344,7 +344,7 @@ path.isAbsolute('bar/baz');     // false
 path.isAbsolute('.');           // false
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if `path` is not a string.
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if `path` is not a string.
 
 ## `path.join([...paths])`
 
@@ -368,7 +368,7 @@ path.join('foo', {}, 'bar');
 // Throws 'TypeError: Path must be a string. Received {}'
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if any of the path segments is not a string.
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if any of the path segments is not a string.
 
 ## `path.normalize(path)`
 
@@ -418,7 +418,7 @@ path.win32.normalize('C:////temp\\\\/\\/\\/foo/bar');
 // Returns: 'C:\\temp\\foo\\bar'
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if `path` is not a string.
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if `path` is not a string.
 
 ## `path.parse(path)`
 
@@ -483,7 +483,7 @@ path.parse('C:\\path\\dir\\file.txt');
 (All spaces in the "" line should be ignored. They are purely for formatting.)
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if `path` is not a string.
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if `path` is not a string.
 
 ## `path.posix`
 
@@ -537,7 +537,7 @@ path.relative('C:\\orandea\\test\\aaa', 'C:\\orandea\\impl\\bbb');
 // Returns: '..\\..\\impl\\bbb'
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if either `from` or `to` is not a string.
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if either `from` or `to` is not a string.
 
 ## `path.resolve([...paths])`
 
@@ -578,7 +578,7 @@ path.resolve('wwwroot', 'static_files/png/', '../gif/image.gif');
 // this returns '/home/myself/node/wwwroot/static_files/gif/image.gif'
 ```
 
-A [`TypeError`](22-errors.md#class-typeerror) is thrown if any of the arguments is not a string.
+A [`TypeError`](22-errors-part1.md#class-typeerror) is thrown if any of the arguments is not a string.
 
 ## `path.sep`
 

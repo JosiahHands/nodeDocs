@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: C/C++ addons with Node-API](09-n-api.md) | [Next: Child processes](11-child-process.md)
+[Contents](../README.md) | [Previous: C/C++ addons with Node-API, part 4 of 4](09-n-api-part4.md) | [Next: Child processes](11-child-process.md)
 
 Source: [https://nodejs.org/docs/latest/api/embedding.html](https://nodejs.org/docs/latest/api/embedding.html)
 
@@ -105,7 +105,7 @@ to be provided. One possible choice is the default Node.js allocator, which
 can be created through `node::ArrayBufferAllocator::Create()`. Using the Node.js
 allocator allows minor performance optimizations when addons use the Node.js
 C++ `Buffer` API, and is required in order to track `ArrayBuffer` memory in
-[`process.memoryUsage()`](43-process.md#processmemoryusage).
+[`process.memoryUsage()`](43-process-part2.md#processmemoryusage).
 
 Additionally, each `v8::Isolate` that is used for a Node.js instance needs to
 be registered and unregistered with the `MultiIsolatePlatform` instance, if one
@@ -174,4 +174,4 @@ int RunNodeInstance(MultiIsolatePlatform* platform,
 }
 ```
 
-[Contents](../README.md) | [Previous: C/C++ addons with Node-API](09-n-api.md) | [Next: Child processes](11-child-process.md)
+[Contents](../README.md) | [Previous: C/C++ addons with Node-API, part 4 of 4](09-n-api-part4.md) | [Next: Child processes](11-child-process.md)

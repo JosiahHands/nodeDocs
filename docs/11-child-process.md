@@ -192,8 +192,8 @@ Added in: v0.1.90
     normally be created on Windows systems. **Default:** `false`.
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) called with the output when process terminates.
   - `error` [`<Error>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)
-  - `stdout` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer)
-  - `stderr` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer)
+  - `stdout` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer)
+  - `stderr` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer)
 - Returns: [`<ChildProcess>`](11-child-process.md#class-childprocess)
 
 Spawns a shell then executes the `command` within that shell, buffering any
@@ -233,7 +233,7 @@ metacharacters may be used to trigger arbitrary command execution.**
 
 If a `callback` function is provided, it is called with the arguments
 `(error, stdout, stderr)`. On success, `error` will be `null`. On error,
-`error` will be an instance of [`Error`](22-errors.md#class-error). The `error.code` property will be
+`error` will be an instance of [`Error`](22-errors-part1.md#class-error). The `error.code` property will be
 the exit code of the process. By convention, any exit code other than `0`
 indicates an error. `error.signal` will be the signal that terminated the
 process.
@@ -285,7 +285,7 @@ child process runs longer than `timeout` milliseconds.
 Unlike the [`exec(3)`](http://man7.org/linux/man-pages/man3/exec.3.html) POSIX system call, `child_process.exec()` does not replace
 the existing process and uses a shell to execute the command.
 
-If this method is invoked as its [`util.promisify()`](60-util.md#utilpromisifyoriginal)ed version, it returns
+If this method is invoked as its [`util.promisify()`](60-util-part2.md#utilpromisifyoriginal)ed version, it returns
 a `Promise` for an `Object` with `stdout` and `stderr` properties. The returned
 `ChildProcess` instance is attached to the `Promise` as a `child` property. In
 case of an error (including any error resulting in an exit code other than 0), a
@@ -388,8 +388,8 @@ Added in: v0.1.91
     AbortSignal.
 - `callback` [`<Function>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Function) Called with the output when process terminates.
   - `error` [`<Error>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Error)
-  - `stdout` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer)
-  - `stderr` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer)
+  - `stdout` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer)
+  - `stderr` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer)
 - Returns: [`<ChildProcess>`](11-child-process.md#class-childprocess)
 
 The `child_process.execFile()` function is similar to [`child_process.exec()`](#child_processexeccommand-options-callback)
@@ -437,7 +437,7 @@ can be used to specify the character encoding used to decode the stdout and
 stderr output. If `encoding` is `'buffer'`, or an unrecognized character
 encoding, `Buffer` objects will be passed to the callback instead.
 
-If this method is invoked as its [`util.promisify()`](60-util.md#utilpromisifyoriginal)ed version, it returns
+If this method is invoked as its [`util.promisify()`](60-util-part2.md#utilpromisifyoriginal)ed version, it returns
 a `Promise` for an `Object` with `stdout` and `stderr` properties. The returned
 `ChildProcess` instance is attached to the `Promise` as a `child` property. In
 case of an error (including any error resulting in an exit code other than 0), a
@@ -568,7 +568,7 @@ required, spawning a large number of child Node.js processes is not
 recommended.
 
 By default, `child_process.fork()` will spawn new Node.js instances using the
-[`process.execPath`](43-process.md#processexecpath) of the parent process. The `execPath` property in the
+[`process.execPath`](43-process-part1.md#processexecpath) of the parent process. The `execPath` property in the
 `options` object allows for an alternative execution path to be used.
 
 Node.js processes launched with a custom `execPath` will communicate with the
@@ -705,7 +705,7 @@ and exits immediately. `ENOENT` is also emitted when the command
 does not exist.
 
 Use `env` to specify environment variables that will be visible to the new
-process, the default is [`process.env`](43-process.md#processenv).
+process, the default is [`process.env`](43-process-part1.md#processenv).
 
 `undefined` values in `env` will be ignored.
 
@@ -1032,11 +1032,11 @@ pipes between the parent and child. The value is one of the following:
    between parent and child. A [`ChildProcess`](#class-childprocess) may have at most one IPC
    stdio file descriptor. Setting this option enables the
    [`subprocess.send()`](#subprocesssendmessage-sendhandle-options-callback) method. If the child process is a Node.js instance,
-   the presence of an IPC channel will enable [`process.send()`](43-process.md#processsendmessage-sendhandle-options-callback) and
-   [`process.disconnect()`](43-process.md#processdisconnect) methods, as well as [`'disconnect'`](43-process.md#event-disconnect) and
-   [`'message'`](43-process.md#event-message) events within the child process.
+   the presence of an IPC channel will enable [`process.send()`](43-process-part3.md#processsendmessage-sendhandle-options-callback) and
+   [`process.disconnect()`](43-process-part1.md#processdisconnect) methods, as well as [`'disconnect'`](43-process-part1.md#event-disconnect) and
+   [`'message'`](43-process-part1.md#event-message) events within the child process.
 
-   Accessing the IPC channel fd in any way other than [`process.send()`](43-process.md#processsendmessage-sendhandle-options-callback)
+   Accessing the IPC channel fd in any way other than [`process.send()`](43-process-part3.md#processsendmessage-sendhandle-options-callback)
    or using the IPC channel with a child process that is not a Node.js instance
    is not supported.
 4. `'ignore'`: Instructs Node.js to ignore the fd in the child. While Node.js
@@ -1047,7 +1047,7 @@ pipes between the parent and child. The value is one of the following:
    parent process. In the first three positions, this is equivalent to
    `process.stdin`, `process.stdout`, and `process.stderr`, respectively. In
    any other position, equivalent to `'ignore'`.
-6. [`<Stream>`](51-stream.md#stream) object: Share a readable or writable stream that refers to a tty,
+6. [`<Stream>`](51-stream-part1.md#stream) object: Share a readable or writable stream that refers to a tty,
    file, socket, or a pipe with the child process. The stream's underlying
    file descriptor is duplicated in the child process to the fd that
    corresponds to the index in the `stdio` array. The stream must have an
@@ -1069,7 +1069,7 @@ pipes between the parent and child. The value is one of the following:
    pipes created by `'pipe'`.
 7. Positive integer: The integer value is interpreted as a file descriptor
    that is open in the parent process. It is shared with the child
-   process, similar to how [`<Stream>`](51-stream.md#stream) objects can be shared. Passing sockets
+   process, similar to how [`<Stream>`](51-stream-part1.md#stream) objects can be shared. Passing sockets
    is not supported on Windows.
 8. `null`, `undefined`: Use default value. For stdio fds 0, 1, and 2 (in other
    words, stdin, stdout, and stderr) a pipe is created. For fd 3 and up, the
@@ -1112,7 +1112,7 @@ spawn('prg', [], { stdio: ['pipe', null, null, null, 'pipe'] });
 parent and child processes, and the child process is a Node.js instance,
 the child process is launched with the IPC channel unreferenced (using
 `unref()`) until the child process registers an event handler for the
-[`'disconnect'`](43-process.md#event-disconnect) event or the [`'message'`](43-process.md#event-message) event. This allows the
+[`'disconnect'`](43-process-part1.md#event-disconnect) event or the [`'message'`](43-process-part1.md#event-message) event. This allows the
 child process to exit normally without the process being held open by the
 open IPC channel.*
 See also: [`child_process.exec()`](#child_processexeccommand-options-callback) and [`child_process.fork()`](#child_processforkmodulepath-args-options).
@@ -1146,7 +1146,7 @@ Added in: v0.11.12
 - `args` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] List of string arguments.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `cwd` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<URL>`](59-url.md#the-whatwg-url-api) Current working directory of the child process.
-  - `input` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The value which will be passed
+  - `input` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The value which will be passed
     as stdin to the spawned process. If `stdio[0]` is set to `'pipe'`, Supplying
     this value will override `stdio[0]`.
   - `stdio` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) Child's stdio configuration.
@@ -1169,7 +1169,7 @@ Added in: v0.11.12
     `'/bin/sh'` on Unix, and `process.env.ComSpec` on Windows. A different
     shell can be specified as a string. See [Shell requirements](#shell-requirements) and
     [Default Windows shell](#default-windows-shell). **Default:** `false` (no shell).
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) If `stdio` is `'pipe'`, the stdout from the
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) If `stdio` is `'pipe'`, the stdout from the
   command, otherwise null.
 
 The `child_process.execFileSync()` method is generally identical to
@@ -1183,7 +1183,7 @@ does not exit, the parent process will still wait until the child process has
 exited.
 
 If the process times out or has a non-zero exit code, this method will throw an
-[`Error`](22-errors.md#class-error) that will include the full result of the underlying
+[`Error`](22-errors-part1.md#class-error) that will include the full result of the underlying
 [`child_process.spawnSync()`](#child_processspawnsynccommand-args-options).
 
 **If the `shell` option is enabled, do not pass unsanitized user input to this
@@ -1266,7 +1266,7 @@ Added in: v0.11.12
 - `command` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The command to run.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `cwd` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<URL>`](59-url.md#the-whatwg-url-api) Current working directory of the child process.
-  - `input` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The value which will be passed
+  - `input` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The value which will be passed
     as stdin to the spawned process. If `stdio[0]` is set to `'pipe'`, Supplying
     this value will override `stdio[0]`.
   - `stdio` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) Child's stdio configuration.
@@ -1289,7 +1289,7 @@ Added in: v0.11.12
   - `encoding` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) The encoding used for all stdio inputs and outputs. **Default:** `'buffer'`.
   - `windowsHide` [`<boolean>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#boolean_type) Hide the subprocess console window that would
     normally be created on Windows systems. **Default:** `false`.
-- Returns: [`<Buffer>`](07-buffer.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) If `stdio` is `'pipe'`, the stdout from the
+- Returns: [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) If `stdio` is `'pipe'`, the stdout from the
   command, otherwise null.
 
 The `child_process.execSync()` method is generally identical to
@@ -1301,7 +1301,7 @@ signal and doesn't exit, the parent process will wait until the child process
 has exited.
 
 If the process times out or has a non-zero exit code, this method will throw.
-The [`Error`](22-errors.md#class-error) object will contain the entire result from
+The [`Error`](22-errors-part1.md#class-error) object will contain the entire result from
 [`child_process.spawnSync()`](#child_processspawnsynccommand-args-options).
 
 **Never pass unsanitized user input to this function. Any input containing shell
@@ -1326,7 +1326,7 @@ Added in: v0.11.12
 - `args` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type)[] List of string arguments.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `cwd` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<URL>`](59-url.md#the-whatwg-url-api) Current working directory of the child process.
-  - `input` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The value which will be passed
+  - `input` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<TypedArray>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/TypedArray) | [`<DataView>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/DataView) The value which will be passed
     as stdin to the spawned process. If `stdio[0]` is set to `'pipe'`, Supplying
     this value will override `stdio[0]`.
   - `argv0` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) Explicitly set the value of `argv[0]` sent to the child
@@ -1357,9 +1357,9 @@ Added in: v0.11.12
 - Returns: [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `pid` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) Pid of the child process.
   - `output` [`<Array>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array) Array of results from stdio output.
-  - `stdout` [`<Buffer>`](07-buffer.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) If `stdio` is `'pipe'`, the contents of
+  - `stdout` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) If `stdio` is `'pipe'`, the contents of
     `output[1]`, otherwise null.
-  - `stderr` [`<Buffer>`](07-buffer.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) If `stdio` is `'pipe'`, the contents of
+  - `stderr` [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) If `stdio` is `'pipe'`, the contents of
     `output[2]`, otherwise null.
   - `status` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) The exit code of the subprocess, or `null` if the
     subprocess terminated due to a signal.
@@ -1458,7 +1458,7 @@ Added in: v0.7.2
 
 The `'disconnect'` event is emitted after calling the
 [`subprocess.disconnect()`](#subprocessdisconnect) method in parent process or
-[`process.disconnect()`](43-process.md#processdisconnect) in child process. After disconnecting it is no longer
+[`process.disconnect()`](43-process-part1.md#processdisconnect) in child process. After disconnecting it is no longer
 possible to send or receive messages, and the [`subprocess.connected`](#subprocessconnected)
 property is `false`.
 
@@ -1502,7 +1502,7 @@ re-raise the handled signal.
 See [`waitpid(2)`](http://man7.org/linux/man-pages/man2/waitpid.2.html).
 
 When `code` is `null` due to signal termination, you can use
-[`util.convertProcessSignalToExitCode()`](60-util.md#utilconvertprocesssignaltoexitcodesignal) to convert the signal to a POSIX
+[`util.convertProcessSignalToExitCode()`](60-util-part1.md#utilconvertprocesssignaltoexitcodesignal) to convert the signal to a POSIX
 exit code.
 
 ### Event: `'message'`
@@ -1514,7 +1514,7 @@ Added in: v0.5.9
   [`net.Server`](38-net.md#class-netserver), [`net.BoundSocket`](38-net.md#class-netboundsocket), or [`dgram.Socket`](58-dgram.md#class-dgramsocket) object.
 
 The `'message'` event is triggered when a child process uses
-[`process.send()`](43-process.md#processsendmessage-sendhandle-options-callback) to send messages.
+[`process.send()`](43-process-part3.md#processsendmessage-sendhandle-options-callback) to send messages.
 
 The message goes through serialization and parsing. The resulting
 message might not be the same as what is originally sent.
@@ -1608,7 +1608,7 @@ If the child process is still running, the field will be `null`.
 When the child process is terminated by a signal, `subprocess.exitCode` will be
 `null` and [`subprocess.signalCode`](#subprocesssignalcode) will be set. To get the corresponding
 POSIX exit code, use
-[`util.convertProcessSignalToExitCode(subprocess.signalCode)`](60-util.md#utilconvertprocesssignaltoexitcodesignal).
+[`util.convertProcessSignalToExitCode(subprocess.signalCode)`](60-util-part1.md#utilconvertprocesssignaltoexitcodesignal).
 
 ### `subprocess.kill([signal])`
 
@@ -1669,7 +1669,7 @@ forcefully and abruptly (similar to `'SIGKILL'`); any other signal whose name is
 known on Windows (such as `'SIGHUP'`) does the same. `'SIGWINCH'` is not
 terminal and is not coerced: `subprocess.kill()` throws an `ENOSYS` error and
 the child keeps running. A signal name that does not exist on Windows (such as
-`'SIGSTOP'`) throws an `ERR_UNKNOWN_SIGNAL` error. See [Signal Events](43-process.md#signal-events) for more
+`'SIGSTOP'`) throws an `ERR_UNKNOWN_SIGNAL` error. See [Signal Events](43-process-part1.md#signal-events) for more
 details.
 
 On Linux, child processes of child processes will not be terminated
@@ -1837,7 +1837,7 @@ Added in: v0.5.9
 When an IPC channel has been established between the parent and child processes
 ( i.e. when using [`child_process.fork()`](#child_processforkmodulepath-args-options)), the `subprocess.send()` method
 can be used to send messages to the child process. When the child process is a
-Node.js instance, these messages can be received via the [`'message'`](43-process.md#event-message) event.
+Node.js instance, these messages can be received via the [`'message'`](43-process-part1.md#event-message) event.
 
 The message goes through serialization and parsing. The resulting
 message might not be the same as what is originally sent.
@@ -1883,12 +1883,12 @@ process.on('message', (message) => {
 process.send({ foo: 'bar', baz: NaN });
 ```
 
-Child Node.js processes will have a [`process.send()`](43-process.md#processsendmessage-sendhandle-options-callback) method of their own
+Child Node.js processes will have a [`process.send()`](43-process-part3.md#processsendmessage-sendhandle-options-callback) method of their own
 that allows the child process to send messages back to the parent process.
 
 There is a special case when sending a `{cmd: 'NODE_foo'}` message. Messages
 containing a `NODE_` prefix in the `cmd` property are reserved for use within
-Node.js core and will not be emitted in the child's [`'message'`](43-process.md#event-message)
+Node.js core and will not be emitted in the child's [`'message'`](43-process-part1.md#event-message)
 event. Rather, such messages are emitted using the
 `'internalMessage'` event and are consumed internally by Node.js.
 Applications should avoid using such messages or listening for
@@ -1898,7 +1898,7 @@ The optional `sendHandle` argument that may be passed to `subprocess.send()` is
 for passing a TCP server, socket or [`net.BoundSocket`](38-net.md#class-netboundsocket) object to the child
 process. The child process will
 receive the object as the second argument passed to the callback function
-registered on the [`'message'`](43-process.md#event-message) event. Any data that is received
+registered on the [`'message'`](43-process-part1.md#event-message) event. Any data that is received
 and buffered in the socket will not be sent to the child. Sending IPC sockets is
 not supported on Windows.
 
@@ -1909,7 +1909,7 @@ closed, and pipe (`path`) binds cannot be sent.
 
 The optional `callback` is a function that is invoked after the message is
 sent but before the child process may have received it. The function is called with a
-single argument: `null` on success, or an [`Error`](22-errors.md#class-error) object on failure.
+single argument: `null` on success, or an [`Error`](22-errors-part1.md#class-error) object on failure.
 
 If no `callback` function is provided and the message cannot be sent, an
 `'error'` event will be emitted by the [`ChildProcess`](#class-childprocess) object. This can
@@ -2070,7 +2070,7 @@ the child process if any, else `null`.
 
 When the child process is terminated by a signal, [`subprocess.exitCode`](#subprocessexitcode) will be `null`.
 To get the corresponding POSIX exit code, use
-[`util.convertProcessSignalToExitCode(subprocess.signalCode)`](60-util.md#utilconvertprocesssignaltoexitcodesignal).
+[`util.convertProcessSignalToExitCode(subprocess.signalCode)`](60-util-part1.md#utilconvertprocesssignaltoexitcodesignal).
 
 ### `subprocess.spawnargs`
 
@@ -2087,7 +2087,7 @@ The `subprocess.spawnfile` property indicates the executable file name of
 the child process that is launched.
 
 For [`child_process.fork()`](#child_processforkmodulepath-args-options), its value will be equal to
-[`process.execPath`](43-process.md#processexecpath).
+[`process.execPath`](43-process-part1.md#processexecpath).
 For [`child_process.spawn()`](#child_processspawncommand-args-options), its value will be the name of
 the executable file.
 For [`child_process.exec()`](#child_processexeccommand-options-callback), its value will be the name of the shell
@@ -2097,7 +2097,7 @@ in which the child process is launched.
 
 Added in: v0.1.90
 
-- Type: [`<stream.Readable>`](51-stream.md#class-streamreadable) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type)
+- Type: [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type)
 
 A `Readable Stream` that represents the child process's `stderr`.
 
@@ -2114,7 +2114,7 @@ if the child process could not be successfully spawned.
 
 Added in: v0.1.90
 
-- Type: [`<stream.Writable>`](51-stream.md#class-streamwritable) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type)
+- Type: [`<stream.Writable>`](51-stream-part1.md#class-streamwritable) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type)
 
 A `Writable Stream` that represents the child process's `stdin`.
 
@@ -2203,7 +2203,7 @@ not be successfully spawned.
 
 Added in: v0.1.90
 
-- Type: [`<stream.Readable>`](51-stream.md#class-streamreadable) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type)
+- Type: [`<stream.Readable>`](51-stream-part1.md#class-streamreadable) | [`<null>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#null_type) | [`<undefined>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#undefined_type)
 
 A `Readable Stream` that represents the child process's `stdout`.
 

@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Buffer](07-buffer.md) | [Next: C/C++ addons with Node-API](09-n-api.md)
+[Contents](../README.md) | [Previous: Buffer, part 4 of 4](07-buffer-part4.md) | [Next: C/C++ addons with Node-API, part 1 of 4](09-n-api-part1.md)
 
 Source: [https://nodejs.org/docs/latest/api/addons.html](https://nodejs.org/docs/latest/api/addons.html)
 
@@ -10,7 +10,7 @@ Addons provide a foreign function interface between JavaScript and native code.
 
 There are three options for implementing addons:
 
-- [Node-API](09-n-api.md) (recommended)
+- [Node-API](09-n-api-part1.md) (recommended)
 - `nan` ([Native Abstractions for Node.js](https://github.com/nodejs/nan))
 - direct use of internal V8, libuv, and Node.js libraries
 
@@ -246,7 +246,7 @@ NODE_MODULE_INIT(/* exports, module, context */) {
 In order to be loaded from multiple Node.js environments,
 such as a main thread and a Worker thread, an add-on needs to either:
 
-- Be a [Node-API](09-n-api.md) addon.
+- Be a [Node-API](09-n-api-part1.md) addon.
 - Be declared as context-aware using `NODE_MODULE_INIT()` as described above.
 
 In order to support [`Worker`](67-worker-threads.md#class-worker) threads, addons need to clean up any resources
@@ -465,7 +465,7 @@ illustration of how it can be used.
 
 Stability: 2 - Stable
 
-See [C/C++ addons with Node-API](09-n-api.md).
+See [C/C++ addons with Node-API](09-n-api-part1.md).
 
 ## Addon examples
 
@@ -1338,4 +1338,4 @@ console.log(result);
 // Prints: 30
 ```
 
-[Contents](../README.md) | [Previous: Buffer](07-buffer.md) | [Next: C/C++ addons with Node-API](09-n-api.md)
+[Contents](../README.md) | [Previous: Buffer, part 4 of 4](07-buffer-part4.md) | [Next: C/C++ addons with Node-API, part 1 of 4](09-n-api-part1.md)

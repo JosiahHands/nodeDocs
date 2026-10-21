@@ -1,4 +1,4 @@
-[Contents](../README.md) | [Previous: Async hooks](05-async-hooks.md) | [Next: Buffer](07-buffer.md)
+[Contents](../README.md) | [Previous: Async hooks](05-async-hooks.md) | [Next: Buffer, part 1 of 4](07-buffer-part1.md)
 
 Source: [https://nodejs.org/docs/latest/api/bench.html](https://nodejs.org/docs/latest/api/bench.html)
 
@@ -510,7 +510,7 @@ for await (const { type, data } of run()) {
 
 Added in: v26.9.0
 
-- `path` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer.md#class-buffer) | [`<URL>`](59-url.md#the-whatwg-url-api) The path of one benchmark module.
+- `path` [`<string>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#string_type) | [`<Buffer>`](07-buffer-part1.md#class-buffer) | [`<URL>`](59-url.md#the-whatwg-url-api) The path of one benchmark module.
 - `options` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
   - `env` [`<Object>`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object) The child process environment. Property values must be
     strings or `undefined`. This replaces, rather than extends, the parent
@@ -685,7 +685,7 @@ is not called.
 
 ## Class: `BenchmarksStream`
 
-`BenchmarksStream` is an object-mode [`<stream.Readable>`](51-stream.md#class-streamreadable). Each lifecycle record is
+`BenchmarksStream` is an object-mode [`<stream.Readable>`](51-stream-part1.md#class-streamreadable). Each lifecycle record is
 both emitted as a named event and made available on the stream as `{ type, data }`.
 
 The events are emitted in execution order:
@@ -809,4 +809,4 @@ A completed benchmark result contains:
     interval for the median rate, with `lower` and `upper` properties.
   - `skewness` [`<number>`](https://developer.mozilla.org/docs/Web/JavaScript/Data_structures#number_type) The skewness of the scaled rate histogram.
 
-[Contents](../README.md) | [Previous: Async hooks](05-async-hooks.md) | [Next: Buffer](07-buffer.md)
+[Contents](../README.md) | [Previous: Async hooks](05-async-hooks.md) | [Next: Buffer, part 1 of 4](07-buffer-part1.md)
